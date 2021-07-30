@@ -38,13 +38,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
-"352
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "49 ./SPI.h
 [; ;./SPI.h: 49: char spiRead();
 [v _spiRead `(uc ~T0 @X0 0 e? ]
-"3387 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"352 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"3387
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
 "3449
@@ -388,8 +388,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> . . _PORTAbits 0 0 `i -> 1 `i 142  ]
 {
 "68
-[; ;main3a.c: 68:            PORTD = spiRead();
-[e = _PORTD -> ( _spiRead ..  `uc ]
+[; ;main3a.c: 68:            chng = spiRead();
+[e = _chng -> ( _spiRead ..  `uc ]
 "69
 [; ;main3a.c: 69:            PORTAbits.RA0 = 0;
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
@@ -403,8 +403,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> . . _PORTAbits 0 0 `i -> 0 `i 144  ]
 {
 "72
-[; ;main3a.c: 72:            chng = spiRead();
-[e = _chng -> ( _spiRead ..  `uc ]
+[; ;main3a.c: 72:            PORTD = spiRead();
+[e = _PORTD -> ( _spiRead ..  `uc ]
 "73
 [; ;main3a.c: 73:            PORTAbits.RA0 = 1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]

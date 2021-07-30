@@ -65,14 +65,14 @@ void main(void) {
        spiWrite(PORTB);
        
        if(PORTAbits.RA0 == 1){
-           PORTD = spiRead();
+           chng = spiRead();
            PORTAbits.RA0 = 0;
        }
        else if(PORTAbits.RA0 == 0){
-           chng = spiRead(); 
+           PORTD = spiRead(); 
            PORTAbits.RA0 = 1;
        }
-       //V1 = spiRead();
+       
        
        
        __delay_ms(1);

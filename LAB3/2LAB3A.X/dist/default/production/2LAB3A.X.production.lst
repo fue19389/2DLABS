@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Fri Jul 30 12:02:40 2021
+                                                                                               Fri Jul 30 13:57:21 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -489,43 +489,43 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    475  07BD  2FBF               	goto	u61
    476  07BE  2FC0               	goto	u60
    477  07BF                     u61:
-   478  07BF  2FCA               	goto	l78
+   478  07BF  2FCC               	goto	l78
    479  07C0                     u60:
    480  07C0                     l781:
    481                           
-   482                           ;main3a.c: 68:            PORTD = spiRead();
+   482                           ;main3a.c: 68:            chng = spiRead();
    483  07C0  120A  118A  2765  120A  118A  	fcall	_spiRead
-   484  07C5  1283               	bcf	3,5	;RP0=0, select bank0
-   485  07C6  1303               	bcf	3,6	;RP1=0, select bank0
-   486  07C7  0088               	movwf	8	;volatile
+   484  07C5  00F4               	movwf	??_main
+   485  07C6  0874               	movf	??_main,w
+   486  07C7  00F7               	movwf	_chng
    487  07C8                     l783:
    488                           
    489                           ;main3a.c: 69:            PORTAbits.RA0 = 0;
-   490  07C8  1005               	bcf	5,0	;volatile
-   491                           
-   492                           ;main3a.c: 70:        }
-   493  07C9  2FD9               	goto	l789
-   494  07CA                     l78:	
-   495                           ;main3a.c: 71:        else if(PORTAbits.RA0 == 0){
-   496                           
-   497  07CA  1805               	btfsc	5,0	;volatile
-   498  07CB  2FCD               	goto	u71
-   499  07CC  2FCE               	goto	u70
-   500  07CD                     u71:
-   501  07CD  2FD9               	goto	l789
-   502  07CE                     u70:
-   503  07CE                     l785:
-   504                           
-   505                           ;main3a.c: 72:            chng = spiRead();
-   506  07CE  120A  118A  2765  120A  118A  	fcall	_spiRead
-   507  07D3  00F4               	movwf	??_main
-   508  07D4  0874               	movf	??_main,w
-   509  07D5  00F7               	movwf	_chng
-   510  07D6                     l787:
-   511                           
-   512                           ;main3a.c: 73:            PORTAbits.RA0 = 1;
-   513  07D6  1283               	bcf	3,5	;RP0=0, select bank0
-   514  07D7  1303               	bcf	3,6	;RP1=0, select bank0
+   490  07C8  1283               	bcf	3,5	;RP0=0, select bank0
+   491  07C9  1303               	bcf	3,6	;RP1=0, select bank0
+   492  07CA  1005               	bcf	5,0	;volatile
+   493                           
+   494                           ;main3a.c: 70:        }
+   495  07CB  2FD9               	goto	l789
+   496  07CC                     l78:	
+   497                           ;main3a.c: 71:        else if(PORTAbits.RA0 == 0){
+   498                           
+   499  07CC  1805               	btfsc	5,0	;volatile
+   500  07CD  2FCF               	goto	u71
+   501  07CE  2FD0               	goto	u70
+   502  07CF                     u71:
+   503  07CF  2FD9               	goto	l789
+   504  07D0                     u70:
+   505  07D0                     l785:
+   506                           
+   507                           ;main3a.c: 72:            PORTD = spiRead();
+   508  07D0  120A  118A  2765  120A  118A  	fcall	_spiRead
+   509  07D5  1283               	bcf	3,5	;RP0=0, select bank0
+   510  07D6  1303               	bcf	3,6	;RP1=0, select bank0
+   511  07D7  0088               	movwf	8	;volatile
+   512  07D8                     l787:
+   513                           
+   514                           ;main3a.c: 73:            PORTAbits.RA0 = 1;
    515  07D8  1405               	bsf	5,0	;volatile
    516  07D9                     l789:
    517                           
@@ -1113,15 +1113,15 @@ DATA                 0      0       9      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Fri Jul 30 12:02:40 2021
+Symbol Table                                                                                   Fri Jul 30 13:57:21 2021
 
             _SSPSTATbits 0094                       l20 0756                       l23 075C  
                      l16 077E                       l17 0783                       l34 076D  
-                     l26 0755                       l86 079C                       l78 07CA  
+                     l26 0755                       l86 079C                       l78 07CC  
                      l89 0764                       _V1 0078                       u20 075C  
                      u21 075B                       u50 0776                       u51 0775  
-                     u60 07C0                       u61 07BF                       u70 07CE  
-                     u71 07CD                       u87 07AD                       u97 07DB  
+                     u60 07C0                       u61 07BF                       u70 07D0  
+                     u71 07CF                       u87 07AD                       u97 07DB  
                     l711 075D                      l713 0763                      l751 0776  
                     l753 0778                      l761 0788                      l755 077A  
                     l763 078B                      l691 0756                      l771 07A7  
@@ -1129,9 +1129,9 @@ Symbol Table                                                                    
                     l693 0751                      l781 07C0                      l773 07AA  
                     l767 0793                      l759 0784                      l695 0765  
                     l791 07E0                      l783 07C8                      l775 07AB  
-                    l697 076A                      l793 07E3                      l785 07CE  
+                    l697 076A                      l793 07E3                      l785 07D0  
                     l777 07B2                      l769 079D                      l795 07F0  
-                    l787 07D6                      l779 07BA                      l789 07D9  
+                    l787 07D8                      l779 07BA                      l789 07D9  
                     u107 07E9                     _chng 0077                     _main 079D  
                    btemp 007E                     start 0000                    ?_main 0070  
                   _ANSEL 0188                    _PORTB 0006                    _PORTD 0008  
