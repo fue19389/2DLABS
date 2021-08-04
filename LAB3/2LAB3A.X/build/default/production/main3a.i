@@ -8,7 +8,7 @@
 # 2 "<built-in>" 2
 # 1 "main3a.c" 2
 # 14 "main3a.c"
-#pragma config FOSC = EXTRC_NOCLKOUT
+#pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF
@@ -2647,6 +2647,105 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 36 "main3a.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 37 "main3a.c" 2
+
 # 1 "./SPI.h" 1
 # 17 "./SPI.h"
 typedef enum
@@ -2682,18 +2781,48 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 37 "main3a.c" 2
-# 46 "main3a.c"
+# 38 "main3a.c" 2
+# 47 "main3a.c"
 void setup(void);
 void cfg_clk(void);
-unsigned char V1;
-unsigned char chng;
+void cfg_usart(void);
+void cfg_inte(void);
+void send_crct(char st[]);
+void send_char(char dato);
+double conv(unsigned char aa);
+unsigned char V3;
+unsigned char chng1 = 0;
+unsigned char chng2;
+double v11;
+double v22;
+double v33;
 
+char f1[10];
+
+
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+
+if(PIR1bits.RCIF){
+
+    if (RCREG == 43){
+        TXREG = 43;
+        V3++;
+    }
+    if (RCREG == 45){
+        TXREG = 45;
+        V3--;
+    }
+}
+}
 
 
 
 void main(void) {
     setup();
+    cfg_inte();
+    cfg_usart();
     cfg_clk();
     PORTAbits.RA0 = 1;
 
@@ -2703,24 +2832,34 @@ void main(void) {
        PORTCbits.RC2 = 0;
        _delay((unsigned long)((1)*(4000000/4000.0)));
 
-       spiWrite(PORTB);
+       spiWrite(chng1);
 
        if(PORTAbits.RA0 == 1){
-           chng = spiRead();
+           chng1 = spiRead();
            PORTAbits.RA0 = 0;
        }
        else if(PORTAbits.RA0 == 0){
-           PORTD = spiRead();
+           chng2 = spiRead();
            PORTAbits.RA0 = 1;
        }
-
-
 
        _delay((unsigned long)((1)*(4000000/4000.0)));
        PORTCbits.RC2 = 1;
 
-       _delay((unsigned long)((250)*(4000000/4000.0)));
-       PORTB++;
+
+      v11 = conv(chng1);
+      v22 = conv(chng2);
+      v33 = conv(V3);
+
+      sprintf(f1, "%3.1fV %3.2fV %3.2f",v11, v22, v33);
+
+      TXREG = 12;
+      send_crct(f1);
+
+       _delay((unsigned long)((100)*(4000000/4000000.0)));
+
+       PORTB = V3;
+
     }
     return;
 }
@@ -2730,10 +2869,12 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISC2 = 0;
+
+    TRISCbits.TRISC2 = 0;
     TRISA0 = 0;
     TRISB = 0;
     TRISD = 0;
+
     PORTB = 0;
     PORTD = 0;
     PORTCbits.RC2 = 1;
@@ -2743,4 +2884,48 @@ void setup(void){
 void cfg_clk(){
     OSCCONbits.IRCF = 0b100;
     OSCCONbits.SCS = 1;
+}
+void cfg_usart(){
+
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+
+    BAUDCTLbits.BRG16 = 1;
+
+    SPBRG = 25;
+    SPBRGH = 0;
+
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 1;
+
+    TXSTAbits.TXEN = 1;
+
+}
+void cfg_inte(){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.RCIE = 1;
+}
+
+
+
+
+
+void send_crct(char st[]){
+    int i = 0;
+    while (st[i] != 0){
+        send_char(st[i]);
+        i++;
+    }
+}
+
+void send_char(char dato){
+    while(!TXIF);
+    TXREG = dato;
+}
+double conv(unsigned char aa){
+    double result;
+    result = aa*0.0196;
+    return result;
 }

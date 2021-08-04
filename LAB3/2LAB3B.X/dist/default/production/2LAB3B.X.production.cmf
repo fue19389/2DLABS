@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\gerar\AppData\Local\Temp\s6cg.o
+$C:\Users\gerar\AppData\Local\Temp\s9h4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -77,14 +77,14 @@ STRING 11D-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\2LAB3B.X.production.o
-F cinit CODE >637:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-F cinit CODE >640:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-F cinit CODE >657:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-10 cinit CODE >658:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-11 cinit CODE >659:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-12 cinit CODE >665:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-12 cinit CODE >667:C:\Users\gerar\AppData\Local\Temp\s6cg.s
-13 cinit CODE >668:C:\Users\gerar\AppData\Local\Temp\s6cg.s
+F cinit CODE >637:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+F cinit CODE >640:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+F cinit CODE >657:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+10 cinit CODE >658:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+11 cinit CODE >659:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+12 cinit CODE >665:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+12 cinit CODE >667:C:\Users\gerar\AppData\Local\Temp\s9h4.s
+13 cinit CODE >668:C:\Users\gerar\AppData\Local\Temp\s9h4.s
 4 intentry CODE >57:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB3\2LAB3B.X\main3b.c
 110 text8 CODE >29:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB3\2LAB3B.X\SPI.c
 110 text8 CODE >31:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB3\2LAB3B.X\SPI.c
@@ -193,19 +193,19 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _V1 78 0 COMMON 1 bssCOMMON dist/default/production\2LAB3B.X.production.o
 _V2 77 0 COMMON 1 bssCOMMON dist/default/production\2LAB3B.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s6cg.o
+___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s9h4.o
 _main 2C 0 CODE 0 maintext dist/default/production\2LAB3B.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
-start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\s6cg.o
+start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\s9h4.o
 __size_of_main 0 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s6cg.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s6cg.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s6cg.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s6cg.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s6cg.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s6cg.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9h4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9h4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9h4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9h4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9h4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9h4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
@@ -216,8 +216,8 @@ _ANSELH 189 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 __size_of_spiInit 0 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 __size_of_spiRead 0 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s6cg.o
-___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s6cg.o
+___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s9h4.o
+___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s9h4.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 spiInit@sDataSample 74 0 COMMON 1 cstackCOMMON dist/default/production\2LAB3B.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\2LAB3B.X.production.o
@@ -229,7 +229,7 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 _TRISC5 43D 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s6cg.o
+___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s9h4.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -278,7 +278,7 @@ __end_of_cfg_adc 1FE 0 CODE 0 text4 dist/default/production\2LAB3B.X.production.
 __end_of_cfg_clk 220 0 CODE 0 text3 dist/default/production\2LAB3B.X.production.o
 __end_of_isr 142 0 CODE 0 text5 dist/default/production\2LAB3B.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\s6cg.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\s9h4.o
 _PIE1bits 8C 0 ABS 0 - dist/default/production\2LAB3B.X.production.o
 __pmaintext 2C 0 CODE 0 maintext dist/default/production\2LAB3B.X.production.o
 __Lcommon 0 0 ABS 0 common -

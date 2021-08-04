@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Fri Jul 30 12:01:32 2021
+                                                                                               Wed Aug 04 00:33:59 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -1266,8 +1266,8 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1250                           
   1251                           ;Config register CONFIG1 @ 0x2007
   1252                           ;	Oscillator Selection bits
-  1253                           ;	FOSC = EXTRC_NOCLKOUT, RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7
-      +                          /OSC1/CLKIN
+  1253                           ;	FOSC = INTRC_NOCLKOUT, INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O f
+      +                          unction on RA7/OSC1/CLKIN
   1254                           ;	Watchdog Timer Enable bit
   1255                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
   1256                           ;	Power-up Timer Enable bit
@@ -1289,7 +1289,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
   1272                           ;	In-Circuit Debugger Mode bit
   1273                           ;	DEBUG = 0x1, unprogrammed default
   1274  2007                     	org	8199
-  1275  2007  20D6               	dw	8406
+  1275  2007  20D4               	dw	8404
   1276                           
   1277                           ;Config register CONFIG2 @ 0x2008
   1278                           ;	Brown-out Reset Selection bit
@@ -1444,7 +1444,7 @@ DATA                 0      0       E      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Fri Jul 30 12:01:32 2021
+Symbol Table                                                                                   Wed Aug 04 00:33:59 2021
 
             _SSPSTATbits 0094                       l16 00E3                       l17 00E8  
                      _V1 0078                       _V2 0077                      l113 00CA  

@@ -8,7 +8,7 @@
 # 2 "<built-in>" 2
 # 1 "main3b.c" 2
 # 14 "main3b.c"
-#pragma config FOSC = EXTRC_NOCLKOUT
+#pragma config FOSC = INTRC_NOCLKOUT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config MCLRE = OFF

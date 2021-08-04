@@ -11,7 +11,7 @@
 // Palabra de configuraci�n
 //*****************************************************************************
 // CONFIG1
-#pragma config FOSC = EXTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
+#pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
 #pragma config MCLRE = OFF      // RE3/MCLR pin function select bit (RE3/MCLR pin function is digital input, MCLR internally tied to VDD)
@@ -34,6 +34,7 @@
 //*****************************************************************************
 #include <xc.h>
 #include <stdint.h>
+#include <stdio.h>
 #include "SPI.h"
 //*****************************************************************************
 // Definici�n de variables
@@ -45,14 +46,44 @@
 //*****************************************************************************
 void setup(void);
 void cfg_clk(void);
-unsigned char V1;
-unsigned char chng;
+void cfg_usart(void);
+void cfg_inte(void);
+void send_crct(char st[]);
+void send_char(char dato);
+double conv(unsigned char aa);
+unsigned char V3;
+unsigned char chng1 = 0;
+unsigned char chng2;
+double v11;
+double v22;
+double v33;
 
+char f1[10];
+
+
+
+
+void __interrupt() isr(void){
+
+if(PIR1bits.RCIF){            //Interrupción USART
+
+    if (RCREG == 43){         //Acciones con caracter "+"
+        TXREG = 43;           //Display de "+"
+        V3++;                 //Incremento de variable
+    }
+    if (RCREG == 45){         //Accinoes con caracter "-"
+        TXREG = 45;           //Display de "-"
+        V3--;                 //Decremento de variable
+    }
+}
+}
 //*****************************************************************************
 // C�digo Principal
 //*****************************************************************************
 void main(void) {
     setup();
+    cfg_inte();
+    cfg_usart();
     cfg_clk();
     PORTAbits.RA0 = 1;
     //*************************************************************************
@@ -62,24 +93,34 @@ void main(void) {
        PORTCbits.RC2 = 0;       //Slave Select
        __delay_ms(1);
        
-       spiWrite(PORTB);
+       spiWrite(chng1);
        
        if(PORTAbits.RA0 == 1){
-           chng = spiRead();
+           chng1 = spiRead();
            PORTAbits.RA0 = 0;
        }
        else if(PORTAbits.RA0 == 0){
-           PORTD = spiRead(); 
+           chng2 = spiRead(); 
            PORTAbits.RA0 = 1;
        }
-       
-       
-       
+   
        __delay_ms(1);
        PORTCbits.RC2 = 1;       //Slave Deselect 
        
-       __delay_ms(250);
-       PORTB++;
+       
+      v11 = conv(chng1);        //Conversión de Binario a doble precisión "0.00"
+      v22 = conv(chng2);
+      v33 = conv(V3);
+      
+      sprintf(f1, "%3.1fV %3.2fV %3.2f",v11, v22, v33);
+      
+      TXREG = 12;           //Clear del display 
+      send_crct(f1);          //Función para enviar valor a TXREG 
+      
+       __delay_us(100);
+       
+       PORTB = V3;
+  
     }
     return;
 }
@@ -89,10 +130,12 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISC2 = 0;
+    
+    TRISCbits.TRISC2 = 0;
     TRISA0 = 0;
     TRISB = 0;
     TRISD = 0;
+    
     PORTB = 0;
     PORTD = 0;
     PORTCbits.RC2 = 1;
@@ -102,4 +145,48 @@ void setup(void){
 void cfg_clk(){
     OSCCONbits.IRCF = 0b100; //IRCF = 100 (1MHz) 
     OSCCONbits.SCS = 1;   //Reloj interno habilitado
+}
+void cfg_usart(){        //Configuración usart
+
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+    
+    BAUDCTLbits.BRG16 = 1;
+    
+    SPBRG = 25;
+    SPBRGH = 0;
+    
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 1;
+    
+    TXSTAbits.TXEN = 1;
+            
+}
+void cfg_inte(){
+    INTCONbits.GIE = 1;  //Enable Interrupciones globales
+    INTCONbits.PEIE = 1; //Enable interrupciones perifericas
+    PIE1bits.RCIE = 1;   //Enable interrupcion del UART    
+}
+
+/*------------------------------------------------------------------------------
+ FUNCIONES
+ -----------------------------------------------------------------------------*/
+
+void send_crct(char st[]){
+    int i = 0;              //Declaración variable que recorrera la cadena
+    while (st[i] != 0){     //Mientras st diferente de 0
+        send_char(st[i]);  //Se envía caracter por caracter
+        i++;                //Se incrementa el caracter
+    }
+}
+
+void send_char(char dato){
+    while(!TXIF);           //Mientras la bandera de transmisión sea 0
+    TXREG = dato;           //Se envía el caracter
+}
+double conv(unsigned char aa){ //Función para convertir binario en doble preci.
+    double result;
+    result = aa*0.0196;
+    return result;
 }

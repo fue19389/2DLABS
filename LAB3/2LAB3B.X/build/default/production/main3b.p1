@@ -170,7 +170,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1882: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
 [v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
 "14 main3b.c
-[p x FOSC  =  EXTRC_NOCLKOUT ]
+[p x FOSC  =  INTRC_NOCLKOUT ]
 "15
 [p x WDTE  =  OFF        ]
 "16
