@@ -83,7 +83,7 @@ void __interrupt() isr(void){
         PIR1bits.SSPIF = 0;    
     }
    if(PIR1bits.ADIF == 1){
-       PORTB = ADRESH;
+       PORTB = ADRESH;     //Guardar conversión en el puerto B
        PIR1bits.ADIF = 0;
    }
 }
@@ -98,7 +98,7 @@ void main(void) {
     //*************************************************************************
     // Loop infinito
     //*************************************************************************
-    while(1){
+    while(1){                     //Loop para trasnformar A to D
         if(ADCON0bits.GO == 0){
             ADCON0bits.GO = 1;
         }
@@ -111,7 +111,7 @@ void main(void) {
 // Función de Inicialización
 //*****************************************************************************
 void setup(void){
-    ANSELbits.ANS5 = 1;
+    ANSELbits.ANS5 = 1; //Canal 5 o RE0
     ANSELH = 0;
     
     TRISB = 0;
