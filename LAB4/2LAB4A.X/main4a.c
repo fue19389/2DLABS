@@ -69,19 +69,19 @@ void main(void) {
     Lcd_Init();                //Inicializar LCD
     
     while(1){
-        I2C_Master_Start();
-        I2C_Master_Write(0x80);
-        I2C_Master_Write(0xF3);   // Esta línea fue agregada
-        I2C_Master_Stop();
+        I2C_Master_Start();       //Repeticiones para iniciar comunicación
+        I2C_Master_Write(0x80);   //con los esclavo y sensor (este es sensor)
+        I2C_Master_Write(0xF3);   // Línea que envia comando de SHT21
+        I2C_Master_Stop();        // Dirección del SHT21 es 0x80
         __delay_ms(200);
        
-        I2C_Master_Start();
+        I2C_Master_Start();       
         I2C_Master_Write(0x81);
         V1 = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
         
-        I2C_Master_Start();
+        I2C_Master_Start();       //Rep esclavo 1 (potenciómetro)
         I2C_Master_Write(0x50);
         I2C_Master_Write(PORTB);
         I2C_Master_Stop();
@@ -93,7 +93,7 @@ void main(void) {
         I2C_Master_Stop();
         __delay_ms(200);
         
-        I2C_Master_Start();
+        I2C_Master_Start();        //Rep esclavo 2 (contador)
         I2C_Master_Write(0x40);
         I2C_Master_Write(PORTB);
         I2C_Master_Stop();
@@ -108,12 +108,12 @@ void main(void) {
         Lcd_Clear();           //Display LCD usando librerías primera línea
         Lcd_Set_Cursor(1,1);
         Lcd_Write_String(" S1:   S2:   S3:");
-        v11 = conv2(V1);        //Conversión de Binario a doble precisión "0.00"
-        v22 = conv1(V2);
-        v33 = conv3(V3);
+        v11 = conv2(V1);        //Conversión a doble precisión "0.00" temp
+        v22 = conv1(V2);        //Conversión a doble presición voltaje
+        v33 = conv3(V3);        //Conversión a float
       
         Lcd_Set_Cursor(2,1);    //Display LCD usando librerías segunda línea
-        sprintf(f1, "%3.1fK %3.1fV %3.0f",v11, v22, v33);
+        sprintf(f1, "%3.1fK %3.1fV %3.0f",v11, v22, v33); //Print en LCD
         Lcd_Write_String(f1);
 
         __delay_ms(100);
@@ -126,7 +126,7 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISCbits.TRISC0 = 0;
+    TRISCbits.TRISC0 = 0;           //Salidas para E y RS de LCD
     TRISCbits.TRISC1 = 0;
     TRISB = 0;
     TRISD = 0;
@@ -147,12 +147,12 @@ double conv1(unsigned char aa){ //Función para convertir binario en doble preci
     result = aa*0.0196;
     return result;
 }
-double conv2(unsigned char aa){ //Función para convertir binario en doble preci.
-    double result;
+double conv2(unsigned char aa){ //Función para convertir a doble preci
+    double result;              // En un intervalo de 0 a 160, para temp
     result = (aa*0.62745)+233.15;
     return result;
 }
-float conv3 (unsigned char aa){
+float conv3 (unsigned char aa){ //Función para convertir a float
     float result;
     result = aa*1;
     return result;
