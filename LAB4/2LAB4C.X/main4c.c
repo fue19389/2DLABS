@@ -82,11 +82,11 @@ void __interrupt() isr(void){
        
         PIR1bits.SSPIF = 0;    
     }
-    if (INTCONbits.RBIF){
+    if (INTCONbits.RBIF){       //Incremento de contador en puerto A
         if (PORTBbits.RB0 == 0){
             PORTA++;
         }
-        if (PORTBbits.RB1 == 0){
+        if (PORTBbits.RB1 == 0){//Decremento de contador en puerto A
             PORTA--;
         }
         INTCONbits.RBIF = 0;        
@@ -115,7 +115,7 @@ void setup(void){
     ANSEL = 0;
     ANSELH = 0;
     
-    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB0 = 1;  //Botones en B0 y B1
     TRISBbits.TRISB1 = 1;
     TRISD = 0;
     TRISA = 0;
@@ -127,7 +127,7 @@ void setup(void){
     OPTION_REGbits.nRBPU =  0 ; // se habilita el pull up interno en PORTB
     WPUB = 0x03;  //  Pull ups para los pines RB0 y RB1
     
-    I2C_Slave_Init(0x40);   
+    I2C_Slave_Init(0x40);   //Definición de address
 }
 void cfg_clk(){
     OSCCONbits.IRCF = 0b111; //IRCF = 111 (8MHz) 

@@ -77,7 +77,7 @@ void main(void) {
        
         I2C_Master_Start();       
         I2C_Master_Write(0x81);
-        V1 = I2C_Master_Read(0);
+        V1 = I2C_Master_Read(0); //Guardar temperatura en variable
         I2C_Master_Stop();
         __delay_ms(200);
         
@@ -89,7 +89,7 @@ void main(void) {
        
         I2C_Master_Start();
         I2C_Master_Write(0x51);
-        V2 = I2C_Master_Read(0);
+        V2 = I2C_Master_Read(0);  //Guardar voltaje en variable
         I2C_Master_Stop();
         __delay_ms(200);
         
@@ -101,7 +101,7 @@ void main(void) {
        
         I2C_Master_Start();
         I2C_Master_Write(0x41);
-        V3 = I2C_Master_Read(0);
+        V3 = I2C_Master_Read(0); //Guardar contador en variable
         I2C_Master_Stop();
         __delay_ms(200);        
 
