@@ -104,7 +104,6 @@ void main(void) {
     //*************************************************************************
     while(1){
 
-       __delay_ms(500);
     }
     return;
 }
@@ -134,7 +133,7 @@ void cfg_clk(){
     OSCCONbits.SCS = 1;   //Reloj interno habilitado
 }
 void cfg_iocb(){
-    IOCB = 0X03 ;        // Habilitar PORTC 0 y 1 para interrupción
+    IOCB = 0X03 ;        // Habilitar PORTB 0 y 1 para interrupción
     INTCONbits.RBIF = 0; // Clear de la bandera B   
     
 }

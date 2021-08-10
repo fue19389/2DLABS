@@ -602,96 +602,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 155 ]
 {
 "107
-[; ;main4c.c: 107:        _delay((unsigned long)((500)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"108
-[; ;main4c.c: 108:     }
+[; ;main4c.c: 107:     }
 }
 [e :U 154 ]
 [e $U 155  ]
 [e :U 156 ]
-"109
-[; ;main4c.c: 109:     return;
+"108
+[; ;main4c.c: 108:     return;
 [e $UE 153  ]
-"110
-[; ;main4c.c: 110: }
+"109
+[; ;main4c.c: 109: }
 [e :UE 153 ]
 }
-"114
-[; ;main4c.c: 114: void setup(void){
+"113
+[; ;main4c.c: 113: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"115
-[; ;main4c.c: 115:     ANSEL = 0;
+"114
+[; ;main4c.c: 114:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"116
-[; ;main4c.c: 116:     ANSELH = 0;
+"115
+[; ;main4c.c: 115:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"118
-[; ;main4c.c: 118:     TRISBbits.TRISB0 = 1;
+"117
+[; ;main4c.c: 117:     TRISBbits.TRISB0 = 1;
 [e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
-"119
-[; ;main4c.c: 119:     TRISBbits.TRISB1 = 1;
+"118
+[; ;main4c.c: 118:     TRISBbits.TRISB1 = 1;
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-"120
-[; ;main4c.c: 120:     TRISD = 0;
+"119
+[; ;main4c.c: 119:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"121
-[; ;main4c.c: 121:     TRISA = 0;
+"120
+[; ;main4c.c: 120:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"123
-[; ;main4c.c: 123:     PORTB = 0;
+"122
+[; ;main4c.c: 122:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"124
-[; ;main4c.c: 124:     PORTD = 0;
+"123
+[; ;main4c.c: 123:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"125
-[; ;main4c.c: 125:     PORTA = 0;
+"124
+[; ;main4c.c: 124:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"127
-[; ;main4c.c: 127:     OPTION_REGbits.nRBPU = 0 ;
+"126
+[; ;main4c.c: 126:     OPTION_REGbits.nRBPU = 0 ;
 [e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
-"128
-[; ;main4c.c: 128:     WPUB = 0x03;
+"127
+[; ;main4c.c: 127:     WPUB = 0x03;
 [e = _WPUB -> -> 3 `i `uc ]
-"130
-[; ;main4c.c: 130:     I2C_Slave_Init(0x40);
+"129
+[; ;main4c.c: 129:     I2C_Slave_Init(0x40);
 [e ( _I2C_Slave_Init (1 -> -> 64 `i `uc ]
-"131
-[; ;main4c.c: 131: }
+"130
+[; ;main4c.c: 130: }
 [e :UE 157 ]
 }
-"132
-[; ;main4c.c: 132: void cfg_clk(){
+"131
+[; ;main4c.c: 131: void cfg_clk(){
 [v _cfg_clk `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_clk ]
 [f ]
-"133
-[; ;main4c.c: 133:     OSCCONbits.IRCF = 0b111;
+"132
+[; ;main4c.c: 132:     OSCCONbits.IRCF = 0b111;
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"134
-[; ;main4c.c: 134:     OSCCONbits.SCS = 1;
+"133
+[; ;main4c.c: 133:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"135
-[; ;main4c.c: 135: }
+"134
+[; ;main4c.c: 134: }
 [e :UE 158 ]
 }
-"136
-[; ;main4c.c: 136: void cfg_iocb(){
+"135
+[; ;main4c.c: 135: void cfg_iocb(){
 [v _cfg_iocb `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_iocb ]
 [f ]
-"137
-[; ;main4c.c: 137:     IOCB = 0X03 ;
+"136
+[; ;main4c.c: 136:     IOCB = 0X03 ;
 [e = _IOCB -> -> 3 `i `uc ]
-"138
-[; ;main4c.c: 138:     INTCONbits.RBIF = 0;
+"137
+[; ;main4c.c: 137:     INTCONbits.RBIF = 0;
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"140
-[; ;main4c.c: 140: }
+"139
+[; ;main4c.c: 139: }
 [e :UE 159 ]
 }

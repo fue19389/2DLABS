@@ -13,17 +13,17 @@
 %PSECTS
 $dist/default/production\2LAB4C.X.production.o
 cinit CODE 0 F F 6 2
-text1 CODE 0 AB AB 1B 2
-text2 CODE 0 C6 C6 1A 2
-text3 CODE 0 E0 E0 6 2
-text4 CODE 0 E6 E6 6 2
+text1 CODE 0 8B 8B 1B 2
+text2 CODE 0 A6 A6 1A 2
+text3 CODE 0 D3 D3 6 2
+text4 CODE 0 D9 D9 6 2
 text5 CODE 0 15 15 76 2
-maintext CODE 0 8B 8B 20 2
-cstackCOMMON COMMON 1 70 70 7 1
+maintext CODE 0 C0 C0 13 2
+cstackCOMMON COMMON 1 70 70 4 1
 intentry CODE 0 4 4 8 2
-bssCOMMON COMMON 1 77 77 2 1
+bssCOMMON COMMON 1 74 74 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\gerar\AppData\Local\Temp\shl8.o
+$C:\Users\gerar\AppData\Local\Temp\s9ps.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -42,23 +42,23 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST EC-1FFF 2
+CONST DF-1FFF 2
 ENTRY 3-3 2
-ENTRY EC-1FFF 2
+ENTRY DF-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE EC-1FFF 2
+CODE DF-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
-COMMON 79-7D 1
+COMMON 76-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE EC-1FFF 2
+STRCODE DF-1FFF 2
 STRING 3-3 2
-STRING EC-1FFF 2
+STRING DF-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -73,13 +73,13 @@ STRING EC-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\2LAB4C.X.production.o
-F cinit CODE >649:C:\Users\gerar\AppData\Local\Temp\shl8.s
-F cinit CODE >652:C:\Users\gerar\AppData\Local\Temp\shl8.s
-F cinit CODE >666:C:\Users\gerar\AppData\Local\Temp\shl8.s
-10 cinit CODE >667:C:\Users\gerar\AppData\Local\Temp\shl8.s
-11 cinit CODE >673:C:\Users\gerar\AppData\Local\Temp\shl8.s
-11 cinit CODE >675:C:\Users\gerar\AppData\Local\Temp\shl8.s
-12 cinit CODE >676:C:\Users\gerar\AppData\Local\Temp\shl8.s
+F cinit CODE >649:C:\Users\gerar\AppData\Local\Temp\s9ps.s
+F cinit CODE >652:C:\Users\gerar\AppData\Local\Temp\s9ps.s
+F cinit CODE >666:C:\Users\gerar\AppData\Local\Temp\s9ps.s
+10 cinit CODE >667:C:\Users\gerar\AppData\Local\Temp\s9ps.s
+11 cinit CODE >673:C:\Users\gerar\AppData\Local\Temp\s9ps.s
+11 cinit CODE >675:C:\Users\gerar\AppData\Local\Temp\s9ps.s
+12 cinit CODE >676:C:\Users\gerar\AppData\Local\Temp\s9ps.s
 4 intentry CODE >52:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
 15 text5 CODE >52:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
 15 text5 CODE >53:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
@@ -113,45 +113,46 @@ F cinit CODE >666:C:\Users\gerar\AppData\Local\Temp\shl8.s
 81 text5 CODE >90:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
 83 text5 CODE >92:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
 84 text5 CODE >94:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-E6 text4 CODE >132:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-E6 text4 CODE >133:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-EA text4 CODE >134:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-EB text4 CODE >135:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-E0 text3 CODE >136:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-E0 text3 CODE >137:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-E4 text3 CODE >138:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-E5 text3 CODE >140:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-C6 text2 CODE >93:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-C7 text2 CODE >95:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-CB text2 CODE >96:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-CF text2 CODE >97:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-D3 text2 CODE >98:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-D5 text2 CODE >99:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-D6 text2 CODE >100:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-D7 text2 CODE >101:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-D8 text2 CODE >102:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-D9 text2 CODE >103:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-DC text2 CODE >104:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-DF text2 CODE >105:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
-AB text1 CODE >114:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-AB text1 CODE >115:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-AE text1 CODE >116:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-AF text1 CODE >118:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-B2 text1 CODE >119:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-B3 text1 CODE >120:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-B4 text1 CODE >121:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-B5 text1 CODE >123:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-B8 text1 CODE >124:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-B9 text1 CODE >125:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-BA text1 CODE >127:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-BD text1 CODE >128:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-BF text1 CODE >130:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-C5 text1 CODE >131:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-8B maintext CODE >98:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-8B maintext CODE >99:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-90 maintext CODE >100:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-95 maintext CODE >101:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
-9A maintext CODE >107:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+D9 text4 CODE >131:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+D9 text4 CODE >132:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+DD text4 CODE >133:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+DE text4 CODE >134:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+D3 text3 CODE >135:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+D3 text3 CODE >136:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+D7 text3 CODE >137:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+D8 text3 CODE >139:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+A6 text2 CODE >93:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+A7 text2 CODE >95:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+AB text2 CODE >96:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+AF text2 CODE >97:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+B3 text2 CODE >98:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+B5 text2 CODE >99:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+B6 text2 CODE >100:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+B7 text2 CODE >101:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+B8 text2 CODE >102:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+B9 text2 CODE >103:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+BC text2 CODE >104:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+BF text2 CODE >105:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\I2C.c
+8B text1 CODE >113:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+8B text1 CODE >114:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+8E text1 CODE >115:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+8F text1 CODE >117:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+92 text1 CODE >118:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+93 text1 CODE >119:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+94 text1 CODE >120:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+95 text1 CODE >122:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+98 text1 CODE >123:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+99 text1 CODE >124:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+9A text1 CODE >126:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+9D text1 CODE >127:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+9F text1 CODE >129:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+A5 text1 CODE >130:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+C0 maintext CODE >98:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+C0 maintext CODE >99:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+C5 maintext CODE >100:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+CA maintext CODE >101:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+CF maintext CODE >105:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
+CF maintext CODE >107:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\main4c.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -164,10 +165,10 @@ C5 text1 CODE >131:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB4\2LAB4C.X\m
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-_z 78 0 COMMON 1 bssCOMMON dist/default/production\2LAB4C.X.production.o
+_z 75 0 COMMON 1 bssCOMMON dist/default/production\2LAB4C.X.production.o
 ___latbits 2 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-__Hspace_0 EC 0 ABS 0 - -
-__Hspace_1 79 0 ABS 0 - -
+__Hspace_0 DF 0 ABS 0 - -
+__Hspace_1 76 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
@@ -178,33 +179,33 @@ __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _PEIE 5E 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\shl8.o
-_main 116 0 CODE 0 maintext dist/default/production\2LAB4C.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s9ps.o
+_main 180 0 CODE 0 maintext dist/default/production\2LAB4C.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\shl8.o
+start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\s9ps.o
 __size_of_main 0 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OPTION_REGbits 81 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shl8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shl8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shl8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shl8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shl8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shl8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9ps.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9ps.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9ps.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9ps.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9ps.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s9ps.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-_cfg_iocb 1C0 0 CODE 0 text3 dist/default/production\2LAB4C.X.production.o
+_cfg_iocb 1A6 0 CODE 0 text3 dist/default/production\2LAB4C.X.production.o
 _ANSELH 189 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-__end_of_cfg_iocb 1CC 0 CODE 0 text3 dist/default/production\2LAB4C.X.production.o
+__end_of_cfg_iocb 1B2 0 CODE 0 text3 dist/default/production\2LAB4C.X.production.o
 _SSPCONbits 14 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\shl8.o
-___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\shl8.o
-_I2C_Slave_Init 18C 0 CODE 0 text2 dist/default/production\2LAB4C.X.production.o
+___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s9ps.o
+___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s9ps.o
+_I2C_Slave_Init 14C 0 CODE 0 text2 dist/default/production\2LAB4C.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\2LAB4C.X.production.o
 _TRISBbits 86 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
@@ -215,13 +216,13 @@ _SSPBUF 13 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _SSPCON 14 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\shl8.o
+___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s9ps.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 2A 0 CODE 0 cinit -
-__end_of_I2C_Slave_Init 1C0 0 CODE 0 text2 dist/default/production\2LAB4C.X.production.o
+__end_of_I2C_Slave_Init 180 0 CODE 0 text2 dist/default/production\2LAB4C.X.production.o
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
@@ -252,17 +253,17 @@ __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _GIE 5F 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-__S0 EC 0 ABS 0 - -
-__S1 79 0 ABS 0 - -
+__S0 DF 0 ABS 0 - -
+__S1 76 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _isr 2A 0 CODE 0 text5 dist/default/production\2LAB4C.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-__end_of_cfg_clk 1D8 0 CODE 0 text4 dist/default/production\2LAB4C.X.production.o
+__end_of_cfg_clk 1BE 0 CODE 0 text4 dist/default/production\2LAB4C.X.production.o
 __end_of_isr 116 0 CODE 0 text5 dist/default/production\2LAB4C.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\shl8.o
-__pmaintext 116 0 CODE 0 maintext dist/default/production\2LAB4C.X.production.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\s9ps.o
+__pmaintext 180 0 CODE 0 maintext dist/default/production\2LAB4C.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 I2C_Slave_Init@address 73 0 COMMON 1 cstackCOMMON dist/default/production\2LAB4C.X.production.o
@@ -271,7 +272,7 @@ __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 77 0 COMMON 1 bssCOMMON dist/default/production\2LAB4C.X.production.o
+__pbssCOMMON 74 0 COMMON 1 bssCOMMON dist/default/production\2LAB4C.X.production.o
 _PIR1bits C 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __Lend_init 18 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
@@ -280,10 +281,10 @@ __Hintentry 18 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 6 0 CODE 0 reset_vec -
 _SSPCON2bits 91 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-__ptext1 156 0 CODE 0 text1 dist/default/production\2LAB4C.X.production.o
-__ptext2 18C 0 CODE 0 text2 dist/default/production\2LAB4C.X.production.o
-__ptext3 1C0 0 CODE 0 text3 dist/default/production\2LAB4C.X.production.o
-__ptext4 1CC 0 CODE 0 text4 dist/default/production\2LAB4C.X.production.o
+__ptext1 116 0 CODE 0 text1 dist/default/production\2LAB4C.X.production.o
+__ptext2 14C 0 CODE 0 text2 dist/default/production\2LAB4C.X.production.o
+__ptext3 1A6 0 CODE 0 text3 dist/default/production\2LAB4C.X.production.o
+__ptext4 1B2 0 CODE 0 text4 dist/default/production\2LAB4C.X.production.o
 __ptext5 2A 0 CODE 0 text5 dist/default/production\2LAB4C.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
@@ -293,11 +294,11 @@ __size_of_I2C_Slave_Init 0 0 ABS 0 - dist/default/production\2LAB4C.X.production
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\2LAB4C.X.production.o
-_cfg_clk 1CC 0 CODE 0 text4 dist/default/production\2LAB4C.X.production.o
+_cfg_clk 1B2 0 CODE 0 text4 dist/default/production\2LAB4C.X.production.o
 _SSPCON2 91 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
-__end_of_main 156 0 CODE 0 maintext dist/default/production\2LAB4C.X.production.o
+__end_of_main 1A6 0 CODE 0 maintext dist/default/production\2LAB4C.X.production.o
 _ANSEL 188 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _PORTA 5 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _PORTB 6 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
@@ -306,11 +307,11 @@ _SSPIE 463 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _SSPIF 63 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _TRISA 85 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
-__end_of_setup 18C 0 CODE 0 text1 dist/default/production\2LAB4C.X.production.o
+__end_of_setup 14C 0 CODE 0 text1 dist/default/production\2LAB4C.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\2LAB4C.X.production.o
-_setup 156 0 CODE 0 text1 dist/default/production\2LAB4C.X.production.o
+_setup 116 0 CODE 0 text1 dist/default/production\2LAB4C.X.production.o
 _SSPSTATbits 94 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production\2LAB4C.X.production.o
 __size_of_isr 0 0 ABS 0 - dist/default/production\2LAB4C.X.production.o
@@ -340,8 +341,8 @@ __initialization 1E 0 CODE 0 cinit dist/default/production\2LAB4C.X.production.o
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cstackCOMMON 1 70 70 9 1
-intentry 0 4 8 E8 2
+cstackCOMMON 1 70 70 6 1
+intentry 0 4 8 DB 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

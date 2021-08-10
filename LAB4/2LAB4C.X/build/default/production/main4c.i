@@ -2763,7 +2763,6 @@ void main(void) {
 
     while(1){
 
-       _delay((unsigned long)((500)*(8000000/4000.0)));
     }
     return;
 }
