@@ -98,9 +98,9 @@ void main(void) {
     while(1){
       v = conv(V); //Conversión de Binario a float
       
-      sprintf(f1, "%0.0f",v);
+      sprintf(f1, "%3.0f",v);
       
-      TXREG = '\f';             //Clear del display 
+      TXREG = 12;             //Clear del display 
       send_crct(f1);          //Función para enviar valor a TXREG 
       
       __delay_us(500); 

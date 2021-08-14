@@ -589,11 +589,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main5a.c: 99:       v = conv(V);
 [e = _v ( _conv (1 _V ]
 "101
-[; ;main5a.c: 101:       sprintf(f1, "%3.0f",v);
+[; ;main5a.c: 101:       sprintf(f1, "%0.0f",v);
 [e ( _sprintf (1 , (. , &U _f1 :s 1C -> _v `d ]
 "103
-[; ;main5a.c: 103:       TXREG = 12;
-[e = _TXREG -> -> 12 `i `uc ]
+[; ;main5a.c: 103:       TXREG = '\f';
+[e = _TXREG -> -> 12 `ui `uc ]
 "104
 [; ;main5a.c: 104:       send_crct(f1);
 [e ( _send_crct (1 &U _f1 ]
@@ -829,5 +829,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main5a.c: 183: }
 [e :UE 161 ]
 }
-[p f _sprintf 8495104 ]
-[a 1C 37 51 46 48 102 0 ]
+[p f _sprintf 8462340 ]
+[a 1C 37 48 46 48 102 0 ]

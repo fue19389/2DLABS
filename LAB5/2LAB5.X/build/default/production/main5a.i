@@ -2801,9 +2801,9 @@ void main(void) {
     while(1){
       v = conv(V);
 
-      sprintf(f1, "%3.0f",v);
+      sprintf(f1, "%0.0f",v);
 
-      TXREG = 12;
+      TXREG = '\f';
       send_crct(f1);
 
       _delay((unsigned long)((500)*(4000000/4000000.0)));

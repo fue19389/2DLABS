@@ -270,17 +270,17 @@
 [v sprintf@fval fval `d  1 a 4 37 ]
 [u S594 . 4 `ul 1 vd 4 0 `d 1 integ 4 0 ]
 "543
-[v sprintf@tmpval tmpval `S594  1 a 4 31 ]
+[v sprintf@tmpval tmpval `S594  1 a 4 27 ]
 "545
 [v sprintf@val val `ul  1 a 4 23 ]
 "517
-[v sprintf@prec prec `i  1 a 2 42 ]
-"534
-[v sprintf@eexp eexp `i  1 a 2 35 ]
+[v sprintf@prec prec `i  1 a 2 41 ]
 "514
-[v sprintf@width width `i  1 a 2 29 ]
+[v sprintf@width width `i  1 a 2 35 ]
 "525
-[v sprintf@flag flag `us  1 a 2 27 ]
+[v sprintf@flag flag `us  1 a 2 33 ]
+"534
+[v sprintf@eexp eexp `i  1 a 2 31 ]
 "512
 [v sprintf@c c `uc  1 a 1 44 ]
 "507
@@ -289,7 +289,7 @@
 [v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.24DCuc  1 p 1 8 ]
 "550
-[v sprintf@sp sp `*.4uc  1 a 1 41 ]
+[v sprintf@sp sp `*.4uc  1 a 1 43 ]
 "1567
 } 0
 "433
