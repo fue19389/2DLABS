@@ -14,7 +14,7 @@ import serial
 import time
 
 
-ser = serial.Serial('COM6', baudrate = 9600)
+ser = serial.Serial('COM3', baudrate = 9600)
 
 ADAFRUIT_IO_KEY = "aio_YoVh965uubGIbGR9Qt5VK1TFtZHB"
 ADAFRUIT_IO_USERNAME = "YRAR"
