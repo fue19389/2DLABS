@@ -24,7 +24,7 @@ while(1):
     ser.close()
     ser.open()
     #Readval pyserial
-    dataser0 = str(ser.read(5))
+    dataser0 = str(ser.read(9))
     print(dataser0)
     dataser1 = dataser0.split(',')
     d1 = dataser1[1]
@@ -40,7 +40,7 @@ while(1):
 
     #Digital2 Feed
     digital2_feed = aio.feeds('humidity')
-    aio.send_data(digital2_feed.key, 72)
+    aio.send_data(digital2_feed.key, 50)
     digital_data2 = aio.receive(digital2_feed.key)
     print(f'humedad: {digital_data2.value}')
 
@@ -52,4 +52,4 @@ while(1):
     d3 = int(digital_data3.value)
     dat3 = d3.to_bytes(3, 'big')
     ser.write(dat3)
-    time.sleep(1)
+    time.sleep(5)

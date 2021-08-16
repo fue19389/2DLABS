@@ -56,7 +56,7 @@ strings STRING 0 1800 1800 A9 2
 clrtext CODE 0 1000 1000 8 2
 bssCOMMON COMMON 1 79 79 2 1
 config CONFIG 4 2007 2007 2 2
-$C:\Users\gerar\AppData\Local\Temp\snt8.o
+$C:\Users\gerar\AppData\Local\Temp\sfg8.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -111,18 +111,18 @@ STRING 18A9-1BBC 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\2LAB5.X.production.o
-F cinit CODE >765:C:\Users\gerar\AppData\Local\Temp\snt8.s
-F cinit CODE >768:C:\Users\gerar\AppData\Local\Temp\snt8.s
-F cinit CODE >809:C:\Users\gerar\AppData\Local\Temp\snt8.s
-10 cinit CODE >810:C:\Users\gerar\AppData\Local\Temp\snt8.s
-11 cinit CODE >813:C:\Users\gerar\AppData\Local\Temp\snt8.s
-12 cinit CODE >814:C:\Users\gerar\AppData\Local\Temp\snt8.s
-13 cinit CODE >815:C:\Users\gerar\AppData\Local\Temp\snt8.s
-14 cinit CODE >816:C:\Users\gerar\AppData\Local\Temp\snt8.s
-15 cinit CODE >817:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1A cinit CODE >823:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1A cinit CODE >825:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1B cinit CODE >826:C:\Users\gerar\AppData\Local\Temp\snt8.s
+F cinit CODE >765:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+F cinit CODE >768:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+F cinit CODE >809:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+10 cinit CODE >810:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+11 cinit CODE >813:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+12 cinit CODE >814:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+13 cinit CODE >815:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+14 cinit CODE >816:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+15 cinit CODE >817:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1A cinit CODE >823:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1A cinit CODE >825:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1B cinit CODE >826:C:\Users\gerar\AppData\Local\Temp\sfg8.s
 4 intentry CODE >66:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB5\2LAB5.X\main5a.c
 1E text1_split_1 CODE >1142:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 7D text1_split_1 CODE >1146:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
@@ -828,16 +828,16 @@ FFF text2 CODE >449:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\
 1F25 maintext CODE >99:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB5\2LAB5.X\main5a.c
 1F4B maintext CODE >103:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB5\2LAB5.X\main5a.c
 1F51 maintext CODE >105:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\LAB5\2LAB5.X\main5a.c
-1000 clrtext CODE >796:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1000 clrtext CODE >797:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1001 clrtext CODE >798:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1001 clrtext CODE >799:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1002 clrtext CODE >800:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1003 clrtext CODE >801:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1004 clrtext CODE >802:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1005 clrtext CODE >803:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1006 clrtext CODE >804:C:\Users\gerar\AppData\Local\Temp\snt8.s
-1007 clrtext CODE >805:C:\Users\gerar\AppData\Local\Temp\snt8.s
+1000 clrtext CODE >796:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1000 clrtext CODE >797:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1001 clrtext CODE >798:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1001 clrtext CODE >799:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1002 clrtext CODE >800:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1003 clrtext CODE >801:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1004 clrtext CODE >802:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1005 clrtext CODE >803:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1006 clrtext CODE >804:C:\Users\gerar\AppData\Local\Temp\sfg8.s
+1007 clrtext CODE >805:C:\Users\gerar\AppData\Local\Temp\sfg8.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -869,11 +869,11 @@ __Hstrings 0 0 ABS 0 strings -
 _IOCB 96 0 ABS 0 - dist/default/production\2LAB5.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\2LAB5.X.production.o
 _WPUB 95 0 ABS 0 - dist/default/production\2LAB5.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\snt8.o
+___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\sfg8.o
 _conv 391C 0 CODE 0 text24 dist/default/production\2LAB5.X.production.o
 _main 3DD8 0 CODE 0 maintext dist/default/production\2LAB5.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\2LAB5.X.production.o
-start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\snt8.o
+start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\sfg8.o
 ___flmul@aexp 3C 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
 ___flmul@bexp 3D 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
 ___flmul@prod 3E 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
@@ -899,12 +899,12 @@ __Hpowerup 0 0 CODE 0 powerup -
 ___awmod@sign 21 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
 __end_of__npowers_ 30DC 0 STRING 0 strings dist/default/production\2LAB5.X.production.o
 _sprintf$1113 BA 0 BANK1 1 cstackBANK1 dist/default/production\2LAB5.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\snt8.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\snt8.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\snt8.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\snt8.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\snt8.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\snt8.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfg8.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfg8.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfg8.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfg8.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfg8.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfg8.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of__div_to_l_ 0 0 ABS 0 - dist/default/production\2LAB5.X.production.o
 pnum$text1 C 0 ABS 0 - dist/default/production\2LAB5.X.production.o
@@ -958,8 +958,8 @@ _send_char 37A2 0 CODE 0 text23 dist/default/production\2LAB5.X.production.o
 _send_crct 3842 0 CODE 0 text22 dist/default/production\2LAB5.X.production.o
 send_crct@i 75 0 COMMON 1 cstackCOMMON dist/default/production\2LAB5.X.production.o
 __Umul8_16@multiplicand 73 0 COMMON 1 cstackCOMMON dist/default/production\2LAB5.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\snt8.o
-___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\snt8.o
+___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\sfg8.o
+___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\sfg8.o
 _dpowers 30DC 0 STRING 0 strings dist/default/production\2LAB5.X.production.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\2LAB5.X.production.o
 __size_of__tdiv_to_l_ 0 0 ABS 0 - dist/default/production\2LAB5.X.production.o
@@ -987,7 +987,7 @@ __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/production\2LAB5.X.producti
 __tdiv_to_l_@f1 20 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
 __tdiv_to_l_@f2 24 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
 _isdigit$941 73 0 COMMON 1 cstackCOMMON dist/default/production\2LAB5.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\snt8.o
+___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\sfg8.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -1055,7 +1055,7 @@ __HnvBANK1 0 0 ABS 0 nvBANK1 -
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\2LAB5.X.production.o
 __stringtab 3000 0 STRING 0 strings dist/default/production\2LAB5.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\snt8.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\sfg8.o
 __end_of___xxtofl 1278 0 CODE 0 text25 dist/default/production\2LAB5.X.production.o
 __powers_ 300C 0 STRING 0 strings dist/default/production\2LAB5.X.production.o
 __size_of___fleq 0 0 ABS 0 - dist/default/production\2LAB5.X.production.o
