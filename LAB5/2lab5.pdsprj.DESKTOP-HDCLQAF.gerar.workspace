@@ -67,7 +67,7 @@
    <POPUP w="130" x="168" flags="00000008" y="280" h="151" pid="7" iid="2">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="188" flags="80000002" y="300" h="8" pid="8" iid="2">
+   <POPUP w="8" x="188" flags="00000002" y="300" h="8" pid="8" iid="2">
     <PROPERTIES>
      <ITEM name="DataType">2</ITEM>
      <ITEM name="DispChars">Yes</ITEM>
@@ -77,7 +77,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="412" flags="00008023" y="399" h="250" pid="0" iid="5">
+   <POPUP w="450" x="412" flags="00000022" y="399" h="250" pid="0" iid="5">
     <PROPERTIES>
      <ITEM name="AutoEcho">1</ITEM>
      <ITEM name="HexMode">0</ITEM>
