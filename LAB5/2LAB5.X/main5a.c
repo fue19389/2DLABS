@@ -51,12 +51,10 @@ void cfg_iocb(void);
 void send_crct(char st[]);
 void send_char(char dato);
 float conv(unsigned char aa);
-int conv2(float aa);
 unsigned char V;
 unsigned char CONT;
 unsigned char op;
 float v;
-int vint;
 char f1[10];
 char f2[10];
 
@@ -68,10 +66,8 @@ char f2[10];
 void __interrupt() isr(void){
 
     if(PIR1bits.RCIF){           //Interrupción USART
-        TXREG = 12;              //Clear consola 
-        TXREG = 0X0D;
-        PORTD = RCREG;           // Envío a PORTB
-        __delay_ms(4000);
+        PORTD = RCREG;           // Envío a PORTD
+        //__delay_ms(4000);
     }
 
     if(INTCONbits.RBIF){
@@ -99,11 +95,10 @@ void main(void) {
     //*************************************************************************
     while(1){
       v = conv(V); //Conversión de Binario a float
-      vint = conv2(v);
+
+      sprintf(f1, "%0.0f,%0.0f,%0.0f,",v,v,v);
       
-      sprintf(f1, "%f",vint);
-      
-      //TXREG = '\f';             //Clear del display 
+      //TXREG = 0x0A;             //Clear del display 
       //TXREG = 10;      
       send_crct(f1);          //Función para enviar valor a TXREG 
 
@@ -184,9 +179,4 @@ float conv(unsigned char aa){ //Función para convertir binario en doble preci.
     float result;
     result = aa*1;
     return result;
-}
-int conv2(float aa){
-    int res;
-    res = aa*1;
-    return res;
 }

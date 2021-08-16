@@ -2754,12 +2754,10 @@ void cfg_iocb(void);
 void send_crct(char st[]);
 void send_char(char dato);
 float conv(unsigned char aa);
-int conv2(float aa);
 unsigned char V;
 unsigned char CONT;
 unsigned char op;
 float v;
-int vint;
 char f1[10];
 char f2[10];
 
@@ -2771,10 +2769,8 @@ char f2[10];
 void __attribute__((picinterrupt(("")))) isr(void){
 
     if(PIR1bits.RCIF){
-        TXREG = 12;
-        TXREG = 0X0D;
         PORTD = RCREG;
-        _delay((unsigned long)((4000)*(4000000/4000.0)));
+
     }
 
     if(INTCONbits.RBIF){
@@ -2802,9 +2798,8 @@ void main(void) {
 
     while(1){
       v = conv(V);
-      vint = conv2(v);
 
-      sprintf(f1, "%f",vint);
+      sprintf(f1, "%0.0f,%0.0f,%0.0f,",v,v,v);
 
 
 
@@ -2887,9 +2882,4 @@ float conv(unsigned char aa){
     float result;
     result = aa*1;
     return result;
-}
-int conv2(float aa){
-    int res;
-    res = aa*1;
-    return res;
 }
