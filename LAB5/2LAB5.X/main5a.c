@@ -51,10 +51,12 @@ void cfg_iocb(void);
 void send_crct(char st[]);
 void send_char(char dato);
 float conv(unsigned char aa);
+int conv2(float aa);
 unsigned char V;
 unsigned char CONT;
 unsigned char op;
 float v;
+int vint;
 char f1[10];
 char f2[10];
 
@@ -97,12 +99,14 @@ void main(void) {
     //*************************************************************************
     while(1){
       v = conv(V); //Conversión de Binario a float
+      vint = conv2(v);
       
-      sprintf(f1, "%0.0f",v);
+      sprintf(f1, "%f",vint);
       
-      TXREG = '\f';             //Clear del display 
+      //TXREG = '\f';             //Clear del display 
+      //TXREG = 10;      
       send_crct(f1);          //Función para enviar valor a TXREG 
-      
+
       __delay_us(500); 
     }
     return;
@@ -180,4 +184,9 @@ float conv(unsigned char aa){ //Función para convertir binario en doble preci.
     float result;
     result = aa*1;
     return result;
+}
+int conv2(float aa){
+    int res;
+    res = aa*1;
+    return res;
 }

@@ -70,6 +70,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "53
 [; ;main5a.c: 53: float conv(unsigned char aa);
 [v _conv `(f ~T0 @X0 0 ef1`uc ]
+"54
+[; ;main5a.c: 54: int conv2(float aa);
+[v _conv2 `(i ~T0 @X0 0 ef1`f ]
 "194 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "51 main5a.c
@@ -477,357 +480,381 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"54 main5a.c
-[; ;main5a.c: 54: unsigned char V;
+"55 main5a.c
+[; ;main5a.c: 55: unsigned char V;
 [v _V `uc ~T0 @X0 1 e ]
-"55
-[; ;main5a.c: 55: unsigned char CONT;
-[v _CONT `uc ~T0 @X0 1 e ]
 "56
-[; ;main5a.c: 56: unsigned char op;
-[v _op `uc ~T0 @X0 1 e ]
+[; ;main5a.c: 56: unsigned char CONT;
+[v _CONT `uc ~T0 @X0 1 e ]
 "57
-[; ;main5a.c: 57: float v;
-[v _v `f ~T0 @X0 1 e ]
+[; ;main5a.c: 57: unsigned char op;
+[v _op `uc ~T0 @X0 1 e ]
 "58
-[; ;main5a.c: 58: char f1[10];
-[v _f1 `uc ~T0 @X0 -> 10 `i e ]
+[; ;main5a.c: 58: float v;
+[v _v `f ~T0 @X0 1 e ]
 "59
-[; ;main5a.c: 59: char f2[10];
+[; ;main5a.c: 59: int vint;
+[v _vint `i ~T0 @X0 1 e ]
+"60
+[; ;main5a.c: 60: char f1[10];
+[v _f1 `uc ~T0 @X0 -> 10 `i e ]
+"61
+[; ;main5a.c: 61: char f2[10];
 [v _f2 `uc ~T0 @X0 -> 10 `i e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"66
-[; ;main5a.c: 66: void __attribute__((picinterrupt(("")))) isr(void){
+"68
+[; ;main5a.c: 68: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"68
-[; ;main5a.c: 68:     if(PIR1bits.RCIF){
+"70
+[; ;main5a.c: 70:     if(PIR1bits.RCIF){
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 140  ]
 {
-"69
-[; ;main5a.c: 69:         TXREG = 12;
-[e = _TXREG -> -> 12 `i `uc ]
-"70
-[; ;main5a.c: 70:         TXREG = 0X0D;
-[e = _TXREG -> -> 13 `i `uc ]
 "71
-[; ;main5a.c: 71:         PORTD = RCREG;
-[e = _PORTD _RCREG ]
+[; ;main5a.c: 71:         TXREG = 12;
+[e = _TXREG -> -> 12 `i `uc ]
 "72
-[; ;main5a.c: 72:         _delay((unsigned long)((4000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;main5a.c: 72:         TXREG = 0X0D;
+[e = _TXREG -> -> 13 `i `uc ]
 "73
-[; ;main5a.c: 73:     }
+[; ;main5a.c: 73:         PORTD = RCREG;
+[e = _PORTD _RCREG ]
+"74
+[; ;main5a.c: 74:         _delay((unsigned long)((4000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"75
+[; ;main5a.c: 75:     }
 }
 [e :U 140 ]
-"75
-[; ;main5a.c: 75:     if(INTCONbits.RBIF){
+"77
+[; ;main5a.c: 77:     if(INTCONbits.RBIF){
 [e $ ! != -> . . _INTCONbits 0 0 `i -> 0 `i 141  ]
 {
-"76
-[; ;main5a.c: 76:         if (PORTBbits.RB0 == 0){
+"78
+[; ;main5a.c: 78:         if (PORTBbits.RB0 == 0){
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 142  ]
 {
-"77
-[; ;main5a.c: 77:             V++;
+"79
+[; ;main5a.c: 79:             V++;
 [e ++ _V -> -> 1 `i `uc ]
-"78
-[; ;main5a.c: 78:         }
+"80
+[; ;main5a.c: 80:         }
 }
 [e :U 142 ]
-"79
-[; ;main5a.c: 79:         if (PORTBbits.RB1 == 0){
+"81
+[; ;main5a.c: 81:         if (PORTBbits.RB1 == 0){
 [e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 143  ]
 {
-"80
-[; ;main5a.c: 80:             V--;
+"82
+[; ;main5a.c: 82:             V--;
 [e -- _V -> -> 1 `i `uc ]
-"81
-[; ;main5a.c: 81:         }
+"83
+[; ;main5a.c: 83:         }
 }
 [e :U 143 ]
-"82
-[; ;main5a.c: 82:         INTCONbits.RBIF = 0;
+"84
+[; ;main5a.c: 84:         INTCONbits.RBIF = 0;
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"83
-[; ;main5a.c: 83:     }
+"85
+[; ;main5a.c: 85:     }
 }
 [e :U 141 ]
-"85
-[; ;main5a.c: 85: }
+"87
+[; ;main5a.c: 87: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"89
-[; ;main5a.c: 89: void main(void) {
+"91
+[; ;main5a.c: 91: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"90
-[; ;main5a.c: 90:     cfg_io();
-[e ( _cfg_io ..  ]
-"91
-[; ;main5a.c: 91:     cfg_inte();
-[e ( _cfg_inte ..  ]
 "92
-[; ;main5a.c: 92:     cfg_iocb();
-[e ( _cfg_iocb ..  ]
+[; ;main5a.c: 92:     cfg_io();
+[e ( _cfg_io ..  ]
 "93
-[; ;main5a.c: 93:     cfg_usart();
-[e ( _cfg_usart ..  ]
+[; ;main5a.c: 93:     cfg_inte();
+[e ( _cfg_inte ..  ]
 "94
-[; ;main5a.c: 94:     cfg_clk();
+[; ;main5a.c: 94:     cfg_iocb();
+[e ( _cfg_iocb ..  ]
+"95
+[; ;main5a.c: 95:     cfg_usart();
+[e ( _cfg_usart ..  ]
+"96
+[; ;main5a.c: 96:     cfg_clk();
 [e ( _cfg_clk ..  ]
-"98
-[; ;main5a.c: 98:     while(1){
+"100
+[; ;main5a.c: 100:     while(1){
 [e :U 146 ]
 {
-"99
-[; ;main5a.c: 99:       v = conv(V);
-[e = _v ( _conv (1 _V ]
 "101
-[; ;main5a.c: 101:       sprintf(f1, "%0.0f",v);
-[e ( _sprintf (1 , (. , &U _f1 :s 1C -> _v `d ]
-"103
-[; ;main5a.c: 103:       TXREG = '\f';
-[e = _TXREG -> -> 12 `ui `uc ]
+[; ;main5a.c: 101:       v = conv(V);
+[e = _v ( _conv (1 _V ]
+"102
+[; ;main5a.c: 102:       vint = conv2(v);
+[e = _vint ( _conv2 (1 _v ]
 "104
-[; ;main5a.c: 104:       send_crct(f1);
+[; ;main5a.c: 104:       sprintf(f1, "%f",vint);
+[e ( _sprintf (1 , (. , &U _f1 :s 1C _vint ]
+"108
+[; ;main5a.c: 108:       send_crct(f1);
 [e ( _send_crct (1 &U _f1 ]
-"106
-[; ;main5a.c: 106:       _delay((unsigned long)((500)*(4000000/4000000.0)));
+"110
+[; ;main5a.c: 110:       _delay((unsigned long)((500)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"107
-[; ;main5a.c: 107:     }
+"111
+[; ;main5a.c: 111:     }
 }
 [e :U 145 ]
 [e $U 146  ]
 [e :U 147 ]
-"108
-[; ;main5a.c: 108:     return;
+"112
+[; ;main5a.c: 112:     return;
 [e $UE 144  ]
-"109
-[; ;main5a.c: 109: }
+"113
+[; ;main5a.c: 113: }
 [e :UE 144 ]
 }
-"113
-[; ;main5a.c: 113: void cfg_io(void){
+"117
+[; ;main5a.c: 117: void cfg_io(void){
 [v _cfg_io `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_io ]
 [f ]
-"114
-[; ;main5a.c: 114:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"115
-[; ;main5a.c: 115:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
-"117
-[; ;main5a.c: 117:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
 "118
-[; ;main5a.c: 118:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;main5a.c: 118:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "119
-[; ;main5a.c: 119:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
-"120
-[; ;main5a.c: 120:     TRISBbits.TRISB0 = 1;
-[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
+[; ;main5a.c: 119:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "121
-[; ;main5a.c: 121:     TRISBbits.TRISB1 = 1;
-[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
+[; ;main5a.c: 121:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "122
-[; ;main5a.c: 122:     OPTION_REGbits.nRBPU = 0 ;
-[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+[; ;main5a.c: 122:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "123
-[; ;main5a.c: 123:     WPUB = 0x03;
-[e = _WPUB -> -> 3 `i `uc ]
+[; ;main5a.c: 123:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"124
+[; ;main5a.c: 124:     TRISBbits.TRISB0 = 1;
+[e = . . _TRISBbits 0 0 -> -> 1 `i `uc ]
 "125
-[; ;main5a.c: 125:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;main5a.c: 125:     TRISBbits.TRISB1 = 1;
+[e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
 "126
-[; ;main5a.c: 126:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;main5a.c: 126:     OPTION_REGbits.nRBPU = 0 ;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
 "127
-[; ;main5a.c: 127:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;main5a.c: 127:     WPUB = 0x03;
+[e = _WPUB -> -> 3 `i `uc ]
 "129
-[; ;main5a.c: 129: }
+[; ;main5a.c: 129:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
+"130
+[; ;main5a.c: 130:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"131
+[; ;main5a.c: 131:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"133
+[; ;main5a.c: 133: }
 [e :UE 148 ]
 }
-"130
-[; ;main5a.c: 130: void cfg_clk(){
+"134
+[; ;main5a.c: 134: void cfg_clk(){
 [v _cfg_clk `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_clk ]
 [f ]
-"131
-[; ;main5a.c: 131:     OSCCONbits.IRCF = 0b111;
+"135
+[; ;main5a.c: 135:     OSCCONbits.IRCF = 0b111;
 [e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"132
-[; ;main5a.c: 132:     OSCCONbits.SCS = 1;
+"136
+[; ;main5a.c: 136:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"133
-[; ;main5a.c: 133: }
+"137
+[; ;main5a.c: 137: }
 [e :UE 149 ]
 }
-"134
-[; ;main5a.c: 134: void cfg_usart(){
+"138
+[; ;main5a.c: 138: void cfg_usart(){
 [v _cfg_usart `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_usart ]
 [f ]
-"136
-[; ;main5a.c: 136:     TXSTAbits.SYNC = 0;
+"140
+[; ;main5a.c: 140:     TXSTAbits.SYNC = 0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"137
-[; ;main5a.c: 137:     TXSTAbits.BRGH = 1;
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"139
-[; ;main5a.c: 139:     BAUDCTLbits.BRG16 = 1;
-[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
 "141
-[; ;main5a.c: 141:     SPBRG = 207;
-[e = _SPBRG -> -> 207 `i `uc ]
-"142
-[; ;main5a.c: 142:     SPBRGH = 0;
-[e = _SPBRGH -> -> 0 `i `uc ]
-"144
-[; ;main5a.c: 144:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;main5a.c: 141:     TXSTAbits.BRGH = 1;
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+"143
+[; ;main5a.c: 143:     BAUDCTLbits.BRG16 = 1;
+[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
 "145
-[; ;main5a.c: 145:     RCSTAbits.RX9 = 0;
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;main5a.c: 145:     SPBRG = 207;
+[e = _SPBRG -> -> 207 `i `uc ]
 "146
-[; ;main5a.c: 146:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;main5a.c: 146:     SPBRGH = 0;
+[e = _SPBRGH -> -> 0 `i `uc ]
 "148
-[; ;main5a.c: 148:     TXSTAbits.TXEN = 1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+[; ;main5a.c: 148:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"149
+[; ;main5a.c: 149:     RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
 "150
-[; ;main5a.c: 150: }
+[; ;main5a.c: 150:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"152
+[; ;main5a.c: 152:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+"154
+[; ;main5a.c: 154: }
 [e :UE 150 ]
 }
-"151
-[; ;main5a.c: 151: void cfg_inte(){
+"155
+[; ;main5a.c: 155: void cfg_inte(){
 [v _cfg_inte `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_inte ]
 [f ]
-"152
-[; ;main5a.c: 152:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"153
-[; ;main5a.c: 153:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"154
-[; ;main5a.c: 154:     PIE1bits.RCIE = 1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"155
-[; ;main5a.c: 155:     INTCONbits.RBIE = 1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 "156
-[; ;main5a.c: 156:     INTCONbits.RBIF = 0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+[; ;main5a.c: 156:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
 "157
-[; ;main5a.c: 157: }
+[; ;main5a.c: 157:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
+"158
+[; ;main5a.c: 158:     PIE1bits.RCIE = 1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"159
+[; ;main5a.c: 159:     INTCONbits.RBIE = 1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"160
+[; ;main5a.c: 160:     INTCONbits.RBIF = 0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"161
+[; ;main5a.c: 161: }
 [e :UE 151 ]
 }
-"158
-[; ;main5a.c: 158: void cfg_iocb(){
+"162
+[; ;main5a.c: 162: void cfg_iocb(){
 [v _cfg_iocb `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_iocb ]
 [f ]
-"159
-[; ;main5a.c: 159:     IOCB = 0X03 ;
+"163
+[; ;main5a.c: 163:     IOCB = 0X03 ;
 [e = _IOCB -> -> 3 `i `uc ]
-"160
-[; ;main5a.c: 160:     INTCONbits.RBIF = 0;
+"164
+[; ;main5a.c: 164:     INTCONbits.RBIF = 0;
 [e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"162
-[; ;main5a.c: 162: }
+"166
+[; ;main5a.c: 166: }
 [e :UE 152 ]
 }
-"168
-[; ;main5a.c: 168: void send_crct(char st[]){
+"172
+[; ;main5a.c: 172: void send_crct(char st[]){
 [v _send_crct `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _send_crct ]
 [v _st `*uc ~T0 @X0 1 r1 ]
 [f ]
-"169
-[; ;main5a.c: 169:     int i = 0;
+"173
+[; ;main5a.c: 173:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"170
-[; ;main5a.c: 170:     while (st[i] != 0){
+"174
+[; ;main5a.c: 174:     while (st[i] != 0){
 [e $U 154  ]
 [e :U 155 ]
 {
-"171
-[; ;main5a.c: 171:         send_char(st[i]);
+"175
+[; ;main5a.c: 175:         send_char(st[i]);
 [e ( _send_char (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
-"172
-[; ;main5a.c: 172:         i++;
+"176
+[; ;main5a.c: 176:         i++;
 [e ++ _i -> 1 `i ]
-"173
-[; ;main5a.c: 173:     }
+"177
+[; ;main5a.c: 177:     }
 }
 [e :U 154 ]
-"170
-[; ;main5a.c: 170:     while (st[i] != 0){
+"174
+[; ;main5a.c: 174:     while (st[i] != 0){
 [e $ != -> *U + _st * -> _i `x -> -> # *U _st `i `x `i -> 0 `i 155  ]
 [e :U 156 ]
-"174
-[; ;main5a.c: 174: }
+"178
+[; ;main5a.c: 178: }
 [e :UE 153 ]
 }
-"175
-[; ;main5a.c: 175: void send_char(char dato){
+"179
+[; ;main5a.c: 179: void send_char(char dato){
 [v _send_char `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send_char ]
 [v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
-"176
-[; ;main5a.c: 176:     while(!TXIF);
+"180
+[; ;main5a.c: 180:     while(!TXIF);
 [e $U 158  ]
 [e :U 159 ]
 [e :U 158 ]
 [e $ ! _TXIF 159  ]
 [e :U 160 ]
-"177
-[; ;main5a.c: 177:     TXREG = dato;
+"181
+[; ;main5a.c: 181:     TXREG = dato;
 [e = _TXREG -> _dato `uc ]
-"178
-[; ;main5a.c: 178: }
+"182
+[; ;main5a.c: 182: }
 [e :UE 157 ]
 }
-"179
-[; ;main5a.c: 179: float conv(unsigned char aa){
+"183
+[; ;main5a.c: 183: float conv(unsigned char aa){
 [v _conv `(f ~T0 @X0 1 ef1`uc ]
 {
 [e :U _conv ]
 [v _aa `uc ~T0 @X0 1 r1 ]
 [f ]
-"180
-[; ;main5a.c: 180:     float result;
+"184
+[; ;main5a.c: 184:     float result;
 [v _result `f ~T0 @X0 1 a ]
-"181
-[; ;main5a.c: 181:     result = aa*1;
+"185
+[; ;main5a.c: 185:     result = aa*1;
 [e = _result -> * -> _aa `i -> 1 `i `f ]
-"182
-[; ;main5a.c: 182:     return result;
+"186
+[; ;main5a.c: 186:     return result;
 [e ) _result ]
 [e $UE 161  ]
-"183
-[; ;main5a.c: 183: }
+"187
+[; ;main5a.c: 187: }
 [e :UE 161 ]
 }
-[p f _sprintf 8462340 ]
-[a 1C 37 48 46 48 102 0 ]
+"188
+[; ;main5a.c: 188: int conv2(float aa){
+[v _conv2 `(i ~T0 @X0 1 ef1`f ]
+{
+[e :U _conv2 ]
+[v _aa `f ~T0 @X0 1 r1 ]
+[f ]
+"189
+[; ;main5a.c: 189:     int res;
+[v _res `i ~T0 @X0 1 a ]
+"190
+[; ;main5a.c: 190:     res = aa*1;
+[e = _res -> * _aa -> -> 1 `i `f `i ]
+"191
+[; ;main5a.c: 191:     return res;
+[e ) _res ]
+[e $UE 162  ]
+"192
+[; ;main5a.c: 192: }
+[e :UE 162 ]
+}
+[p f _sprintf 8396800 ]
+[a 1C 37 102 0 ]
