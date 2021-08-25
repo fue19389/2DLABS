@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\gerar\AppData\Local\Temp\shqk.o
+$C:\Users\gerar\AppData\Local\Temp\ssn0.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -113,17 +113,17 @@ STRING 189F-1C36 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\P1.X.production.o
-F cinit CODE >922:C:\Users\gerar\AppData\Local\Temp\shqk.s
-F cinit CODE >925:C:\Users\gerar\AppData\Local\Temp\shqk.s
-F cinit CODE >966:C:\Users\gerar\AppData\Local\Temp\shqk.s
-10 cinit CODE >969:C:\Users\gerar\AppData\Local\Temp\shqk.s
-11 cinit CODE >970:C:\Users\gerar\AppData\Local\Temp\shqk.s
-12 cinit CODE >971:C:\Users\gerar\AppData\Local\Temp\shqk.s
-13 cinit CODE >972:C:\Users\gerar\AppData\Local\Temp\shqk.s
-14 cinit CODE >973:C:\Users\gerar\AppData\Local\Temp\shqk.s
-19 cinit CODE >979:C:\Users\gerar\AppData\Local\Temp\shqk.s
-19 cinit CODE >981:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1A cinit CODE >982:C:\Users\gerar\AppData\Local\Temp\shqk.s
+F cinit CODE >922:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+F cinit CODE >925:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+F cinit CODE >966:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+10 cinit CODE >969:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+11 cinit CODE >970:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+12 cinit CODE >971:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+13 cinit CODE >972:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+14 cinit CODE >973:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+19 cinit CODE >979:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+19 cinit CODE >981:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1A cinit CODE >982:C:\Users\gerar\AppData\Local\Temp\ssn0.s
 4 intentry CODE >65:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
 1D text1_split_1 CODE >1142:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
 6E text1_split_1 CODE >1146:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\doprnt.c
@@ -847,16 +847,16 @@ FFF text2 CODE >449:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\
 900 maintext CODE >123:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
 924 maintext CODE >124:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
 92A maintext CODE >126:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
-1C46 clrtext CODE >953:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C46 clrtext CODE >954:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C47 clrtext CODE >955:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C47 clrtext CODE >956:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C48 clrtext CODE >957:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C49 clrtext CODE >958:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C4A clrtext CODE >959:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C4B clrtext CODE >960:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C4C clrtext CODE >961:C:\Users\gerar\AppData\Local\Temp\shqk.s
-1C4D clrtext CODE >962:C:\Users\gerar\AppData\Local\Temp\shqk.s
+1C46 clrtext CODE >953:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C46 clrtext CODE >954:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C47 clrtext CODE >955:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C47 clrtext CODE >956:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C48 clrtext CODE >957:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C49 clrtext CODE >958:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C4A clrtext CODE >959:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C4B clrtext CODE >960:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C4C clrtext CODE >961:C:\Users\gerar\AppData\Local\Temp\ssn0.s
+1C4D clrtext CODE >962:C:\Users\gerar\AppData\Local\Temp\ssn0.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -885,11 +885,11 @@ _f1 D3 0 BANK1 1 bssBANK1 dist/default/production\P1.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\P1.X.production.o
 _TXIF 64 0 ABS 0 - dist/default/production\P1.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\shqk.o
+___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\ssn0.o
 _conv 398C 0 CODE 0 text24 dist/default/production\P1.X.production.o
 _main 10C8 0 CODE 0 maintext dist/default/production\P1.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\P1.X.production.o
-start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\shqk.o
+start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\ssn0.o
 ___flmul@aexp 3A 0 BANK0 1 cstackBANK0 dist/default/production\P1.X.production.o
 ___flmul@bexp 3B 0 BANK0 1 cstackBANK0 dist/default/production\P1.X.production.o
 ___flmul@prod 3C 0 BANK0 1 cstackBANK0 dist/default/production\P1.X.production.o
@@ -915,12 +915,12 @@ ___awmod@sign 78 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production
 I2C_Master_Read@a 72 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
 __end_of__npowers_ 30DC 0 STRING 0 strings dist/default/production\P1.X.production.o
 _sprintf$1127 AD 0 BANK1 1 cstackBANK1 dist/default/production\P1.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shqk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shqk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shqk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shqk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shqk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shqk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\ssn0.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\ssn0.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\ssn0.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\ssn0.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\ssn0.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\ssn0.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 __size_of__div_to_l_ 0 0 ABS 0 - dist/default/production\P1.X.production.o
 pnum$text1 B 0 ABS 0 - dist/default/production\P1.X.production.o
@@ -970,8 +970,8 @@ _send_char 38D4 0 CODE 0 text23 dist/default/production\P1.X.production.o
 _send_crct 394A 0 CODE 0 text22 dist/default/production\P1.X.production.o
 send_crct@i 74 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
 __Umul8_16@multiplicand 72 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\shqk.o
-___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\shqk.o
+___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\ssn0.o
+___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\ssn0.o
 _dpowers 30DC 0 STRING 0 strings dist/default/production\P1.X.production.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\P1.X.production.o
 __size_of__tdiv_to_l_ 0 0 ABS 0 - dist/default/production\P1.X.production.o
@@ -1005,7 +1005,7 @@ _TRISC4 43C 0 ABS 0 - dist/default/production\P1.X.production.o
 __tdiv_to_l_@f1 72 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
 __tdiv_to_l_@f2 76 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
 _isdigit$941 72 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\shqk.o
+___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\ssn0.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -1074,7 +1074,7 @@ __end_of_isr 387C 0 CODE 0 text34 dist/default/production\P1.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 72 0 COMMON 1 cstackCOMMON dist/default/production\P1.X.production.o
 __stringtab 3000 0 STRING 0 strings dist/default/production\P1.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\shqk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\ssn0.o
 __end_of___xxtofl 22EA 0 CODE 0 text25 dist/default/production\P1.X.production.o
 __powers_ 300C 0 STRING 0 strings dist/default/production\P1.X.production.o
 __size_of___fleq 0 0 ABS 0 - dist/default/production\P1.X.production.o

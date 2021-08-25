@@ -2826,7 +2826,7 @@ void main(void) {
 # 108 "mainp1.c"
         I2C_Master_Start();
         I2C_Master_Write(0x72);
-        I2C_Master_Write(0xD0);
+        I2C_Master_Write(0x80);
         I2C_Master_Write(0x03);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(4000000/4000.0)));

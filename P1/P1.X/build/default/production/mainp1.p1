@@ -490,8 +490,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainp1.c: 109:         I2C_Master_Write(0x72);
 [e ( _I2C_Master_Write (1 -> -> 114 `i `ui ]
 "110
-[; ;mainp1.c: 110:         I2C_Master_Write(0xD0);
-[e ( _I2C_Master_Write (1 -> -> 208 `i `ui ]
+[; ;mainp1.c: 110:         I2C_Master_Write(0x80);
+[e ( _I2C_Master_Write (1 -> -> 128 `i `ui ]
 "111
 [; ;mainp1.c: 111:         I2C_Master_Write(0x03);
 [e ( _I2C_Master_Write (1 -> -> 3 `i `ui ]
