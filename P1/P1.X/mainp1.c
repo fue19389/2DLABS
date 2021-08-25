@@ -35,6 +35,8 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <pic16f887.h>
+#include "I2C.h"
 //*****************************************************************************
 // Definici�n de variables
 //*****************************************************************************
@@ -76,7 +78,7 @@ void main(void) {
     // Loop infinito
     //*************************************************************************
     while(1){
-        TMR1H = 0;
+        /*TMR1H = 0;
         TMR1L = 0;
         
         PORTAbits.RA0 = 1;
@@ -101,7 +103,25 @@ void main(void) {
         }
         if(PORTAbits.RA2 == 0){
             PORTDbits.RD0 = 0;
-        }
+        }*/
+        
+        I2C_Master_Start();       //Repeticiones para iniciar comunicación
+        I2C_Master_Write(0x72);   //con los esclavo y sensor (este es sensor)
+        I2C_Master_Write(0xD0);
+        I2C_Master_Write(0x03);
+        I2C_Master_Stop();        // Dirección del SHT21 es 0x80
+        __delay_ms(200);
+       
+        I2C_Master_Start();       
+        I2C_Master_Write(0x73);
+        D = I2C_Master_Read(0); //Guardar temperatura en variable
+        I2C_Master_Stop();
+        __delay_ms(200);
+        
+        v = conv(D);
+        
+        sprintf(f1, "%0.0f cm", v);
+        send_crct(f1);
         
         __delay_ms(500);
     }
