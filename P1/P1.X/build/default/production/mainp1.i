@@ -2798,9 +2798,11 @@ void send_crct(char st[]);
 void send_char(char dato);
 float conv(int aa);
 int V;
-int D = 0;
+int D0;
+int D1;
 unsigned char i;
-float v;
+float v0;
+float v1;
 char f1[15];
 
 
@@ -2819,27 +2821,26 @@ void main(void) {
 
     cfg_usart();
     cfg_clk();
+    I2C_Master_Init(100000);
+    I2C_Master_Start();
+    I2C_Master_Write(0x72);
+    I2C_Master_Write(0x80);
+    I2C_Master_Write(0x03);
 
 
 
     while(1){
-# 108 "mainp1.c"
-        I2C_Master_Start();
-        I2C_Master_Write(0x72);
-        I2C_Master_Write(0x80);
-        I2C_Master_Write(0x03);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
+# 124 "mainp1.c"
         I2C_Master_Start();
         I2C_Master_Write(0x73);
-        D = I2C_Master_Read(0);
+        I2C_Master_Write(0x8C);
+        D0 = I2C_Master_Read(0);
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(4000000/4000.0)));
+# 138 "mainp1.c"
+        v0 = conv(D0);
 
-        v = conv(D);
-
-        sprintf(f1, "%0.0f cm", v);
+        sprintf(f1, "%0.0f", v0);
         send_crct(f1);
 
         _delay((unsigned long)((500)*(4000000/4000.0)));

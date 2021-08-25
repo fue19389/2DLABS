@@ -11,12 +11,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49
 [; ;mainp1.c: 49: void cfg_clk(void);
 [v _cfg_clk `(v ~T0 @X0 0 ef ]
-"41 ./I2C.h
+"29 ./I2C.h
+[; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
+[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
+"41
 [; ;./I2C.h: 41: void I2C_Master_Start(void);
 [v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
 "55
 [; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
 [v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
+"60
+[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
+[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
 "49
 [; ;./I2C.h: 49: void I2C_Master_Stop(void);
 [v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
@@ -24,9 +30,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
 [p i __delay ]
-"60 ./I2C.h
-[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
-[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
 "54 mainp1.c
 [; ;mainp1.c: 54: float conv(int aa);
 [v _conv `(f ~T0 @X0 0 ef1`i ]
@@ -438,299 +441,302 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mainp1.c: 55: int V;
 [v _V `i ~T0 @X0 1 e ]
 "56
-[; ;mainp1.c: 56: int D = 0;
-[v _D `i ~T0 @X0 1 e ]
-[i _D
--> 0 `i
-]
+[; ;mainp1.c: 56: int D0;
+[v _D0 `i ~T0 @X0 1 e ]
 "57
-[; ;mainp1.c: 57: unsigned char i;
-[v _i `uc ~T0 @X0 1 e ]
+[; ;mainp1.c: 57: int D1;
+[v _D1 `i ~T0 @X0 1 e ]
 "58
-[; ;mainp1.c: 58: float v;
-[v _v `f ~T0 @X0 1 e ]
+[; ;mainp1.c: 58: unsigned char i;
+[v _i `uc ~T0 @X0 1 e ]
 "59
-[; ;mainp1.c: 59: char f1[15];
+[; ;mainp1.c: 59: float v0;
+[v _v0 `f ~T0 @X0 1 e ]
+"60
+[; ;mainp1.c: 60: float v1;
+[v _v1 `f ~T0 @X0 1 e ]
+"61
+[; ;mainp1.c: 61: char f1[15];
 [v _f1 `uc ~T0 @X0 -> 15 `i e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"65
-[; ;mainp1.c: 65: void __attribute__((picinterrupt(("")))) isr(void){
+"67
+[; ;mainp1.c: 67: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"68
-[; ;mainp1.c: 68: }
+"70
+[; ;mainp1.c: 70: }
 [e :UE 139 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"72
-[; ;mainp1.c: 72: void main(void) {
+"74
+[; ;mainp1.c: 74: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"73
-[; ;mainp1.c: 73:     cfg_io();
-[e ( _cfg_io ..  ]
 "75
-[; ;mainp1.c: 75:     cfg_usart();
+[; ;mainp1.c: 75:     cfg_io();
+[e ( _cfg_io ..  ]
+"77
+[; ;mainp1.c: 77:     cfg_usart();
 [e ( _cfg_usart ..  ]
-"76
-[; ;mainp1.c: 76:     cfg_clk();
+"78
+[; ;mainp1.c: 78:     cfg_clk();
 [e ( _cfg_clk ..  ]
+"79
+[; ;mainp1.c: 79:     I2C_Master_Init(100000);
+[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
 "80
-[; ;mainp1.c: 80:     while(1){
+[; ;mainp1.c: 80:     I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"81
+[; ;mainp1.c: 81:     I2C_Master_Write(0x72);
+[e ( _I2C_Master_Write (1 -> -> 114 `i `ui ]
+"82
+[; ;mainp1.c: 82:     I2C_Master_Write(0x80);
+[e ( _I2C_Master_Write (1 -> -> 128 `i `ui ]
+"83
+[; ;mainp1.c: 83:     I2C_Master_Write(0x03);
+[e ( _I2C_Master_Write (1 -> -> 3 `i `ui ]
+"87
+[; ;mainp1.c: 87:     while(1){
 [e :U 142 ]
 {
-"108
-[; ;mainp1.c: 108:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"109
-[; ;mainp1.c: 109:         I2C_Master_Write(0x72);
-[e ( _I2C_Master_Write (1 -> -> 114 `i `ui ]
-"110
-[; ;mainp1.c: 110:         I2C_Master_Write(0x80);
-[e ( _I2C_Master_Write (1 -> -> 128 `i `ui ]
-"111
-[; ;mainp1.c: 111:         I2C_Master_Write(0x03);
-[e ( _I2C_Master_Write (1 -> -> 3 `i `ui ]
-"112
-[; ;mainp1.c: 112:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"113
-[; ;mainp1.c: 113:         _delay((unsigned long)((200)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"115
-[; ;mainp1.c: 115:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"116
-[; ;mainp1.c: 116:         I2C_Master_Write(0x73);
-[e ( _I2C_Master_Write (1 -> -> 115 `i `ui ]
-"117
-[; ;mainp1.c: 117:         D = I2C_Master_Read(0);
-[e = _D -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
-"118
-[; ;mainp1.c: 118:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"119
-[; ;mainp1.c: 119:         _delay((unsigned long)((200)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"121
-[; ;mainp1.c: 121:         v = conv(D);
-[e = _v ( _conv (1 _D ]
-"123
-[; ;mainp1.c: 123:         sprintf(f1, "%0.0f cm", v);
-[e ( _sprintf (1 , (. , &U _f1 :s 1C -> _v `d ]
 "124
-[; ;mainp1.c: 124:         send_crct(f1);
-[e ( _send_crct (1 &U _f1 ]
+[; ;mainp1.c: 124:         I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"125
+[; ;mainp1.c: 125:         I2C_Master_Write(0x73);
+[e ( _I2C_Master_Write (1 -> -> 115 `i `ui ]
 "126
-[; ;mainp1.c: 126:         _delay((unsigned long)((500)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;mainp1.c: 126:         I2C_Master_Write(0x8C);
+[e ( _I2C_Master_Write (1 -> -> 140 `i `ui ]
 "127
-[; ;mainp1.c: 127:     }
+[; ;mainp1.c: 127:         D0 = I2C_Master_Read(0);
+[e = _D0 -> ( _I2C_Master_Read (1 -> -> 0 `i `us `i ]
+"128
+[; ;mainp1.c: 128:         I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"129
+[; ;mainp1.c: 129:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"138
+[; ;mainp1.c: 138:         v0 = conv(D0);
+[e = _v0 ( _conv (1 _D0 ]
+"140
+[; ;mainp1.c: 140:         sprintf(f1, "%0.0f", v0);
+[e ( _sprintf (1 , (. , &U _f1 :s 1C -> _v0 `d ]
+"141
+[; ;mainp1.c: 141:         send_crct(f1);
+[e ( _send_crct (1 &U _f1 ]
+"143
+[; ;mainp1.c: 143:         _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"144
+[; ;mainp1.c: 144:     }
 }
 [e :U 141 ]
 [e $U 142  ]
 [e :U 143 ]
-"128
-[; ;mainp1.c: 128:     return;
+"145
+[; ;mainp1.c: 145:     return;
 [e $UE 140  ]
-"129
-[; ;mainp1.c: 129: }
+"146
+[; ;mainp1.c: 146: }
 [e :UE 140 ]
 }
-"133
-[; ;mainp1.c: 133: void cfg_io(void){
+"150
+[; ;mainp1.c: 150: void cfg_io(void){
 [v _cfg_io `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_io ]
 [f ]
-"134
-[; ;mainp1.c: 134:     ANSEL = 0;
+"151
+[; ;mainp1.c: 151:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"135
-[; ;mainp1.c: 135:     ANSELH = 0;
+"152
+[; ;mainp1.c: 152:     ANSELH = 0;
 [e = _ANSELH -> -> 0 `i `uc ]
-"137
-[; ;mainp1.c: 137:     TRISAbits.TRISA0 = 0;
+"154
+[; ;mainp1.c: 154:     TRISAbits.TRISA0 = 0;
 [e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"138
-[; ;mainp1.c: 138:     TRISAbits.TRISA1 = 1;
+"155
+[; ;mainp1.c: 155:     TRISAbits.TRISA1 = 1;
 [e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
-"139
-[; ;mainp1.c: 139:     TRISAbits.TRISA2 = 1;
+"156
+[; ;mainp1.c: 156:     TRISAbits.TRISA2 = 1;
 [e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
-"140
-[; ;mainp1.c: 140:     TRISB = 0;
+"157
+[; ;mainp1.c: 157:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"141
-[; ;mainp1.c: 141:     TRISD = 0;
+"158
+[; ;mainp1.c: 158:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"142
-[; ;mainp1.c: 142:     TRISB = 0;
+"159
+[; ;mainp1.c: 159:     TRISB = 0;
 [e = _TRISB -> -> 0 `i `uc ]
-"144
-[; ;mainp1.c: 144:     PORTB = 0;
+"161
+[; ;mainp1.c: 161:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"145
-[; ;mainp1.c: 145:     PORTD = 0;
+"162
+[; ;mainp1.c: 162:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"146
-[; ;mainp1.c: 146:     PORTA = 0;
+"163
+[; ;mainp1.c: 163:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"148
-[; ;mainp1.c: 148: }
+"165
+[; ;mainp1.c: 165: }
 [e :UE 144 ]
 }
-"149
-[; ;mainp1.c: 149: void cfg_clk(){
+"166
+[; ;mainp1.c: 166: void cfg_clk(){
 [v _cfg_clk `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_clk ]
 [f ]
-"150
-[; ;mainp1.c: 150:     OSCCONbits.IRCF = 0b110;
+"167
+[; ;mainp1.c: 167:     OSCCONbits.IRCF = 0b110;
 [e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
-"151
-[; ;mainp1.c: 151:     OSCCONbits.SCS = 1;
+"168
+[; ;mainp1.c: 168:     OSCCONbits.SCS = 1;
 [e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"152
-[; ;mainp1.c: 152: }
+"169
+[; ;mainp1.c: 169: }
 [e :UE 145 ]
 }
-"154
-[; ;mainp1.c: 154: void cfg_inte(){
+"171
+[; ;mainp1.c: 171: void cfg_inte(){
 [v _cfg_inte `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_inte ]
 [f ]
-"155
-[; ;mainp1.c: 155:     INTCONbits.GIE = 1;
+"172
+[; ;mainp1.c: 172:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"156
-[; ;mainp1.c: 156:     INTCONbits.PEIE = 1;
+"173
+[; ;mainp1.c: 173:     INTCONbits.PEIE = 1;
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"157
-[; ;mainp1.c: 157:     PIE1bits.RCIE = 1;
+"174
+[; ;mainp1.c: 174:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"159
-[; ;mainp1.c: 159: }
+"176
+[; ;mainp1.c: 176: }
 [e :UE 146 ]
 }
-"160
-[; ;mainp1.c: 160: void cfg_usart(){
+"177
+[; ;mainp1.c: 177: void cfg_usart(){
 [v _cfg_usart `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_usart ]
 [f ]
-"162
-[; ;mainp1.c: 162:     TXSTAbits.SYNC = 0;
+"179
+[; ;mainp1.c: 179:     TXSTAbits.SYNC = 0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"163
-[; ;mainp1.c: 163:     TXSTAbits.BRGH = 1;
+"180
+[; ;mainp1.c: 180:     TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"165
-[; ;mainp1.c: 165:     BAUDCTLbits.BRG16 = 1;
+"182
+[; ;mainp1.c: 182:     BAUDCTLbits.BRG16 = 1;
 [e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
-"167
-[; ;mainp1.c: 167:     SPBRG = 103;
+"184
+[; ;mainp1.c: 184:     SPBRG = 103;
 [e = _SPBRG -> -> 103 `i `uc ]
-"168
-[; ;mainp1.c: 168:     SPBRGH = 0;
+"185
+[; ;mainp1.c: 185:     SPBRGH = 0;
 [e = _SPBRGH -> -> 0 `i `uc ]
-"170
-[; ;mainp1.c: 170:     RCSTAbits.SPEN = 1;
+"187
+[; ;mainp1.c: 187:     RCSTAbits.SPEN = 1;
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"171
-[; ;mainp1.c: 171:     RCSTAbits.RX9 = 0;
+"188
+[; ;mainp1.c: 188:     RCSTAbits.RX9 = 0;
 [e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
-"172
-[; ;mainp1.c: 172:     RCSTAbits.CREN = 1;
+"189
+[; ;mainp1.c: 189:     RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"174
-[; ;mainp1.c: 174:     TXSTAbits.TXEN = 1;
+"191
+[; ;mainp1.c: 191:     TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"176
-[; ;mainp1.c: 176: }
+"193
+[; ;mainp1.c: 193: }
 [e :UE 147 ]
 }
-"182
-[; ;mainp1.c: 182: void send_crct(char st[]){
+"199
+[; ;mainp1.c: 199: void send_crct(char st[]){
 [v _send_crct `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _send_crct ]
 [v _st `*uc ~T0 @X0 1 r1 ]
 [f ]
-"183
-[; ;mainp1.c: 183:     int i = 0;
+"200
+[; ;mainp1.c: 200:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"184
-[; ;mainp1.c: 184:     while (st[i] != 0){
+"201
+[; ;mainp1.c: 201:     while (st[i] != 0){
 [e $U 149  ]
 [e :U 150 ]
 {
-"185
-[; ;mainp1.c: 185:         send_char(st[i]);
+"202
+[; ;mainp1.c: 202:         send_char(st[i]);
 [e ( _send_char (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
-"186
-[; ;mainp1.c: 186:         i++;
+"203
+[; ;mainp1.c: 203:         i++;
 [e ++ _i -> 1 `i ]
-"187
-[; ;mainp1.c: 187:     }
+"204
+[; ;mainp1.c: 204:     }
 }
 [e :U 149 ]
-"184
-[; ;mainp1.c: 184:     while (st[i] != 0){
+"201
+[; ;mainp1.c: 201:     while (st[i] != 0){
 [e $ != -> *U + _st * -> _i `x -> -> # *U _st `i `x `i -> 0 `i 150  ]
 [e :U 151 ]
-"188
-[; ;mainp1.c: 188: }
+"205
+[; ;mainp1.c: 205: }
 [e :UE 148 ]
 }
-"189
-[; ;mainp1.c: 189: void send_char(char dato){
+"206
+[; ;mainp1.c: 206: void send_char(char dato){
 [v _send_char `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send_char ]
 [v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
-"190
-[; ;mainp1.c: 190:     while(!TXIF);
+"207
+[; ;mainp1.c: 207:     while(!TXIF);
 [e $U 153  ]
 [e :U 154 ]
 [e :U 153 ]
 [e $ ! _TXIF 154  ]
 [e :U 155 ]
-"191
-[; ;mainp1.c: 191:     TXREG = dato;
+"208
+[; ;mainp1.c: 208:     TXREG = dato;
 [e = _TXREG -> _dato `uc ]
-"192
-[; ;mainp1.c: 192: }
+"209
+[; ;mainp1.c: 209: }
 [e :UE 152 ]
 }
-"193
-[; ;mainp1.c: 193: float conv(int aa){
+"210
+[; ;mainp1.c: 210: float conv(int aa){
 [v _conv `(f ~T0 @X0 1 ef1`i ]
 {
 [e :U _conv ]
 [v _aa `i ~T0 @X0 1 r1 ]
 [f ]
-"194
-[; ;mainp1.c: 194:     float result;
+"211
+[; ;mainp1.c: 211:     float result;
 [v _result `f ~T0 @X0 1 a ]
-"195
-[; ;mainp1.c: 195:     result = aa;
+"212
+[; ;mainp1.c: 212:     result = aa;
 [e = _result -> _aa `f ]
-"196
-[; ;mainp1.c: 196:     return result;
+"213
+[; ;mainp1.c: 213:     return result;
 [e ) _result ]
 [e $UE 156  ]
-"197
-[; ;mainp1.c: 197: }
+"214
+[; ;mainp1.c: 214: }
 [e :UE 156 ]
 }
 [p f _sprintf 8462340 ]
-[a 1C 37 48 46 48 102 32 99 109 0 ]
+[a 1C 37 48 46 48 102 0 ]

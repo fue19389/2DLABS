@@ -53,9 +53,11 @@ void send_crct(char st[]);
 void send_char(char dato);
 float conv(int aa);
 int V;
-int D = 0;
+int D0;
+int D1;
 unsigned char i;
-float v;
+float v0;
+float v1;
 char f1[15];
 
 /*------------------------------------------------------------------------------
@@ -74,6 +76,11 @@ void main(void) {
     //cfg_inte();
     cfg_usart();
     cfg_clk();
+    I2C_Master_Init(100000);        // Inicializar Comuncación I2C
+    I2C_Master_Start();       //Repeticiones para iniciar comunicación
+    I2C_Master_Write(0x72);   //Address y escritura para sensor (comandos)
+    I2C_Master_Write(0x80);   //Iniciar e ir a Control REG
+    I2C_Master_Write(0x03);   //Dentro control REG encender 
     //*************************************************************************
     // Loop infinito
     //*************************************************************************
@@ -95,7 +102,7 @@ void main(void) {
         D = V/58;
         v = conv(D);
         
-        sprintf(f1, "%0.0f cm\r", v);
+        sprintf(f1, "%0.0f cm", v);
         send_crct(f1);
 
         if(PORTAbits.RA2 == 1){
@@ -105,28 +112,32 @@ void main(void) {
             PORTDbits.RD0 = 0;
         }*/
         
-        I2C_Master_Start();       //Repeticiones para iniciar comunicación
-        I2C_Master_Write(0x72);   //con los esclavo y sensor (este es sensor)
-        I2C_Master_Write(0x80);
-        I2C_Master_Write(0x03);
 
-        I2C_Master_Write(0x81);
-        I2C_Master_Write(0x12);
         
-   
+       /* I2C_Master_Write(0x72);   //Address y escritura para sensor (comandos)
+        I2C_Master_Write(0x81);   // Ir a Timing
+        I2C_Master_Write(0x12);   // Dentro timing, dado indoor, ganacia x16*/
+
+        //I2C_Master_Stop();        // Dirección del SHT21 es 0x80        
+        //__delay_ms(200);
+       
+        I2C_Master_Start();       
+        I2C_Master_Write(0x73);   //Address y lectura
+        I2C_Master_Write(0x8C);   //Leer ADC del sensor
+        D0 = I2C_Master_Read(0); //Guardar en variable  
         I2C_Master_Stop();        // Dirección del SHT21 es 0x80        
         __delay_ms(200);
        
-        I2C_Master_Start();       
-        I2C_Master_Write(0x73);
-        I2C_Master_Write(0x9C);
-        D = I2C_Master_Read(0); //Guardar temperatura en variable
+        /*I2C_Master_Start();               
+        I2C_Master_Write(0x73);   //Address y lectura
+        I2C_Master_Write(0x8D);   //Leer del del sensor
+        D1 = I2C_Master_Read(0); //Guardar en variable
         I2C_Master_Stop();
-        __delay_ms(200);
+        __delay_ms(200);*/
         
-        v = conv(D);
-        
-        sprintf(f1, "%0.0f", v);
+        v0 = conv(D0);
+        //v1 = conv(D1)/1000;
+        sprintf(f1, "%0.0f", v0);
         send_crct(f1);
         
         __delay_ms(500);
