@@ -2798,11 +2798,10 @@ void send_crct(char st[]);
 void send_char(char dato);
 float conv(int aa);
 int V;
-int D0;
-int D1;
-unsigned char i;
-float v0;
-float v1;
+int D;
+unsigned char i0;
+unsigned char i1;
+float v;
 char f1[15];
 
 
@@ -2821,27 +2820,47 @@ void main(void) {
 
     cfg_usart();
     cfg_clk();
-    I2C_Master_Init(100000);
-    I2C_Master_Start();
-    I2C_Master_Write(0x72);
-    I2C_Master_Write(0x80);
-    I2C_Master_Write(0x03);
 
 
 
     while(1){
-# 124 "mainp1.c"
-        I2C_Master_Start();
-        I2C_Master_Write(0x73);
-        I2C_Master_Write(0x8C);
-        D0 = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-# 138 "mainp1.c"
-        v0 = conv(D0);
+        TMR1H = 0;
+        TMR1L = 0;
 
-        sprintf(f1, "%0.0f", v0);
+        RA0 = 1;
+        _delay((unsigned long)((10)*(4000000/4000000.0)));
+        RA0 = 0;
+
+
+        while(!RA1);
+        TMR1ON = 1;
+        while(RA1);
+        TMR1ON = 0;
+
+        V = (TMR1L | (TMR1H<<8));
+        D = V/58;
+
+        if(D >= 10){
+            RD1 = 0;
+            i1 = 0;
+        }
+        if(D < 10){
+            RD1 = 1;
+            i1 = 1;
+        }
+        v = conv(D);
+
+        sprintf(f1, "%0.0f cm", v);
         send_crct(f1);
+
+        if(RA2 == 1){
+            RD0 = 1;
+            i0 = 1;
+        }
+        if(RA2 == 0){
+            RD0 = 0;
+            i0 = 0;
+        }
 
         _delay((unsigned long)((500)*(4000000/4000.0)));
     }

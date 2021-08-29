@@ -53,11 +53,10 @@ void send_crct(char st[]);
 void send_char(char dato);
 float conv(int aa);
 int V;
-int D0;
-int D1;
-unsigned char i;
-float v0;
-float v1;
+int D;
+unsigned char i0;
+unsigned char i1;
+float v;
 char f1[15];
 
 /*------------------------------------------------------------------------------
@@ -76,69 +75,47 @@ void main(void) {
     //cfg_inte();
     cfg_usart();
     cfg_clk();
-    I2C_Master_Init(100000);        // Inicializar Comuncación I2C
-    I2C_Master_Start();       //Repeticiones para iniciar comunicación
-    I2C_Master_Write(0x72);   //Address y escritura para sensor (comandos)
-    I2C_Master_Write(0x80);   //Iniciar e ir a Control REG
-    I2C_Master_Write(0x03);   //Dentro control REG encender 
     //*************************************************************************
     // Loop infinito
     //*************************************************************************
     while(1){
-        /*TMR1H = 0;
+        TMR1H = 0;
         TMR1L = 0;
         
-        PORTAbits.RA0 = 1;
+        RA0 = 1;
         __delay_us(10);
-        PORTAbits.RA0 = 0;
+        RA0 = 0;
 
         
-        while(!RA1);              //Waiting for Echo
+        while(!RA1);              //Waiting for Echo goes HIGH
         TMR1ON = 1;               //Timer Starts
         while(RA1);               //Waiting for Echo goes LOW
         TMR1ON = 0;               //Timer Stops
         
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
+        
+        if(D >= 10){
+            RD1 = 0;
+            i1 = 0;
+        }
+        if(D < 10){
+            RD1 = 1;
+            i1 = 1;
+        }
         v = conv(D);
         
         sprintf(f1, "%0.0f cm", v);
         send_crct(f1);
 
-        if(PORTAbits.RA2 == 1){
-            PORTDbits.RD0 = 1;
+        if(RA2 == 1){
+            RD0 = 1;
+            i0 = 1;
         }
-        if(PORTAbits.RA2 == 0){
-            PORTDbits.RD0 = 0;
-        }*/
-        
-
-        
-       /* I2C_Master_Write(0x72);   //Address y escritura para sensor (comandos)
-        I2C_Master_Write(0x81);   // Ir a Timing
-        I2C_Master_Write(0x12);   // Dentro timing, dado indoor, ganacia x16*/
-
-        //I2C_Master_Stop();        // Dirección del SHT21 es 0x80        
-        //__delay_ms(200);
-       
-        I2C_Master_Start();       
-        I2C_Master_Write(0x73);   //Address y lectura
-        I2C_Master_Write(0x8C);   //Leer ADC del sensor
-        D0 = I2C_Master_Read(0); //Guardar en variable  
-        I2C_Master_Stop();        // Dirección del SHT21 es 0x80        
-        __delay_ms(200);
-       
-        /*I2C_Master_Start();               
-        I2C_Master_Write(0x73);   //Address y lectura
-        I2C_Master_Write(0x8D);   //Leer del del sensor
-        D1 = I2C_Master_Read(0); //Guardar en variable
-        I2C_Master_Stop();
-        __delay_ms(200);*/
-        
-        v0 = conv(D0);
-        //v1 = conv(D1)/1000;
-        sprintf(f1, "%0.0f", v0);
-        send_crct(f1);
+        if(RA2 == 0){
+            RD0 = 0;
+            i0 = 0;
+        }
         
         __delay_ms(500);
     }
