@@ -19,17 +19,15 @@
 [v _I2C_Master_Wait I2C_Master_Wait `(v  1 e 1 0 ]
 "93
 [v _I2C_Slave_Init I2C_Slave_Init `(v  1 e 1 0 ]
-"60 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
+"61 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
 [v _isr isr `II(v  1 e 1 0 ]
-"98
+"99
 [v _main main `(v  1 e 1 0 ]
-"146
+"147
 [v _cfg_io cfg_io `(v  1 e 1 0 ]
 "162
 [v _cfg_clk cfg_clk `(v  1 e 1 0 ]
-"166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[v _PORTA PORTA `VEuc  1 e 1 @5 ]
-"228
+"228 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "352
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
@@ -66,7 +64,7 @@
 ]
 [u S52 . 1 `S41 1 . 1 0 `S47 1 . 1 0 ]
 [v _SSPCONbits SSPCONbits `VES52  1 e 1 @20 ]
-[s S182 . 1 `uc 1 TRISA0 1 0 :1:0 
+[s S184 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -76,8 +74,8 @@
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S191 . 1 `S182 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES191  1 e 1 @133 ]
+[u S193 . 1 `S184 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES193  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 [s S294 . 1 `uc 1 TRISC0 1 0 :1:0 
@@ -94,20 +92,20 @@
 [v _TRISCbits TRISCbits `VES303  1 e 1 @135 ]
 "1602
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S213 . 1 `uc 1 SCS 1 0 :1:0 
+[s S212 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S219 . 1 `uc 1 . 1 0 :4:0 
+[s S218 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S224 . 1 `S213 1 . 1 0 `S219 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES224  1 e 1 @143 ]
+[u S223 . 1 `S212 1 . 1 0 `S218 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES223  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
 [s S315 . 1 `uc 1 SEN 1 0 :1:0 
@@ -185,10 +183,10 @@
 [v _RA1 RA1 `VEb  1 e 0 @41 ]
 "4085
 [v _RA2 RA2 `VEb  1 e 0 @42 ]
-"4181
-[v _RD0 RD0 `VEb  1 e 0 @64 ]
-"4184
-[v _RD1 RD1 `VEb  1 e 0 @65 ]
+"4103
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"4106
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
 "4274
 [v _SSPIE SSPIE `VEb  1 e 0 @1123 ]
 "4277
@@ -209,14 +207,12 @@
 [v _i1 i1 `uc  1 e 1 0 ]
 "54
 [v _z z `uc  1 e 1 0 ]
-"55
-[v _port port `uc  1 e 1 0 ]
-"98
+"99
 [v _main main `(v  1 e 1 0 ]
 {
-"142
+"143
 } 0
-"146
+"147
 [v _cfg_io cfg_io `(v  1 e 1 0 ]
 {
 "161
@@ -248,8 +244,8 @@
 [v ___awdiv@dividend dividend `i  1 p 2 5 ]
 "41
 } 0
-"60 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
+"61 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\P1\P1.X\mainp1.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"94
+"95
 } 0

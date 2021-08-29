@@ -40,7 +40,7 @@
 //*****************************************************************************
 // Definici�n de variables
 //*****************************************************************************
-#define _XTAL_FREQ 4000000
+#define _XTAL_FREQ 8000000
 //*****************************************************************************
 // Definici�n de funciones para que se puedan colocar despu�s del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
@@ -51,8 +51,9 @@ int V;
 int D;
 unsigned char i0;
 unsigned char i1;
-unsigned char z;
+uint8_t z;
 unsigned char port;
+unsigned char tt;
 /*------------------------------------------------------------------------------
  INTERRUPCIÓN
  -----------------------------------------------------------------------------*/
@@ -76,13 +77,13 @@ void __interrupt() isr(void){
             PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
             SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
             while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-            port = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            PORTD = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = (i0 | (i1<<4));
+            SSPBUF = PORTB;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -98,6 +99,7 @@ void __interrupt() isr(void){
 void main(void) {
     cfg_io();
     cfg_clk();
+
     //*************************************************************************
     // Loop infinito
     //*************************************************************************
@@ -119,23 +121,22 @@ void main(void) {
         D = V/58;
         
         if(D >= 20){
-            RD1 = 0;
+            RB1 = 0;
             i1 = 0;
         }
         if(D < 20){
-            RD1 = 1;
+            RB1 = 1;
             i1 = 1;
         }
         
         if(RA2 == 1){
-            RD0 = 1;
+            RB0 = 1;
             i0 = 1;
         }
         if(RA2 == 0){
-            RD0 = 0;
+            RB0 = 0;
             i0 = 0;
         }
-        
         __delay_ms(500);
     }
     return;
@@ -156,11 +157,10 @@ void cfg_io(void){
     
     PORTB = 0;
     PORTD = 0;
-    PORTA = 0;
-    I2C_Slave_Init(0xF0);  
+    I2C_Slave_Init(0x50);  
 }
 void cfg_clk(){
-    OSCCONbits.IRCF = 0b110; //IRCF = 111 (8MHz) 
+    OSCCONbits.IRCF = 0b111; //IRCF = 110 (4MHz) 
     OSCCONbits.SCS = 1;   //Reloj interno habilitado
 }
 

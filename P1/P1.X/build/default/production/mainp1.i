@@ -2796,8 +2796,9 @@ int V;
 int D;
 unsigned char i0;
 unsigned char i1;
-unsigned char z;
+uint8_t z;
 unsigned char port;
+unsigned char tt;
 
 
 
@@ -2821,15 +2822,15 @@ void __attribute__((picinterrupt(("")))) isr(void){
             PIR1bits.SSPIF = 0;
             SSPCONbits.CKP = 1;
             while(!SSPSTATbits.BF);
-            port = SSPBUF;
-            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            PORTD = SSPBUF;
+            _delay((unsigned long)((250)*(8000000/4000000.0)));
 
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = (i0 | (i1<<4));
+            SSPBUF = PORTB;
             SSPCONbits.CKP = 1;
-            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            _delay((unsigned long)((250)*(8000000/4000000.0)));
             while(SSPSTATbits.BF);
         }
 
@@ -2846,12 +2847,13 @@ void main(void) {
 
 
 
+
     while(1){
         TMR1H = 0;
         TMR1L = 0;
 
         RA0 = 1;
-        _delay((unsigned long)((10)*(4000000/4000000.0)));
+        _delay((unsigned long)((10)*(8000000/4000000.0)));
         RA0 = 0;
 
 
@@ -2864,24 +2866,23 @@ void main(void) {
         D = V/58;
 
         if(D >= 20){
-            RD1 = 0;
+            RB1 = 0;
             i1 = 0;
         }
         if(D < 20){
-            RD1 = 1;
+            RB1 = 1;
             i1 = 1;
         }
 
         if(RA2 == 1){
-            RD0 = 1;
+            RB0 = 1;
             i0 = 1;
         }
         if(RA2 == 0){
-            RD0 = 0;
+            RB0 = 0;
             i0 = 0;
         }
-
-        _delay((unsigned long)((500)*(4000000/4000.0)));
+        _delay((unsigned long)((500)*(8000000/4000.0)));
     }
     return;
 }
@@ -2901,10 +2902,9 @@ void cfg_io(void){
 
     PORTB = 0;
     PORTD = 0;
-    PORTA = 0;
-    I2C_Slave_Init(0xF0);
+    I2C_Slave_Init(0x50);
 }
 void cfg_clk(){
-    OSCCONbits.IRCF = 0b110;
+    OSCCONbits.IRCF = 0b111;
     OSCCONbits.SCS = 1;
 }
