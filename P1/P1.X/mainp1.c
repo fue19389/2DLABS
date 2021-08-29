@@ -1,9 +1,9 @@
 //*****************************************************************************
 /*
- * File:   main5a.c
+ * File:   mainp1.c
  * Author: Gerardo Fuentes
- * Ejemplo de implementaci�n de la comunicaci�n SPI 
- * C�digo Maestro
+ * Ejemplo de implementaci�n de la comunicaci�n i2c y sensores 
+ * C�digo Esclavo
  * Created on 13 de agosto de 2021, 01:58 PM
  */
 //*****************************************************************************
@@ -47,24 +47,49 @@
 //*****************************************************************************
 void cfg_io(void);
 void cfg_clk(void);
-void cfg_inte(void);
-void cfg_usart(void);
-void send_crct(char st[]);
-void send_char(char dato);
-float conv(int aa);
 int V;
 int D;
 unsigned char i0;
 unsigned char i1;
-float v;
-char f1[15];
-
+unsigned char z;
+unsigned char port;
 /*------------------------------------------------------------------------------
  INTERRUPCIÓN
  -----------------------------------------------------------------------------*/
 
 void __interrupt() isr(void){
+   if(PIR1bits.SSPIF == 1){ 
 
+        SSPCONbits.CKP = 0;
+       
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;                 // Read the previous value to clear the buffer
+            SSPCONbits.SSPOV = 0;       // Clear the overflow flag
+            SSPCONbits.WCOL = 0;        // Clear the collision bit
+            SSPCONbits.CKP = 1;         // Enables SCL (Clock)
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+            //__delay_us(7);
+            z = SSPBUF;                 // Lectura del SSBUF para limpiar el buffer y la bandera BF
+            //__delay_us(2);
+            PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
+            SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
+            while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
+            port = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            __delay_us(250);
+            
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = (i0 | (i1<<4));
+            SSPCONbits.CKP = 1;
+            __delay_us(250);
+            while(SSPSTATbits.BF);
+        }
+       
+        PIR1bits.SSPIF = 0;    
+    }
 
 }
 //*****************************************************************************
@@ -72,8 +97,6 @@ void __interrupt() isr(void){
 //*****************************************************************************
 void main(void) {
     cfg_io();
-    //cfg_inte();
-    cfg_usart();
     cfg_clk();
     //*************************************************************************
     // Loop infinito
@@ -95,19 +118,15 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
         
-        if(D >= 10){
+        if(D >= 20){
             RD1 = 0;
             i1 = 0;
         }
-        if(D < 10){
+        if(D < 20){
             RD1 = 1;
             i1 = 1;
         }
-        v = conv(D);
         
-        sprintf(f1, "%0.0f cm", v);
-        send_crct(f1);
-
         if(RA2 == 1){
             RD0 = 1;
             i0 = 1;
@@ -138,55 +157,15 @@ void cfg_io(void){
     PORTB = 0;
     PORTD = 0;
     PORTA = 0;
-
+    I2C_Slave_Init(0xF0);  
 }
 void cfg_clk(){
     OSCCONbits.IRCF = 0b110; //IRCF = 111 (8MHz) 
     OSCCONbits.SCS = 1;   //Reloj interno habilitado
 }
 
-void cfg_inte(){
-    INTCONbits.GIE = 1;  //Enable Interrupciones globales
-    INTCONbits.PEIE = 1; //Enable interrupciones perifericas
-    PIE1bits.RCIE = 1;   //Enable interrupcion del UART 
-    
-}
-void cfg_usart(){        //Configuración usart
-
-    TXSTAbits.SYNC = 0;
-    TXSTAbits.BRGH = 1;
-    
-    BAUDCTLbits.BRG16 = 1;
-    
-    SPBRG = 103;
-    SPBRGH = 0;
-    
-    RCSTAbits.SPEN = 1;
-    RCSTAbits.RX9 = 0;
-    RCSTAbits.CREN = 1;
-    
-    TXSTAbits.TXEN = 1;
-            
-}
-
 /*------------------------------------------------------------------------------
  FUNCIONES
  -----------------------------------------------------------------------------*/
 
-void send_crct(char st[]){
-    int i = 0;              //Declaración variable que recorrera la cadena
-    while (st[i] != 0){     //Mientras st diferente de 0
-        send_char(st[i]);  //Se envía caracter por caracter
-        i++;                //Se incrementa el caracter
-    }
-}
-void send_char(char dato){
-    while(!TXIF);           //Mientras la bandera de transmisión sea 0
-    TXREG = dato;           //Se envía el caracter
-}
-float conv(int aa){ //Función para convertir binario en doble preci.
-    float result;
-    result = aa;
-    return result;
-}
 

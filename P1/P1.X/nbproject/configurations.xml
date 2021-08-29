@@ -14,8 +14,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>mainp1.c</itemPath>
-      <itemPath>pruebai2cluz.c</itemPath>
       <itemPath>I2C.c</itemPath>
+      <itemPath>pruebamaster.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

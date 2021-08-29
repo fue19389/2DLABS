@@ -2792,24 +2792,49 @@ void I2C_Slave_Init(uint8_t address);
 # 48 "mainp1.c"
 void cfg_io(void);
 void cfg_clk(void);
-void cfg_inte(void);
-void cfg_usart(void);
-void send_crct(char st[]);
-void send_char(char dato);
-float conv(int aa);
 int V;
 int D;
 unsigned char i0;
 unsigned char i1;
-float v;
-char f1[15];
-
+unsigned char z;
+unsigned char port;
 
 
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
+   if(PIR1bits.SSPIF == 1){
 
+        SSPCONbits.CKP = 0;
+
+        if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+            z = SSPBUF;
+            SSPCONbits.SSPOV = 0;
+            SSPCONbits.WCOL = 0;
+            SSPCONbits.CKP = 1;
+        }
+
+        if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+
+            z = SSPBUF;
+
+            PIR1bits.SSPIF = 0;
+            SSPCONbits.CKP = 1;
+            while(!SSPSTATbits.BF);
+            port = SSPBUF;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+
+        }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+            z = SSPBUF;
+            BF = 0;
+            SSPBUF = (i0 | (i1<<4));
+            SSPCONbits.CKP = 1;
+            _delay((unsigned long)((250)*(4000000/4000000.0)));
+            while(SSPSTATbits.BF);
+        }
+
+        PIR1bits.SSPIF = 0;
+    }
 
 }
 
@@ -2817,8 +2842,6 @@ void __attribute__((picinterrupt(("")))) isr(void){
 
 void main(void) {
     cfg_io();
-
-    cfg_usart();
     cfg_clk();
 
 
@@ -2840,18 +2863,14 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
 
-        if(D >= 10){
+        if(D >= 20){
             RD1 = 0;
             i1 = 0;
         }
-        if(D < 10){
+        if(D < 20){
             RD1 = 1;
             i1 = 1;
         }
-        v = conv(D);
-
-        sprintf(f1, "%0.0f cm", v);
-        send_crct(f1);
 
         if(RA2 == 1){
             RD0 = 1;
@@ -2883,54 +2902,9 @@ void cfg_io(void){
     PORTB = 0;
     PORTD = 0;
     PORTA = 0;
-
+    I2C_Slave_Init(0xF0);
 }
 void cfg_clk(){
     OSCCONbits.IRCF = 0b110;
     OSCCONbits.SCS = 1;
-}
-
-void cfg_inte(){
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIE1bits.RCIE = 1;
-
-}
-void cfg_usart(){
-
-    TXSTAbits.SYNC = 0;
-    TXSTAbits.BRGH = 1;
-
-    BAUDCTLbits.BRG16 = 1;
-
-    SPBRG = 103;
-    SPBRGH = 0;
-
-    RCSTAbits.SPEN = 1;
-    RCSTAbits.RX9 = 0;
-    RCSTAbits.CREN = 1;
-
-    TXSTAbits.TXEN = 1;
-
-}
-
-
-
-
-
-void send_crct(char st[]){
-    int i = 0;
-    while (st[i] != 0){
-        send_char(st[i]);
-        i++;
-    }
-}
-void send_char(char dato){
-    while(!TXIF);
-    TXREG = dato;
-}
-float conv(int aa){
-    float result;
-    result = aa;
-    return result;
 }
