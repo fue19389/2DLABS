@@ -25,26 +25,28 @@
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 "74
 [v _I2C_Master_Read I2C_Master_Read `(us  1 e 2 0 ]
-"56 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\MASTER.X\maestro.c
+"57 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\MASTER.X\maestro.c
 [v _main main `(v  1 e 1 0 ]
-"83
+"84
 [v _setup setup `(v  1 e 1 0 ]
-"93
+"91
 [v _cfg_clk cfg_clk `(v  1 e 1 0 ]
-"166 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[v _PORTA PORTA `VEuc  1 e 1 @5 ]
-"228
-[v _PORTB PORTB `VEuc  1 e 1 @6 ]
-"352
-[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S123 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"369 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[u S132 . 1 `S123 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES132  1 e 1 @8 ]
 "843
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "850
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"1416
-[v _TRISA TRISA `VEuc  1 e 1 @133 ]
-"1478
-[v _TRISB TRISB `VEuc  1 e 1 @134 ]
 [s S26 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -57,22 +59,32 @@
 "1557
 [u S35 . 1 `S26 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES35  1 e 1 @135 ]
-"1602
-[v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S132 . 1 `uc 1 SCS 1 0 :1:0 
+[s S146 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"1619
+[u S155 . 1 `S146 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES155  1 e 1 @136 ]
+[s S168 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S138 . 1 `uc 1 . 1 0 :4:0 
+[s S174 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S143 . 1 `S132 1 . 1 0 `S138 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES143  1 e 1 @143 ]
+[u S179 . 1 `S168 1 . 1 0 `S174 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES179  1 e 1 @143 ]
 "1979
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
 [s S47 . 1 `uc 1 SEN 1 0 :1:0 
@@ -111,15 +123,17 @@
 [v _d0 d0 `uc  1 e 1 0 ]
 "51
 [v _d1 d1 `uc  1 e 1 0 ]
-"56
+"52
+[v _pd pd `uc  1 e 1 0 ]
+"57
 [v _main main `(v  1 e 1 0 ]
 {
-"79
+"80
 } 0
-"83
+"84
 [v _setup setup `(v  1 e 1 0 ]
 {
-"92
+"90
 } 0
 "16 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\MASTER.X\I2C.c
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
@@ -139,10 +153,10 @@
 [v ___lldiv@dividend dividend `ul  1 p 4 4 ]
 "30
 } 0
-"93 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\MASTER.X\maestro.c
+"91 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\MASTER.X\maestro.c
 [v _cfg_clk cfg_clk `(v  1 e 1 0 ]
 {
-"96
+"94
 } 0
 "65 C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\MASTER.X\I2C.c
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]

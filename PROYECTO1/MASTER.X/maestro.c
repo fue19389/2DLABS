@@ -50,6 +50,7 @@ void cfg_clk(void);
 unsigned char d0;
 unsigned char d1;
 unsigned char pd;
+unsigned char val = 0;
 //*****************************************************************************
 // Main
 //*****************************************************************************
@@ -59,21 +60,21 @@ void main(void) {
     while(1){
         I2C_Master_Start();
         I2C_Master_Write(0x50);
-        I2C_Master_Write(PORTB);
+        I2C_Master_Write(val);
         I2C_Master_Stop();
         __delay_ms(200);
        
         I2C_Master_Start();
         I2C_Master_Write(0x51);
-        PORTA = I2C_Master_Read(0);
+        pd = I2C_Master_Read(0);
         I2C_Master_Stop();
         __delay_ms(200);
-        PORTB++;  
         
-        d0 = (0x0F & PORTA);
-        d1 = (0x0F & (PORTA>>4));
+        d0 = (0x0F & pd);
+        d1 = (0x0F & (pd>>4));
         
-        PORTD = (d0 | (d1<<1));
+        PORTDbits.RD0 = d0;
+        PORTDbits.RD1 = d1;
     }
     return;
 }
@@ -83,11 +84,8 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISA = 0;
-    TRISB = 0;
-    TRISD = 0;
-    PORTB = 0;
-    PORTD = 0;
+    TRISDbits.TRISD0 = 0;
+    TRISDbits.TRISD1 = 0;
     I2C_Master_Init(100000);        // Inicializar Comuncación I2C
 }
 void cfg_clk(void){

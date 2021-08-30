@@ -6,7 +6,7 @@
  </FRAME>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="1151" x="48" flags="00008003" y="160" h="200" pid="0" iid="-1">
+   <POPUP w="1151" x="48" flags="00000003" y="160" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">891</ITEM>
      <ITEM name="ShowGrid">No</ITEM>

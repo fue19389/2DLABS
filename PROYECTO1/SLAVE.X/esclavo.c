@@ -41,6 +41,7 @@
 //*****************************************************************************
 #define _XTAL_FREQ 4000000
 uint8_t z;
+uint8_t dato;
 int V;
 int D;
 unsigned char i0;
@@ -73,13 +74,13 @@ void __interrupt() isr(void){
             PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
             SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
             while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-            PORTD = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            dato = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = PORTB;
+            SSPBUF = (i0 | (i1<<4));;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -117,22 +118,23 @@ void main(void) {
         D = V/58;
        
         if(D >= 20){
-            PORTBbits.RB0 = 0;
+            PORTBbits.RB6 = 0;
             i1 = 0;
         }
         if(D < 20){
-            PORTBbits.RB0 = 1;
+            PORTBbits.RB6 = 1;
             i1 = 1;
         }
         if(PORTAbits.RA2 == 1){
-            PORTBbits.RB1 = 1;
             i0 = 1;
+            PORTBbits.RB7 = 1;
+            
         }
         if(PORTAbits.RA2 == 0){
-            PORTBbits.RB1 = 0;
             i0 = 0;
+            PORTBbits.RB7 = 0;
         }     
-       __delay_ms(100);
+       __delay_ms(50);
     }
     return;
 }
@@ -145,12 +147,10 @@ void setup(void){
     
     TRISAbits.TRISA0 = 0;
     TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 1;    
+    TRISAbits.TRISA2 = 1;  
     TRISB = 0;
-    TRISD = 0;
-    
     PORTB = 0;
-    PORTD = 0;
+    
     I2C_Slave_Init(0x50);   
 }
 void cfg_clk(void){

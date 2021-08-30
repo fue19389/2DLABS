@@ -65,9 +65,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2231
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2231: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0x094)));
 [v _SSPSTATbits `VS81 ~T0 @X0 0 e@148 ]
-"352
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 [v F1284 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1284 ~T0 @X0 0 e ]
@@ -75,15 +72,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3641 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3641: extern volatile __bit BF __attribute__((address(0x4A0)));
 [v _BF `Vb ~T0 @X0 0 e@1184 ]
-"228
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
-[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 [p mainexit ]
-"52 esclavo.c
-[; ;esclavo.c: 52: void setup(void);
+"53 esclavo.c
+[; ;esclavo.c: 53: void setup(void);
 [v _setup `(v ~T0 @X0 0 ef ]
-"53
-[; ;esclavo.c: 53: void cfg_clk(void);
+"54
+[; ;esclavo.c: 54: void cfg_clk(void);
 [v _cfg_clk `(v ~T0 @X0 0 ef ]
 "664 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 664: extern volatile unsigned char TMR1H __attribute__((address(0x00F)));
@@ -136,9 +130,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1478
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"1602
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
-[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"228
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "64 ./I2C.h
 [; ;./I2C.h: 64: void I2C_Slave_Init(uint8_t address);
 [v _I2C_Slave_Init `(v ~T0 @X0 0 ef1`uc ]
@@ -419,285 +413,282 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;esclavo.c: 43: uint8_t z;
 [v _z `uc ~T0 @X0 1 e ]
 "44
-[; ;esclavo.c: 44: int V;
-[v _V `i ~T0 @X0 1 e ]
+[; ;esclavo.c: 44: uint8_t dato;
+[v _dato `uc ~T0 @X0 1 e ]
 "45
-[; ;esclavo.c: 45: int D;
-[v _D `i ~T0 @X0 1 e ]
+[; ;esclavo.c: 45: int V;
+[v _V `i ~T0 @X0 1 e ]
 "46
-[; ;esclavo.c: 46: unsigned char i0;
-[v _i0 `uc ~T0 @X0 1 e ]
+[; ;esclavo.c: 46: int D;
+[v _D `i ~T0 @X0 1 e ]
 "47
-[; ;esclavo.c: 47: unsigned char i1;
+[; ;esclavo.c: 47: unsigned char i0;
+[v _i0 `uc ~T0 @X0 1 e ]
+"48
+[; ;esclavo.c: 48: unsigned char i1;
 [v _i1 `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"57
-[; ;esclavo.c: 57: void __attribute__((picinterrupt(("")))) isr(void){
+"58
+[; ;esclavo.c: 58: void __attribute__((picinterrupt(("")))) isr(void){
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"58
-[; ;esclavo.c: 58:    if(PIR1bits.SSPIF == 1){
+"59
+[; ;esclavo.c: 59:    if(PIR1bits.SSPIF == 1){
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 144  ]
 {
-"60
-[; ;esclavo.c: 60:         SSPCONbits.CKP = 0;
+"61
+[; ;esclavo.c: 61:         SSPCONbits.CKP = 0;
 [e = . . _SSPCONbits 0 1 -> -> 0 `i `uc ]
-"62
-[; ;esclavo.c: 62:         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
+"63
+[; ;esclavo.c: 63:         if ((SSPCONbits.SSPOV) || (SSPCONbits.WCOL)){
 [e $ ! || != -> . . _SSPCONbits 0 3 `i -> 0 `i != -> . . _SSPCONbits 0 4 `i -> 0 `i 145  ]
 {
-"63
-[; ;esclavo.c: 63:             z = SSPBUF;
-[e = _z _SSPBUF ]
 "64
-[; ;esclavo.c: 64:             SSPCONbits.SSPOV = 0;
-[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
+[; ;esclavo.c: 64:             z = SSPBUF;
+[e = _z _SSPBUF ]
 "65
-[; ;esclavo.c: 65:             SSPCONbits.WCOL = 0;
-[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
+[; ;esclavo.c: 65:             SSPCONbits.SSPOV = 0;
+[e = . . _SSPCONbits 0 3 -> -> 0 `i `uc ]
 "66
-[; ;esclavo.c: 66:             SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;esclavo.c: 66:             SSPCONbits.WCOL = 0;
+[e = . . _SSPCONbits 0 4 -> -> 0 `i `uc ]
 "67
-[; ;esclavo.c: 67:         }
+[; ;esclavo.c: 67:             SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"68
+[; ;esclavo.c: 68:         }
 }
 [e :U 145 ]
-"69
-[; ;esclavo.c: 69:         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
+"70
+[; ;esclavo.c: 70:         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i ! != -> . . _SSPSTATbits 0 2 `i -> 0 `i 146  ]
 {
-"71
-[; ;esclavo.c: 71:             z = SSPBUF;
+"72
+[; ;esclavo.c: 72:             z = SSPBUF;
 [e = _z _SSPBUF ]
-"73
-[; ;esclavo.c: 73:             PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "74
-[; ;esclavo.c: 74:             SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;esclavo.c: 74:             PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "75
-[; ;esclavo.c: 75:             while(!SSPSTATbits.BF);
+[; ;esclavo.c: 75:             SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+"76
+[; ;esclavo.c: 76:             while(!SSPSTATbits.BF);
 [e $U 147  ]
 [e :U 148 ]
 [e :U 147 ]
 [e $ ! != -> . . _SSPSTATbits 0 0 `i -> 0 `i 148  ]
 [e :U 149 ]
-"76
-[; ;esclavo.c: 76:             PORTD = SSPBUF;
-[e = _PORTD _SSPBUF ]
 "77
-[; ;esclavo.c: 77:             _delay((unsigned long)((250)*(4000000/4000000.0)));
+[; ;esclavo.c: 77:             dato = SSPBUF;
+[e = _dato _SSPBUF ]
+"78
+[; ;esclavo.c: 78:             _delay((unsigned long)((250)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"79
-[; ;esclavo.c: 79:         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
+"80
+[; ;esclavo.c: 80:         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
 }
 [e $U 150  ]
 [e :U 146 ]
 [e $ ! && ! != -> . . _SSPSTATbits 0 5 `i -> 0 `i != -> . . _SSPSTATbits 0 2 `i -> 0 `i 151  ]
 {
-"80
-[; ;esclavo.c: 80:             z = SSPBUF;
-[e = _z _SSPBUF ]
 "81
-[; ;esclavo.c: 81:             BF = 0;
-[e = _BF -> -> 0 `i `b ]
+[; ;esclavo.c: 81:             z = SSPBUF;
+[e = _z _SSPBUF ]
 "82
-[; ;esclavo.c: 82:             SSPBUF = PORTB;
-[e = _SSPBUF _PORTB ]
+[; ;esclavo.c: 82:             BF = 0;
+[e = _BF -> -> 0 `i `b ]
 "83
-[; ;esclavo.c: 83:             SSPCONbits.CKP = 1;
-[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
+[; ;esclavo.c: 83:             SSPBUF = (i0 | (i1<<4));;
+[e = _SSPBUF -> | -> _i0 `i << -> _i1 `i -> 4 `i `uc ]
 "84
-[; ;esclavo.c: 84:             _delay((unsigned long)((250)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;esclavo.c: 84:             SSPCONbits.CKP = 1;
+[e = . . _SSPCONbits 0 1 -> -> 1 `i `uc ]
 "85
-[; ;esclavo.c: 85:             while(SSPSTATbits.BF);
+[; ;esclavo.c: 85:             _delay((unsigned long)((250)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"86
+[; ;esclavo.c: 86:             while(SSPSTATbits.BF);
 [e $U 152  ]
 [e :U 153 ]
 [e :U 152 ]
 [e $ != -> . . _SSPSTATbits 0 0 `i -> 0 `i 153  ]
 [e :U 154 ]
-"86
-[; ;esclavo.c: 86:         }
+"87
+[; ;esclavo.c: 87:         }
 }
 [e :U 151 ]
 [e :U 150 ]
-"88
-[; ;esclavo.c: 88:         PIR1bits.SSPIF = 0;
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
 "89
-[; ;esclavo.c: 89:     }
+[; ;esclavo.c: 89:         PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"90
+[; ;esclavo.c: 90:     }
 }
 [e :U 144 ]
-"90
-[; ;esclavo.c: 90: }
+"91
+[; ;esclavo.c: 91: }
 [e :UE 143 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"94
-[; ;esclavo.c: 94: void main(void) {
+"95
+[; ;esclavo.c: 95: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"95
-[; ;esclavo.c: 95:     setup();
-[e ( _setup ..  ]
 "96
-[; ;esclavo.c: 96:     cfg_clk();
+[; ;esclavo.c: 96:     setup();
+[e ( _setup ..  ]
+"97
+[; ;esclavo.c: 97:     cfg_clk();
 [e ( _cfg_clk ..  ]
-"100
-[; ;esclavo.c: 100:     while(1){
+"101
+[; ;esclavo.c: 101:     while(1){
 [e :U 157 ]
 {
-"103
-[; ;esclavo.c: 103:         TMR1H = 0;
-[e = _TMR1H -> -> 0 `i `uc ]
 "104
-[; ;esclavo.c: 104:         TMR1L = 0;
+[; ;esclavo.c: 104:         TMR1H = 0;
+[e = _TMR1H -> -> 0 `i `uc ]
+"105
+[; ;esclavo.c: 105:         TMR1L = 0;
 [e = _TMR1L -> -> 0 `i `uc ]
-"106
-[; ;esclavo.c: 106:         PORTAbits.RA0 = 1;
-[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 "107
-[; ;esclavo.c: 107:         _delay((unsigned long)((10)*(4000000/4000000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+[; ;esclavo.c: 107:         PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 "108
-[; ;esclavo.c: 108:         PORTAbits.RA0 = 0;
+[; ;esclavo.c: 108:         _delay((unsigned long)((10)*(4000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
+"109
+[; ;esclavo.c: 109:         PORTAbits.RA0 = 0;
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"111
-[; ;esclavo.c: 111:         while(!PORTAbits.RA1);
+"112
+[; ;esclavo.c: 112:         while(!PORTAbits.RA1);
 [e $U 159  ]
 [e :U 160 ]
 [e :U 159 ]
 [e $ ! != -> . . _PORTAbits 0 1 `i -> 0 `i 160  ]
 [e :U 161 ]
-"112
-[; ;esclavo.c: 112:         TMR1ON = 1;
-[e = _TMR1ON -> -> 1 `i `b ]
 "113
-[; ;esclavo.c: 113:         while(PORTAbits.RA1);
+[; ;esclavo.c: 113:         TMR1ON = 1;
+[e = _TMR1ON -> -> 1 `i `b ]
+"114
+[; ;esclavo.c: 114:         while(PORTAbits.RA1);
 [e $U 162  ]
 [e :U 163 ]
 [e :U 162 ]
 [e $ != -> . . _PORTAbits 0 1 `i -> 0 `i 163  ]
 [e :U 164 ]
-"114
-[; ;esclavo.c: 114:         TMR1ON = 0;
+"115
+[; ;esclavo.c: 115:         TMR1ON = 0;
 [e = _TMR1ON -> -> 0 `i `b ]
-"116
-[; ;esclavo.c: 116:         V = (TMR1L | (TMR1H<<8));
-[e = _V | -> _TMR1L `i << -> _TMR1H `i -> 8 `i ]
 "117
-[; ;esclavo.c: 117:         D = V/58;
+[; ;esclavo.c: 117:         V = (TMR1L | (TMR1H<<8));
+[e = _V | -> _TMR1L `i << -> _TMR1H `i -> 8 `i ]
+"118
+[; ;esclavo.c: 118:         D = V/58;
 [e = _D / _V -> 58 `i ]
-"119
-[; ;esclavo.c: 119:         if(D >= 20){
+"120
+[; ;esclavo.c: 120:         if(D >= 20){
 [e $ ! >= _D -> 20 `i 165  ]
 {
-"120
-[; ;esclavo.c: 120:             PORTBbits.RB0 = 0;
-[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
 "121
-[; ;esclavo.c: 121:             i1 = 0;
-[e = _i1 -> -> 0 `i `uc ]
+[; ;esclavo.c: 121:             PORTBbits.RB6 = 0;
+[e = . . _PORTBbits 0 6 -> -> 0 `i `uc ]
 "122
-[; ;esclavo.c: 122:         }
+[; ;esclavo.c: 122:             i1 = 0;
+[e = _i1 -> -> 0 `i `uc ]
+"123
+[; ;esclavo.c: 123:         }
 }
 [e :U 165 ]
-"123
-[; ;esclavo.c: 123:         if(D < 20){
+"124
+[; ;esclavo.c: 124:         if(D < 20){
 [e $ ! < _D -> 20 `i 166  ]
 {
-"124
-[; ;esclavo.c: 124:             PORTBbits.RB0 = 1;
-[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
 "125
-[; ;esclavo.c: 125:             i1 = 1;
-[e = _i1 -> -> 1 `i `uc ]
+[; ;esclavo.c: 125:             PORTBbits.RB6 = 1;
+[e = . . _PORTBbits 0 6 -> -> 1 `i `uc ]
 "126
-[; ;esclavo.c: 126:         }
+[; ;esclavo.c: 126:             i1 = 1;
+[e = _i1 -> -> 1 `i `uc ]
+"127
+[; ;esclavo.c: 127:         }
 }
 [e :U 166 ]
-"127
-[; ;esclavo.c: 127:         if(PORTAbits.RA2 == 1){
+"128
+[; ;esclavo.c: 128:         if(PORTAbits.RA2 == 1){
 [e $ ! == -> . . _PORTAbits 0 2 `i -> 1 `i 167  ]
 {
-"128
-[; ;esclavo.c: 128:             PORTBbits.RB1 = 1;
-[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
 "129
 [; ;esclavo.c: 129:             i0 = 1;
 [e = _i0 -> -> 1 `i `uc ]
 "130
-[; ;esclavo.c: 130:         }
+[; ;esclavo.c: 130:             PORTBbits.RB7 = 1;
+[e = . . _PORTBbits 0 7 -> -> 1 `i `uc ]
+"132
+[; ;esclavo.c: 132:         }
 }
 [e :U 167 ]
-"131
-[; ;esclavo.c: 131:         if(PORTAbits.RA2 == 0){
+"133
+[; ;esclavo.c: 133:         if(PORTAbits.RA2 == 0){
 [e $ ! == -> . . _PORTAbits 0 2 `i -> 0 `i 168  ]
 {
-"132
-[; ;esclavo.c: 132:             PORTBbits.RB1 = 0;
-[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
-"133
-[; ;esclavo.c: 133:             i0 = 0;
-[e = _i0 -> -> 0 `i `uc ]
 "134
-[; ;esclavo.c: 134:         }
+[; ;esclavo.c: 134:             i0 = 0;
+[e = _i0 -> -> 0 `i `uc ]
+"135
+[; ;esclavo.c: 135:             PORTBbits.RB7 = 0;
+[e = . . _PORTBbits 0 7 -> -> 0 `i `uc ]
+"136
+[; ;esclavo.c: 136:         }
 }
 [e :U 168 ]
-"135
-[; ;esclavo.c: 135:        _delay((unsigned long)((100)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"136
-[; ;esclavo.c: 136:     }
+"137
+[; ;esclavo.c: 137:        _delay((unsigned long)((50)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"138
+[; ;esclavo.c: 138:     }
 }
 [e :U 156 ]
 [e $U 157  ]
 [e :U 158 ]
-"137
-[; ;esclavo.c: 137:     return;
+"139
+[; ;esclavo.c: 139:     return;
 [e $UE 155  ]
-"138
-[; ;esclavo.c: 138: }
+"140
+[; ;esclavo.c: 140: }
 [e :UE 155 ]
 }
-"142
-[; ;esclavo.c: 142: void setup(void){
+"144
+[; ;esclavo.c: 144: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"143
-[; ;esclavo.c: 143:     ANSEL = 0;
+"145
+[; ;esclavo.c: 145:     ANSEL = 0;
 [e = _ANSEL -> -> 0 `i `uc ]
-"144
-[; ;esclavo.c: 144:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
 "146
-[; ;esclavo.c: 146:     TRISAbits.TRISA0 = 0;
-[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
-"147
-[; ;esclavo.c: 147:     TRISAbits.TRISA1 = 1;
-[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
+[; ;esclavo.c: 146:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "148
-[; ;esclavo.c: 148:     TRISAbits.TRISA2 = 1;
-[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+[; ;esclavo.c: 148:     TRISAbits.TRISA0 = 0;
+[e = . . _TRISAbits 0 0 -> -> 0 `i `uc ]
 "149
-[; ;esclavo.c: 149:     TRISB = 0;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;esclavo.c: 149:     TRISAbits.TRISA1 = 1;
+[e = . . _TRISAbits 0 1 -> -> 1 `i `uc ]
 "150
-[; ;esclavo.c: 150:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;esclavo.c: 150:     TRISAbits.TRISA2 = 1;
+[e = . . _TRISAbits 0 2 -> -> 1 `i `uc ]
+"151
+[; ;esclavo.c: 151:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "152
 [; ;esclavo.c: 152:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"153
-[; ;esclavo.c: 153:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
 "154
 [; ;esclavo.c: 154:     I2C_Slave_Init(0x50);
 [e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
