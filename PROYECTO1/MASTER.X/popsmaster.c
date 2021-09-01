@@ -36,8 +36,8 @@
 #include <stdlib.h>
 #include<stdbool.h>
 #include <stdio.h>
-#include "I2C.h"
-//#include"Digital2_toolbox.h"
+
+#include"D2TOOL.h"
 
 //|----------------------------------------------------------------------------|
 //|-------------------------------VARIABLES------------------------------------|

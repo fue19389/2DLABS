@@ -63,7 +63,7 @@ void main(void) {
         I2C_Master_Write(val);
         I2C_Master_Stop();
         __delay_ms(200);*/
-       
+
         I2C_Master_Start();
         I2C_Master_Write(0x51);
         pd = I2C_Master_Read(0);
@@ -84,12 +84,9 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD1 = 0;
-    
-    GIE     =   1;
-    PEIE    =   1;
-    
+    TRISD = 0;
+    PORTD = 0;
+
     I2C_Master_Init(100000);        // Inicializar Comuncación I2C
 }
 void cfg_clk(void){

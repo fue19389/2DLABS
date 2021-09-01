@@ -2830,6 +2830,9 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 # 37 "esclavo.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdbool.h" 1 3
+# 38 "esclavo.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 1 3
 # 11 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.31\\pic\\include\\c90\\stdarg.h" 1 3
@@ -2910,7 +2913,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 38 "esclavo.c" 2
+# 39 "esclavo.c" 2
 
 
 
@@ -2928,6 +2931,7 @@ unsigned char i1;
 
 void setup(void);
 void cfg_clk(void);
+void __attribute__((picinterrupt(("")))) isr(void);
 
 
 
@@ -2993,22 +2997,17 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
 
-        if(D >= 20){
-            PORTBbits.RB6 = 0;
-            i1 = 0;
+        if(D >= 10){
+            i0 = 0;
         }
-        if(D < 20){
-            PORTBbits.RB6 = 1;
-            i1 = 1;
+        if(D < 10){
+            i0 = 1;
         }
         if(PORTAbits.RA2 == 1){
-            i0 = 1;
-            PORTBbits.RB7 = 1;
-
+            i1 = 1;
         }
         if(PORTAbits.RA2 == 0){
-            i0 = 0;
-            PORTBbits.RB7 = 0;
+            i1 = 0;
         }
        _delay((unsigned long)((50)*(4000000/4000.0)));
     }
@@ -3021,14 +3020,21 @@ void setup(void){
     ANSEL = 0;
     ANSELH = 0;
 
-    TRISAbits.TRISA0 = 0;
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 1;
     TRISB = 0;
+    TRISC = 0;
+    TRISE = 0;
+    TRISA = 0x06;
+    TRISD = 0;
+
+    PORTA = 0;
     PORTB = 0;
-    GIE = 1;
+    PORTC = 0;
+    PORTD = 0;
+    PORTE = 0;
+
 
     I2C_Slave_Init(0x50);
+
 }
 void cfg_clk(void){
     OSCCONbits.IRCF = 0b110;

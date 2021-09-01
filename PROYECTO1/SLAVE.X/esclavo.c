@@ -35,6 +35,7 @@
 #include <xc.h>
 #include <string.h>
 #include <stdlib.h>
+#include<stdbool.h>
 #include <stdio.h>
 //*****************************************************************************
 // Definición de variables
@@ -52,6 +53,7 @@ unsigned char i1;
 //*****************************************************************************
 void setup(void);
 void cfg_clk(void);
+void __interrupt() isr(void);
 //*****************************************************************************
 // Código de Interrupción 
 //*****************************************************************************
@@ -117,22 +119,17 @@ void main(void) {
         V = (TMR1L | (TMR1H<<8));
         D = V/58;
        
-        if(D >= 20){
-            PORTBbits.RB6 = 0;
-            i1 = 0;
+        if(D >= 10){
+            i0 = 0;
         }
-        if(D < 20){
-            PORTBbits.RB6 = 1;
-            i1 = 1;
+        if(D < 10){
+            i0 = 1;
         }
         if(PORTAbits.RA2 == 1){
-            i0 = 1;
-            PORTBbits.RB7 = 1;
-            
+            i1 = 1;           
         }
         if(PORTAbits.RA2 == 0){
-            i0 = 0;
-            PORTBbits.RB7 = 0;
+            i1 = 0;
         }     
        __delay_ms(50);
     }
@@ -145,14 +142,21 @@ void setup(void){
     ANSEL = 0;
     ANSELH = 0;
     
-    TRISAbits.TRISA0 = 0;
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 1;  
-    TRISB = 0;
-    PORTB = 0;
-    GIE     =   1;
+    TRISB   =   0;
+    TRISC   =   0;
+    TRISE   =   0;
+    TRISA   =   0x06;
+    TRISD   =   0;
+    
+    PORTA   =   0;
+    PORTB   =   0;
+    PORTC   =   0;
+    PORTD   =   0;
+    PORTE   =   0;
+
     
     I2C_Slave_Init(0x50);   
+
 }
 void cfg_clk(void){
     OSCCONbits.IRCF = 0b110; //IRCF = 111 (8MHz) 

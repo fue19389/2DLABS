@@ -2951,11 +2951,8 @@ void main(void) {
 void setup(void){
     ANSEL = 0;
     ANSELH = 0;
-    TRISDbits.TRISD0 = 0;
-    TRISDbits.TRISD1 = 0;
-
-    GIE = 1;
-    PEIE = 1;
+    TRISD = 0;
+    PORTD = 0;
 
     I2C_Master_Init(100000);
 }

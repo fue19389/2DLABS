@@ -10,6 +10,9 @@
  * Basado en Link: http://microcontroladores-mrelberni.com/i2c-pic-comunicacion-serial/
  */
 #include "I2C.h"
+#include <stdint.h>
+#include <pic.h>
+#define _XTAL_FREQ  4000000
 //*****************************************************************************
 // Función para inicializar I2C Maestro
 //*****************************************************************************
