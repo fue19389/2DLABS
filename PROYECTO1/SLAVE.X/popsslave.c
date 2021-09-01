@@ -1,12 +1,17 @@
-/*
- * File:   main.c
- * Author: Pablo
- * Ejemplo de uso de I2C Esclavo
- * Created on 17 de febrero de 2020, 10:32 AM
- */
-//*****************************************************************************
-// Palabra de configuración
-//*****************************************************************************
+//|----------------------------------------------------------------------------|
+//|--------------------------------SLAVE 1-------------------------------------|
+//|----------------------------------------------------------------------------|
+// Archivo: main.c
+// Dispositivo: PIC16F887
+// Autor: Stefano Papadopolo
+// Compilador: XC-8 (v2.32)
+//
+// Programa: Proyecto 1
+// Hardware: Sensores Ultrasonicos, 3 PICS, Sensor de intensidad de luz LS2651,
+// AdafruitIO, Terminal Serial
+// Creado 29 de agosto, 2021
+// Ultima Actualizacion: 29 de agosto, 2021
+
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (RCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, RC on RA7/OSC1/CLKIN)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled and can be enabled by SWDTEN bit of the WDTCON register)
@@ -27,36 +32,113 @@
 // Use project enums instead of #define for ON and OFF.
 
 //*****************************************************************************
-// Definición e importación de librerías
+// Definici�n e importaci�n de librer�as
 //*****************************************************************************
 #include <stdint.h>
 #include <pic16f887.h>
-#include "I2C.h"
 #include <xc.h>
 #include <string.h>
 #include <stdlib.h>
+#include<stdbool.h>
 #include <stdio.h>
+#include "I2C.h"
+//#include"Digital2_toolbox.h"
 //*****************************************************************************
-// Definición de variables
+// Definici�n de variables
 //*****************************************************************************
 #define _XTAL_FREQ 4000000
 uint8_t z;
-uint8_t dato;
+uint8_t flags;       //[0] = lock, [1] = Door
 int V;
 int D;
-unsigned char i0;
-unsigned char i1;
 //*****************************************************************************
-// Definición de funciones para que se puedan colocar después del main de lo 
+// Definici�n de funciones para que se puedan colocar despu�s del main de lo 
 // contrario hay que colocarlos todas las funciones antes del main
 //*****************************************************************************
 void setup(void);
-void cfg_clk(void);
+void __interrupt() isr(void);
+
 //*****************************************************************************
-// Código de Interrupción 
+// Main
 //*****************************************************************************
+void main(void) {
+    setup();
+    //*************************************************************************
+    // Loop infinito
+    //*************************************************************************
+    while(1){
+
+        
+        TMR1H = 0;
+        TMR1L = 0;
+        
+        RB0 = 1;
+        __delay_us(10);
+        RB0 = 0;
+
+        
+        while(!RB1);              //Waiting for Echo goes HIGH
+        TMR1ON = 1;               //Timer Starts
+        while(RB1);               //Waiting for Echo goes LOW
+        TMR1ON = 0;               //Timer Stops
+        
+        V = (TMR1L | (TMR1H<<8));
+        D = V/58;
+       
+        if(D > 5){
+            flags   =   flags   &  0b00000010;
+        }
+        if(D < 5){
+            flags   =   flags | 0b00000001;
+        }
+        
+        if (RB2 ==   0){
+            flags   =   flags   &   0b00000001;
+            RA0 =   0;
+        }
+        if (RB2 ==  1){
+            flags   =   flags   |   0b00000010;
+            RA0 =   1;
+        }
+        
+       __delay_ms(50);
+    }
+    return;
+}
+//*****************************************************************************
+// Funci�n de Inicializaci�n
+//*****************************************************************************
+void setup(void){
+ //I/O Setup
+    ANSEL   =   0;
+    ANSELH  =   0;
+    TRISA   =   0;
+    TRISB   =   0b00000110;
+    TRISC   =   0;
+    TRISD   =   0;
+    TRISE   =   0;
+    
+
+    //Interrupt config
+    GIE     =   1;
+    
+    I2C_Slave_Init(0b00000000);
+
+    //Port Inicialization
+    PORTA   =   0;
+    PORTB   =   0;
+    PORTC   =   0;
+    PORTD   =   0;
+    PORTE   =   0;
+    
+    //Variable Inicialization
+    flags    =   0;
+
+    
+}
 void __interrupt() isr(void){
-   if(PIR1bits.SSPIF == 1){ 
+
+    if(PIR1bits.SSPIF == 1){ 
 
         SSPCONbits.CKP = 0;
        
@@ -70,17 +152,17 @@ void __interrupt() isr(void){
         if(!SSPSTATbits.D_nA && !SSPSTATbits.R_nW) {
             //__delay_us(7);
             z = SSPBUF;                 // Lectura del SSBUF para limpiar el buffer y la bandera BF
-            //__delay_us(2);
+           //__delay_us(2);
             PIR1bits.SSPIF = 0;         // Limpia bandera de interrupción recepción/transmisión SSP
             SSPCONbits.CKP = 1;         // Habilita entrada de pulsos de reloj SCL
             while(!SSPSTATbits.BF);     // Esperar a que la recepción se complete
-            dato = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
+            PORTD = SSPBUF;             // Guardar en el PORTD el valor del buffer de recepción
             __delay_us(250);
             
         }else if(!SSPSTATbits.D_nA && SSPSTATbits.R_nW){
             z = SSPBUF;
             BF = 0;
-            SSPBUF = (i0 | (i1<<4));;
+            SSPBUF = flags;
             SSPCONbits.CKP = 1;
             __delay_us(250);
             while(SSPSTATbits.BF);
@@ -89,72 +171,4 @@ void __interrupt() isr(void){
         PIR1bits.SSPIF = 0;    
     }
 }
-//*****************************************************************************
-// Main
-//*****************************************************************************
-void main(void) {
-    setup();
-    cfg_clk();
-    //*************************************************************************
-    // Loop infinito
-    //*************************************************************************
-    while(1){
 
-        
-        TMR1H = 0;
-        TMR1L = 0;
-        
-        PORTAbits.RA0 = 1;
-        __delay_us(10);
-        PORTAbits.RA0 = 0;
-
-        
-        while(!PORTAbits.RA1);              //Waiting for Echo goes HIGH
-        TMR1ON = 1;               //Timer Starts
-        while(PORTAbits.RA1);               //Waiting for Echo goes LOW
-        TMR1ON = 0;               //Timer Stops
-        
-        V = (TMR1L | (TMR1H<<8));
-        D = V/58;
-       
-        if(D >= 20){
-            PORTBbits.RB6 = 0;
-            i1 = 0;
-        }
-        if(D < 20){
-            PORTBbits.RB6 = 1;
-            i1 = 1;
-        }
-        if(PORTAbits.RA2 == 1){
-            i0 = 1;
-            PORTBbits.RB7 = 1;
-            
-        }
-        if(PORTAbits.RA2 == 0){
-            i0 = 0;
-            PORTBbits.RB7 = 0;
-        }     
-       __delay_ms(50);
-    }
-    return;
-}
-//*****************************************************************************
-// Función de Inicialización
-//*****************************************************************************
-void setup(void){
-    ANSEL = 0;
-    ANSELH = 0;
-    
-    TRISAbits.TRISA0 = 0;
-    TRISAbits.TRISA1 = 1;
-    TRISAbits.TRISA2 = 1;  
-    TRISB = 0;
-    PORTB = 0;
-    GIE     =   1;
-    
-    I2C_Slave_Init(0x50);   
-}
-void cfg_clk(void){
-    OSCCONbits.IRCF = 0b110; //IRCF = 111 (8MHz) 
-    OSCCONbits.SCS = 1;   //Reloj interno habilitado
-}

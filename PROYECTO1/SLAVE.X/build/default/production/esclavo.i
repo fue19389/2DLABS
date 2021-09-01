@@ -3026,6 +3026,7 @@ void setup(void){
     TRISAbits.TRISA2 = 1;
     TRISB = 0;
     PORTB = 0;
+    GIE = 1;
 
     I2C_Slave_Init(0x50);
 }

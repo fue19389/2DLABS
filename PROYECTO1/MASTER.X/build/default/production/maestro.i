@@ -2925,11 +2925,11 @@ void main(void) {
     setup();
     cfg_clk();
     while(1){
-        I2C_Master_Start();
-        I2C_Master_Write(0x50);
-        I2C_Master_Write(val);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
+
+
+
+
+
 
         I2C_Master_Start();
         I2C_Master_Write(0x51);
@@ -2953,6 +2953,10 @@ void setup(void){
     ANSELH = 0;
     TRISDbits.TRISD0 = 0;
     TRISDbits.TRISD1 = 0;
+
+    GIE = 1;
+    PEIE = 1;
+
     I2C_Master_Init(100000);
 }
 void cfg_clk(void){

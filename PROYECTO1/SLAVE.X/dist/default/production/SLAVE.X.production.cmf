@@ -11,15 +11,15 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\gerar\AppData\Local\Temp\s15ns.o
+$C:\Users\gerar\AppData\Local\Temp\s14r4.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/production\SLAVE.X.production.o
 cinit CODE 0 F F E 2
-text1 CODE 0 18A 18A 14 2
+text1 CODE 0 18A 18A 15 2
 text2 CODE 0 170 170 1A 2
-text3 CODE 0 19E 19E 8 2
+text3 CODE 0 19F 19F 8 2
 text4 CODE 0 107 107 69 2
 text5 CODE 0 9A 9A 6D 2
 maintext CODE 0 1D 1D 7D 2
@@ -44,13 +44,13 @@ BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 3-3 2
-CONST 1A6-1FFF 2
+CONST 1A7-1FFF 2
 ENTRY 3-3 2
-ENTRY 1A6-1FFF 2
+ENTRY 1A7-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 3-3 2
-CODE 1A6-1FFF 2
+CODE 1A7-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
@@ -58,9 +58,9 @@ SFR3 180-18F 1
 COMMON 7B-7D 1
 EEDATA 2100-21FF 2
 STRCODE 3-3 2
-STRCODE 1A6-1FFF 2
+STRCODE 1A7-1FFF 2
 STRING 3-3 2
-STRING 1A6-1FFF 2
+STRING 1A7-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -75,21 +75,21 @@ STRING 1A6-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SLAVE.X.production.o
-F cinit CODE >648:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-F cinit CODE >651:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-F cinit CODE >680:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-10 cinit CODE >681:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-11 cinit CODE >682:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-12 cinit CODE >683:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-13 cinit CODE >686:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-14 cinit CODE >687:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-15 cinit CODE >688:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-16 cinit CODE >689:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-17 cinit CODE >690:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-18 cinit CODE >691:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-19 cinit CODE >697:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-19 cinit CODE >699:C:\Users\gerar\AppData\Local\Temp\s15ns.s
-1A cinit CODE >700:C:\Users\gerar\AppData\Local\Temp\s15ns.s
+F cinit CODE >648:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+F cinit CODE >651:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+F cinit CODE >680:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+10 cinit CODE >681:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+11 cinit CODE >682:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+12 cinit CODE >683:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+13 cinit CODE >686:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+14 cinit CODE >687:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+15 cinit CODE >688:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+16 cinit CODE >689:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+17 cinit CODE >690:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+18 cinit CODE >691:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+19 cinit CODE >697:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+19 cinit CODE >699:C:\Users\gerar\AppData\Local\Temp\s14r4.s
+1A cinit CODE >700:C:\Users\gerar\AppData\Local\Temp\s14r4.s
 4 intentry CODE >58:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 9A text5 CODE >58:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 9A text5 CODE >59:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
@@ -141,10 +141,10 @@ FD text5 CODE >89:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.
 166 text4 CODE >39:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 16B text4 CODE >40:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
 16F text4 CODE >41:C:\Program Files\Microchip\xc8\v2.31\pic\sources\c90\common\awdiv.c
-19E text3 CODE >156:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
-19E text3 CODE >157:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
-1A4 text3 CODE >158:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
+19F text3 CODE >157:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
+19F text3 CODE >158:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 1A5 text3 CODE >159:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
+1A6 text3 CODE >160:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 170 text2 CODE >93:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\I2C.c
 171 text2 CODE >95:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\I2C.c
 175 text2 CODE >96:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\I2C.c
@@ -165,8 +165,9 @@ FD text5 CODE >89:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.
 192 text1 CODE >150:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 193 text1 CODE >151:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 194 text1 CODE >152:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
-197 text1 CODE >154:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
-19D text1 CODE >155:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
+197 text1 CODE >153:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
+198 text1 CODE >155:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
+19E text1 CODE >156:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 1D maintext CODE >95:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 1D maintext CODE >96:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 22 maintext CODE >97:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
@@ -213,7 +214,7 @@ _V 29 0 BANK0 1 bssBANK0 dist/default/production\SLAVE.X.production.o
 _z 7A 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 ___latbits 2 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 ___awdiv@counter 21 0 BANK0 1 cstackBANK0 dist/default/production\SLAVE.X.production.o
-__Hspace_0 1A6 0 ABS 0 - -
+__Hspace_0 1A7 0 ABS 0 - -
 __Hspace_1 7B 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
@@ -224,21 +225,21 @@ _i0 78 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 _i1 77 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s15ns.o
+___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s14r4.o
 _dato 79 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 _main 3A 0 CODE 0 maintext dist/default/production\SLAVE.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\s15ns.o
+start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\s14r4.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s15ns.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s15ns.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s15ns.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s15ns.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s15ns.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s15ns.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s14r4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s14r4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s14r4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s14r4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s14r4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\s14r4.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
@@ -251,8 +252,8 @@ _SSPCONbits 14 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE.X.production.o
 __end_of___awdiv 2E0 0 CODE 0 text4 dist/default/production\SLAVE.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s15ns.o
-___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s15ns.o
+___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s14r4.o
+___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\s14r4.o
 _I2C_Slave_Init 2E0 0 CODE 0 text2 dist/default/production\SLAVE.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\SLAVE.X.production.o
@@ -266,7 +267,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TMR1ON 80 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s15ns.o
+___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\s14r4.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -304,16 +305,16 @@ __Ltext 0 0 ABS 0 text -
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _GIE 5F 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-__S0 1A6 0 ABS 0 - -
+__S0 1A7 0 ABS 0 - -
 __S1 7B 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _isr 134 0 CODE 0 text5 dist/default/production\SLAVE.X.production.o
 saved_w 7E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-__end_of_cfg_clk 34C 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
+__end_of_cfg_clk 34E 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
 __end_of_isr 20E 0 CODE 0 text5 dist/default/production\SLAVE.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\s15ns.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\s14r4.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 ___awdiv 20E 0 CODE 0 text4 dist/default/production\SLAVE.X.production.o
 __pmaintext 3A 0 CODE 0 maintext dist/default/production\SLAVE.X.production.o
@@ -340,7 +341,7 @@ __HbssBANK0 0 0 ABS 0 bssBANK0 -
 _SSPCON2bits 91 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __ptext1 314 0 CODE 0 text1 dist/default/production\SLAVE.X.production.o
 __ptext2 2E0 0 CODE 0 text2 dist/default/production\SLAVE.X.production.o
-__ptext3 33C 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
+__ptext3 33E 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
 __ptext4 20E 0 CODE 0 text4 dist/default/production\SLAVE.X.production.o
 __ptext5 134 0 CODE 0 text5 dist/default/production\SLAVE.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
@@ -351,7 +352,7 @@ __size_of_I2C_Slave_Init 0 0 ABS 0 - dist/default/production\SLAVE.X.production.
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE.X.production.o
-_cfg_clk 33C 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
+_cfg_clk 33E 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
 _SSPCON2 91 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _SSPSTAT 94 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __Hend_init 1E 0 CODE 0 end_init -
@@ -363,7 +364,7 @@ _SSPIF 63 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TMR1H F 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TMR1L E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-__end_of_setup 33C 0 CODE 0 text1 dist/default/production\SLAVE.X.production.o
+__end_of_setup 33E 0 CODE 0 text1 dist/default/production\SLAVE.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/production\SLAVE.X.production.o
@@ -400,7 +401,7 @@ __pbssBANK0 27 0 BANK0 1 bssBANK0 dist/default/production\SLAVE.X.production.o
 %SEGMENTS
 cstackCOMMON 1 70 70 B 1
 cstackBANK0 1 20 20 B 1
-intentry 0 4 8 1A2 2
+intentry 0 4 8 1A3 2
 reset_vec 0 0 0 3 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

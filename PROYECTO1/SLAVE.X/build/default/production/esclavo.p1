@@ -133,6 +133,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "228
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 228: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"3896
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3896: extern volatile __bit GIE __attribute__((address(0x5F)));
+[v _GIE `Vb ~T0 @X0 0 e@95 ]
 "64 ./I2C.h
 [; ;./I2C.h: 64: void I2C_Slave_Init(uint8_t address);
 [v _I2C_Slave_Init `(v ~T0 @X0 0 ef1`uc ]
@@ -689,26 +692,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 "152
 [; ;esclavo.c: 152:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"154
-[; ;esclavo.c: 154:     I2C_Slave_Init(0x50);
-[e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
+"153
+[; ;esclavo.c: 153:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "155
-[; ;esclavo.c: 155: }
+[; ;esclavo.c: 155:     I2C_Slave_Init(0x50);
+[e ( _I2C_Slave_Init (1 -> -> 80 `i `uc ]
+"156
+[; ;esclavo.c: 156: }
 [e :UE 169 ]
 }
-"156
-[; ;esclavo.c: 156: void cfg_clk(void){
+"157
+[; ;esclavo.c: 157: void cfg_clk(void){
 [v _cfg_clk `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_clk ]
 [f ]
-"157
-[; ;esclavo.c: 157:     OSCCONbits.IRCF = 0b110;
-[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
 "158
-[; ;esclavo.c: 158:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+[; ;esclavo.c: 158:     OSCCONbits.IRCF = 0b110;
+[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
 "159
-[; ;esclavo.c: 159: }
+[; ;esclavo.c: 159:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"160
+[; ;esclavo.c: 160: }
 [e :UE 170 ]
 }
