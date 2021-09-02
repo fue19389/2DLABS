@@ -14,32 +14,33 @@ import serial
 import time
 
 
-#ser = serial.Serial('COM3', baudrate = 9600)
+ser = serial.Serial('COM3', baudrate = 9600)
 
 ADAFRUIT_IO_KEY = "aio_dgRm40ICNrv9QYebCXa3XM1Xybld"
 ADAFRUIT_IO_USERNAME = "YRAR"
 aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 
 while(1):
-    #ser.close()
-    #ser.open()
+    ser.close()
+    ser.open()
     #Readval pyserial
-    #dataser0 = str(ser.read(9))
+    data = ser.read(4)
     #print(dataser0)
-    #dataser1 = dataser0.split(',')
-    #d1 = dataser1[1]
-
+    flags = data.split(',')
+    door = flags[0]
+    light = flags[1]
+    #light =
     #print(d1)
 
 #VALORES ENVIAR
 
     #LIGHT
     light_feed = aio.feeds('light')
-    aio.send_data(light_feed.key, 1)
+    aio.send_data(light_feed.key, light)
 
     #DOOR
     door_feed = aio.feeds('door')
-    aio.send_data(door_feed.key, 0)
+    aio.send_data(door_feed.key, door)
 
     #LOCK
     lock_feed = aio.feeds('lock')

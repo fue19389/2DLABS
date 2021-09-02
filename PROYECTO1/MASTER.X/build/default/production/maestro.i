@@ -2914,16 +2914,43 @@ extern int printf(const char *, ...);
 # 48 "maestro.c"
 void setup(void);
 void cfg_clk(void);
-unsigned char d0;
-unsigned char d1;
+void cfg_usart(void);
+unsigned char lock;
+unsigned char door;
+unsigned char light;
+float v0;
+float v1;
+float v2;
 unsigned char pd;
 unsigned char val = 0;
+void send_crct(char st[]);
+void send_char(char dato);
+float conv(unsigned char aa);
+char f1[10];
+
+
+
+
+void __attribute__((picinterrupt(("")))) isr(void){
+
+    if(PIR1bits.RCIF){
+        if(RCREG == '1'){
+            light = 1;
+        }
+        if(RCREG == '0'){
+            light = 0;
+        }
+
+
+    }
+}
 
 
 
 void main(void) {
     setup();
     cfg_clk();
+    cfg_usart();
     while(1){
 
 
@@ -2937,11 +2964,25 @@ void main(void) {
         I2C_Master_Stop();
         _delay((unsigned long)((200)*(4000000/4000.0)));
 
-        d0 = (0x0F & pd);
-        d1 = (0x0F & (pd>>4));
+        lock = (0x0F & pd);
+        door = (0x0F & (pd>>4));
 
-        PORTDbits.RD0 = d0;
-        PORTDbits.RD1 = d1;
+        v0 = conv(lock);
+        v1 = conv(door);
+        v2 = conv(light);
+
+        sprintf(f1, "%0.0f,%0.0f,%0.0f,",v0,v1,v2);
+
+        send_crct(f1);
+        PORTDbits.RD0 = lock;
+        PORTDbits.RD1 = door;
+
+        if(light == 1){
+            PORTAbits.RA0 = 1;
+        }
+        if(light == 0){
+            PORTAbits.RA0 = 0;
+        }
     }
     return;
 }
@@ -2952,11 +2993,50 @@ void setup(void){
     ANSEL = 0;
     ANSELH = 0;
     TRISD = 0;
+    TRISA = 0;
     PORTD = 0;
+    PORTA = 0;
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.RCIE = 1;
 
     I2C_Master_Init(100000);
 }
 void cfg_clk(void){
     OSCCONbits.IRCF = 0b110;
     OSCCONbits.SCS = 1;
+}
+void cfg_usart(void){
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+
+    BAUDCTLbits.BRG16 = 1;
+
+    SPBRG = 103;
+    SPBRGH = 0;
+
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 1;
+
+    TXSTAbits.TXEN = 1;
+}
+
+
+
+float conv (unsigned char aa){
+    float result;
+    result = aa*1;
+    return result;
+}
+void send_crct(char st[]){
+    int i = 0;
+    while (st[i] != 0){
+        send_char(st[i]);
+        i++;
+    }
+}
+void send_char(char dato){
+    while(!TXIF);
+    TXREG = dato;
 }
