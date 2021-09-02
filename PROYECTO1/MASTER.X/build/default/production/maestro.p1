@@ -581,7 +581,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;maestro.c: 105:         v2 = conv(light);
 [e = _v2 ( _conv (1 _light ]
 "107
-[; ;maestro.c: 107:         sprintf(f1, "%0.0f,%0.0f,%0.0f,",v0,v1,v2);
+[; ;maestro.c: 107:         sprintf(f1, ",%0.0f,%0.0f,%0.0f,",v0,v1,v2);
 [e ( _sprintf (1 , , , (. , &U _f1 :s 1C -> _v0 `d -> _v1 `d -> _v2 `d ]
 "109
 [; ;maestro.c: 109:         send_crct(f1);
@@ -797,4 +797,4 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 161 ]
 }
 [p f _sprintf 8462340 ]
-[a 1C 37 48 46 48 102 44 37 48 46 48 102 44 37 48 46 48 102 44 0 ]
+[a 1C 44 37 48 46 48 102 44 37 48 46 48 102 44 37 48 46 48 102 44 0 ]

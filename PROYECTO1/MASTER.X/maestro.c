@@ -104,7 +104,7 @@ void main(void) {
         v1 = conv(door); //Conversión de Binario a float
         v2 = conv(light);
 
-        sprintf(f1, "%0.0f,%0.0f,%0.0f,",v0,v1,v2);
+        sprintf(f1, ",%0.0f,%0.0f,%0.0f,",v0,v1,v2);
          
         send_crct(f1);          //Función para enviar valor a TXREG 
         PORTDbits.RD0 = lock;

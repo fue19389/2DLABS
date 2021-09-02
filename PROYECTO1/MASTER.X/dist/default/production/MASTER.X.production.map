@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\MASTER.X.production.sym \
   --cmf=dist/default/production\MASTER.X.production.cmf -z -Q16F887 \
-  -oC:\Users\gerar\AppData\Local\Temp\se70.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\gerar\AppData\Local\Temp\s13p0.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/MASTER.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK -ACODE=00h-07FFhx4 \
   -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\gerar\AppData\Local\Temp\se70.o \
+  -pfunctab=ENTRY -k C:\Users\gerar\AppData\Local\Temp\s13p0.o \
   dist/default/production\MASTER.X.production.o 
 
 Object code version is 3.11
@@ -28,7 +28,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\gerar\AppData\Local\Temp\se70.o
+C:\Users\gerar\AppData\Local\Temp\s13p0.o
                 end_init                              C        C        3        8       0
                 reset_vec                             0        0        3        0       0
                 config                             2007     2007        2        0       4
@@ -80,7 +80,7 @@ dist/default/production\MASTER.X.production.o
                 clrtext                            1A98     1A98        8     3530       0
                 bssBANK1                             D3       D3       1A       A0       1
                 bssCOMMON                            7B       7B        1       70       1
-                strings                            1800     1800       A9     3000       0
+                strings                            1800     1800       AA     3000       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -133,7 +133,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                            1800     1800       A9         0
+                strings                            1800     1800       AA         0
 
         CLASS   CONST          
 
@@ -193,7 +193,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 maintext                       00119B  0000FF  00129A      2336       0  CODE        2
                 text17                         00129A  000288  001522      2534       0  CODE        2
                 text1_split_1                  001522  0002DE  001800      2A44       0  CODE        2
-                strings                        001800  0000A9  0018A9      3000       0  STRING      2
+                strings                        001800  0000AA  0018AA      3000       0  STRING      2
                 text29                         001A90  000008  001A98      3520       0  CODE        2
                 clrtext                        001A98  000008  001AA0      3530       0  CODE        2
                 text32                         001AA0  000009  001AA9      3540       0  CODE        2
@@ -229,15 +229,15 @@ UNUSED ADDRESS RANGES
         BANK3            000190-0001EF               60           1
         CODE             000003-000003                1           2
                          0007FD-000800                3
-                         0018A9-001A8F              1E7
+                         0018AA-001A8F              1E6
         COMMON           00007C-00007D                2           1
         CONST            000003-000003                1           2
                          0007FD-000800                3
-                         0018A9-001A8F              100
+                         0018AA-001A8F              100
         EEDATA           002100-0021FF              100           2
         ENTRY            000003-000003                1           2
                          0007FD-000800                3
-                         0018A9-001A8F              100
+                         0018AA-001A8F              100
         IDLOC            002000-002003                4           2
         RAM              00006F-00006F                1           1
                          0000ED-0000EF                3
@@ -250,10 +250,10 @@ UNUSED ADDRESS RANGES
         STACK            000110-00016F               60           1
         STRCODE          000003-000003                1           2
                          0007FD-000800                4
-                         0018A9-001A8F              1E7
+                         0018AA-001A8F              1E6
         STRING           000003-000003                1           2
                          0007FD-000800                3
-                         0018A9-001A8F              100
+                         0018AA-001A8F              100
 
                                   Symbol Table
 
@@ -727,7 +727,7 @@ Total ram usage:        3 bytes
   sp              1    wreg     PTR unsigned char 
 		 -> f1(10), 
   f               1    8[BANK1 ] PTR const unsigned char 
-		 -> STR_1(19), 
+		 -> STR_1(20), 
  Auto vars:     Size  Location     Type
   sp              1   46[BANK1 ] PTR unsigned char 
 		 -> f1(10), 
