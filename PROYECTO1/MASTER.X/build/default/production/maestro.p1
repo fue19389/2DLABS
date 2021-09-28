@@ -22,45 +22,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "49
 [; ;maestro.c: 49: void cfg_clk(void);
 [v _cfg_clk `(v ~T0 @X0 0 ef ]
-"50
-[; ;maestro.c: 50: void cfg_usart(void);
-[v _cfg_usart `(v ~T0 @X0 0 ef ]
-"41 ./I2C.h
-[; ;./I2C.h: 41: void I2C_Master_Start(void);
-[v _I2C_Master_Start `(v ~T0 @X0 0 ef ]
-"55
-[; ;./I2C.h: 55: void I2C_Master_Write(unsigned d);
-[v _I2C_Master_Write `(v ~T0 @X0 0 ef1`ui ]
-"60
-[; ;./I2C.h: 60: unsigned short I2C_Master_Read(unsigned short a);
-[v _I2C_Master_Read `(us ~T0 @X0 0 ef1`us ]
-"49
-[; ;./I2C.h: 49: void I2C_Master_Stop(void);
-[v _I2C_Master_Stop `(v ~T0 @X0 0 ef ]
-[v F1284 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF1284 ~T0 @X0 0 e ]
-[p i __delay ]
-"61 maestro.c
-[; ;maestro.c: 61: float conv(unsigned char aa);
-[v _conv `(f ~T0 @X0 0 ef1`uc ]
-"194 C:\Program Files\Microchip\xc8\v2.31\pic\include\c90\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"59 maestro.c
-[; ;maestro.c: 59: void send_crct(char st[]);
-[v _send_crct `(v ~T0 @X0 0 ef1`*uc ]
-"358 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 358:     struct {
-[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"357
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 357: typedef union {
-[u S11 `S12 1 ]
-[n S11 . . ]
-"369
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 369: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
-[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
-"172
+"172 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 172:     struct {
 [s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S6 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
@@ -71,6 +33,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "183
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 183: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
 [v _PORTAbits `VS5 ~T0 @X0 0 e@5 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "3387
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
 [v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
@@ -83,42 +48,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1416
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"352
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "166
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
 [v _PORTA `Vuc ~T0 @X0 0 e@5 ]
-"465
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 465:     struct {
-[s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S16 . RBIF INTF T0IF RBIE INTE T0IE PEIE GIE ]
-"475
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 475:     struct {
-[s S17 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S17 . . TMR0IF . TMR0IE ]
-"464
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 464: typedef union {
-[u S15 `S16 1 `S17 1 ]
-[n S15 . . . ]
-"482
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 482: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
-[v _INTCONbits `VS15 ~T0 @X0 0 e@11 ]
-"1708
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1708:     struct {
-[s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S63 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"1707
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1707: typedef union {
-[u S62 `S63 1 ]
-[n S62 . . ]
-"1718
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1718: extern volatile PIE1bits_t PIE1bits __attribute__((address(0x08C)));
-[v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
-"29 ./I2C.h
-[; ;./I2C.h: 29: void I2C_Master_Init(const unsigned long c);
-[v _I2C_Master_Init `(v ~T0 @X0 0 ef1`Cul ]
-"1868 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"1868
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1868:     struct {
 [s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
 [n S70 . SCS LTS HTS OSTS IRCF ]
@@ -543,258 +476,183 @@ Version 4.0 HI-TECH Software Intermediate Code
 "85
 [; ;maestro.c: 85:     cfg_clk();
 [e ( _cfg_clk ..  ]
-"86
-[; ;maestro.c: 86:     cfg_usart();
-[e ( _cfg_usart ..  ]
 "87
 [; ;maestro.c: 87:     while(1){
 [e :U 149 ]
 {
-"94
-[; ;maestro.c: 94:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"95
-[; ;maestro.c: 95:         I2C_Master_Write(0x51);
-[e ( _I2C_Master_Write (1 -> -> 81 `i `ui ]
-"96
-[; ;maestro.c: 96:         pd = I2C_Master_Read(0);
-[e = _pd -> ( _I2C_Master_Read (1 -> -> 0 `i `us `uc ]
-"97
-[; ;maestro.c: 97:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"98
-[; ;maestro.c: 98:         _delay((unsigned long)((200)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"100
-[; ;maestro.c: 100:         lock = (0x0F & pd);
-[e = _lock -> & -> 15 `i -> _pd `i `uc ]
-"101
-[; ;maestro.c: 101:         door = (0x0F & (pd>>4));
-[e = _door -> & -> 15 `i >> -> _pd `i -> 4 `i `uc ]
-"103
-[; ;maestro.c: 103:         v0 = conv(lock);
-[e = _v0 ( _conv (1 _lock ]
-"104
-[; ;maestro.c: 104:         v1 = conv(door);
-[e = _v1 ( _conv (1 _door ]
-"105
-[; ;maestro.c: 105:         v2 = conv(light);
-[e = _v2 ( _conv (1 _light ]
-"107
-[; ;maestro.c: 107:         sprintf(f1, ",%0.0f,%0.0f,%0.0f,",v0,v1,v2);
-[e ( _sprintf (1 , , , (. , &U _f1 :s 1C -> _v0 `d -> _v1 `d -> _v2 `d ]
-"109
-[; ;maestro.c: 109:         send_crct(f1);
-[e ( _send_crct (1 &U _f1 ]
-"110
-[; ;maestro.c: 110:         PORTDbits.RD0 = lock;
-[e = . . _PORTDbits 0 0 _lock ]
-"111
-[; ;maestro.c: 111:         PORTDbits.RD1 = door;
-[e = . . _PORTDbits 0 1 _door ]
-"113
-[; ;maestro.c: 113:         if(light == 1){
-[e $ ! == -> _light `i -> 1 `i 151  ]
-{
-"114
-[; ;maestro.c: 114:             PORTAbits.RA0 = 1;
-[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"115
-[; ;maestro.c: 115:         }
-}
-[e :U 151 ]
-"116
-[; ;maestro.c: 116:         if(light == 0){
-[e $ ! == -> _light `i -> 0 `i 152  ]
-{
-"117
-[; ;maestro.c: 117:             PORTAbits.RA0 = 0;
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"118
-[; ;maestro.c: 118:         }
-}
-[e :U 152 ]
 "119
-[; ;maestro.c: 119:     }
+[; ;maestro.c: 119:         PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"120
+[; ;maestro.c: 120:         PORTD = 3;
+[e = _PORTD -> -> 3 `i `uc ]
+"121
+[; ;maestro.c: 121:     }
 }
 [e :U 148 ]
 [e $U 149  ]
 [e :U 150 ]
-"120
-[; ;maestro.c: 120:     return;
+"122
+[; ;maestro.c: 122:     return;
 [e $UE 147  ]
-"121
-[; ;maestro.c: 121: }
+"123
+[; ;maestro.c: 123: }
 [e :UE 147 ]
 }
-"125
-[; ;maestro.c: 125: void setup(void){
+"127
+[; ;maestro.c: 127: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"126
-[; ;maestro.c: 126:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
-"127
-[; ;maestro.c: 127:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
 "128
-[; ;maestro.c: 128:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;maestro.c: 128:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "129
-[; ;maestro.c: 129:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
+[; ;maestro.c: 129:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "130
-[; ;maestro.c: 130:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;maestro.c: 130:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "131
-[; ;maestro.c: 131:     PORTA = 0;
-[e = _PORTA -> -> 0 `i `uc ]
+[; ;maestro.c: 131:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "132
-[; ;maestro.c: 132:     INTCONbits.GIE = 1;
-[e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
+[; ;maestro.c: 132:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "133
-[; ;maestro.c: 133:     INTCONbits.PEIE = 1;
-[e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"134
-[; ;maestro.c: 134:     PIE1bits.RCIE = 1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"136
-[; ;maestro.c: 136:     I2C_Master_Init(100000);
-[e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"137
-[; ;maestro.c: 137: }
-[e :UE 153 ]
+[; ;maestro.c: 133:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"139
+[; ;maestro.c: 139: }
+[e :UE 151 ]
 }
-"138
-[; ;maestro.c: 138: void cfg_clk(void){
+"140
+[; ;maestro.c: 140: void cfg_clk(void){
 [v _cfg_clk `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_clk ]
 [f ]
-"139
-[; ;maestro.c: 139:     OSCCONbits.IRCF = 0b110;
-[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
-"140
-[; ;maestro.c: 140:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
 "141
-[; ;maestro.c: 141: }
-[e :UE 154 ]
-}
+[; ;maestro.c: 141:     OSCCONbits.IRCF = 0b110;
+[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
 "142
-[; ;maestro.c: 142: void cfg_usart(void){
+[; ;maestro.c: 142:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"143
+[; ;maestro.c: 143: }
+[e :UE 152 ]
+}
+"144
+[; ;maestro.c: 144: void cfg_usart(void){
 [v _cfg_usart `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_usart ]
 [f ]
-"143
-[; ;maestro.c: 143:     TXSTAbits.SYNC = 0;
+"145
+[; ;maestro.c: 145:     TXSTAbits.SYNC = 0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"144
-[; ;maestro.c: 144:     TXSTAbits.BRGH = 1;
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
 "146
-[; ;maestro.c: 146:     BAUDCTLbits.BRG16 = 1;
-[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
+[; ;maestro.c: 146:     TXSTAbits.BRGH = 1;
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
 "148
-[; ;maestro.c: 148:     SPBRG = 103;
+[; ;maestro.c: 148:     BAUDCTLbits.BRG16 = 1;
+[e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
+"150
+[; ;maestro.c: 150:     SPBRG = 103;
 [e = _SPBRG -> -> 103 `i `uc ]
-"149
-[; ;maestro.c: 149:     SPBRGH = 0;
-[e = _SPBRGH -> -> 0 `i `uc ]
 "151
-[; ;maestro.c: 151:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"152
-[; ;maestro.c: 152:     RCSTAbits.RX9 = 0;
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;maestro.c: 151:     SPBRGH = 0;
+[e = _SPBRGH -> -> 0 `i `uc ]
 "153
-[; ;maestro.c: 153:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;maestro.c: 153:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"154
+[; ;maestro.c: 154:     RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
 "155
-[; ;maestro.c: 155:     TXSTAbits.TXEN = 1;
+[; ;maestro.c: 155:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"157
+[; ;maestro.c: 157:     TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"156
-[; ;maestro.c: 156: }
-[e :UE 155 ]
+"158
+[; ;maestro.c: 158: }
+[e :UE 153 ]
 }
-"160
-[; ;maestro.c: 160: float conv (unsigned char aa){
+"162
+[; ;maestro.c: 162: float conv (unsigned char aa){
 [v _conv `(f ~T0 @X0 1 ef1`uc ]
 {
 [e :U _conv ]
 [v _aa `uc ~T0 @X0 1 r1 ]
 [f ]
-"161
-[; ;maestro.c: 161:     float result;
-[v _result `f ~T0 @X0 1 a ]
-"162
-[; ;maestro.c: 162:     result = aa*1;
-[e = _result -> * -> _aa `i -> 1 `i `f ]
 "163
-[; ;maestro.c: 163:     return result;
-[e ) _result ]
-[e $UE 156  ]
+[; ;maestro.c: 163:     float result;
+[v _result `f ~T0 @X0 1 a ]
 "164
-[; ;maestro.c: 164: }
-[e :UE 156 ]
-}
+[; ;maestro.c: 164:     result = aa*1;
+[e = _result -> * -> _aa `i -> 1 `i `f ]
 "165
-[; ;maestro.c: 165: void send_crct(char st[]){
+[; ;maestro.c: 165:     return result;
+[e ) _result ]
+[e $UE 154  ]
+"166
+[; ;maestro.c: 166: }
+[e :UE 154 ]
+}
+"167
+[; ;maestro.c: 167: void send_crct(char st[]){
 [v _send_crct `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _send_crct ]
 [v _st `*uc ~T0 @X0 1 r1 ]
 [f ]
-"166
-[; ;maestro.c: 166:     int i = 0;
+"168
+[; ;maestro.c: 168:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"167
-[; ;maestro.c: 167:     while (st[i] != 0){
-[e $U 158  ]
-[e :U 159 ]
-{
-"168
-[; ;maestro.c: 168:         send_char(st[i]);
-[e ( _send_char (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
 "169
-[; ;maestro.c: 169:         i++;
-[e ++ _i -> 1 `i ]
+[; ;maestro.c: 169:     while (st[i] != 0){
+[e $U 156  ]
+[e :U 157 ]
+{
 "170
-[; ;maestro.c: 170:     }
-}
-[e :U 158 ]
-"167
-[; ;maestro.c: 167:     while (st[i] != 0){
-[e $ != -> *U + _st * -> _i `x -> -> # *U _st `i `x `i -> 0 `i 159  ]
-[e :U 160 ]
+[; ;maestro.c: 170:         send_char(st[i]);
+[e ( _send_char (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
 "171
-[; ;maestro.c: 171: }
-[e :UE 157 ]
-}
+[; ;maestro.c: 171:         i++;
+[e ++ _i -> 1 `i ]
 "172
-[; ;maestro.c: 172: void send_char(char dato){
+[; ;maestro.c: 172:     }
+}
+[e :U 156 ]
+"169
+[; ;maestro.c: 169:     while (st[i] != 0){
+[e $ != -> *U + _st * -> _i `x -> -> # *U _st `i `x `i -> 0 `i 157  ]
+[e :U 158 ]
+"173
+[; ;maestro.c: 173: }
+[e :UE 155 ]
+}
+"174
+[; ;maestro.c: 174: void send_char(char dato){
 [v _send_char `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send_char ]
 [v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
-"173
-[; ;maestro.c: 173:     while(!TXIF);
-[e $U 162  ]
-[e :U 163 ]
-[e :U 162 ]
-[e $ ! _TXIF 163  ]
-[e :U 164 ]
-"174
-[; ;maestro.c: 174:     TXREG = dato;
-[e = _TXREG -> _dato `uc ]
 "175
-[; ;maestro.c: 175: }
-[e :UE 161 ]
+[; ;maestro.c: 175:     while(!TXIF);
+[e $U 160  ]
+[e :U 161 ]
+[e :U 160 ]
+[e $ ! _TXIF 161  ]
+[e :U 162 ]
+"176
+[; ;maestro.c: 176:     TXREG = dato;
+[e = _TXREG -> _dato `uc ]
+"177
+[; ;maestro.c: 177: }
+[e :UE 159 ]
 }
-[p f _sprintf 8462340 ]
-[a 1C 44 37 48 46 48 102 44 37 48 46 48 102 44 37 48 46 48 102 44 0 ]

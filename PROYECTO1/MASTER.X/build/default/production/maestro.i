@@ -2950,39 +2950,11 @@ void __attribute__((picinterrupt(("")))) isr(void){
 void main(void) {
     setup();
     cfg_clk();
-    cfg_usart();
+
     while(1){
-
-
-
-
-
-
-        I2C_Master_Start();
-        I2C_Master_Write(0x51);
-        pd = I2C_Master_Read(0);
-        I2C_Master_Stop();
-        _delay((unsigned long)((200)*(4000000/4000.0)));
-
-        lock = (0x0F & pd);
-        door = (0x0F & (pd>>4));
-
-        v0 = conv(lock);
-        v1 = conv(door);
-        v2 = conv(light);
-
-        sprintf(f1, ",%0.0f,%0.0f,%0.0f,",v0,v1,v2);
-
-        send_crct(f1);
-        PORTDbits.RD0 = lock;
-        PORTDbits.RD1 = door;
-
-        if(light == 1){
-            PORTAbits.RA0 = 1;
-        }
-        if(light == 0){
-            PORTAbits.RA0 = 0;
-        }
+# 119 "maestro.c"
+        PORTAbits.RA0 = 1;
+        PORTD = 3;
     }
     return;
 }
@@ -2996,11 +2968,11 @@ void setup(void){
     TRISA = 0;
     PORTD = 0;
     PORTA = 0;
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIE1bits.RCIE = 1;
 
-    I2C_Master_Init(100000);
+
+
+
+
 }
 void cfg_clk(void){
     OSCCONbits.IRCF = 0b110;

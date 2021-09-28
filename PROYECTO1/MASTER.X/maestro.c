@@ -83,7 +83,7 @@ void __interrupt() isr(void){
 void main(void) {
     setup();
     cfg_clk();
-    cfg_usart();
+    //cfg_usart();
     while(1){
         /*I2C_Master_Start();
         I2C_Master_Write(0x50);
@@ -91,7 +91,7 @@ void main(void) {
         I2C_Master_Stop();
         __delay_ms(200);*/
 
-        I2C_Master_Start();
+        /*I2C_Master_Start();
         I2C_Master_Write(0x51);
         pd = I2C_Master_Read(0);
         I2C_Master_Stop();
@@ -115,7 +115,10 @@ void main(void) {
         }
         if(light == 0){
             PORTAbits.RA0 = 0;
-        }
+        }*/
+        PORTAbits.RA0 = 1;
+        
+        PORTD = 3;
     }
     return;
 }
@@ -129,11 +132,11 @@ void setup(void){
     TRISA = 0;
     PORTD = 0;
     PORTA = 0;
-    INTCONbits.GIE = 1;  //Enable Interrupciones globales
+    /*INTCONbits.GIE = 1;  //Enable Interrupciones globales
     INTCONbits.PEIE = 1; //Enable interrupciones perifericas
     PIE1bits.RCIE = 1;   //Enable interrupcion del UART  
     
-    I2C_Master_Init(100000);        // Inicializar Comuncación I2C
+    I2C_Master_Init(100000);        // Inicializar Comuncación I2C*/
 }
 void cfg_clk(void){
     OSCCONbits.IRCF = 0b110; //IRCF = 111 (8MHz) 

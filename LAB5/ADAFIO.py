@@ -53,3 +53,13 @@ while(1):
     dat3 = d3.to_bytes(3, 'big')
     ser.write(dat3)
     time.sleep(5)
+
+#-------------------------------------------------------------------------------
+#                       Función para mandar un caracter en ASCII 
+#-------------------------------------------------------------------------------
+        #if light_int == 2:
+        #    ser.write('2'.encode('utf-8'))
+        #if light_int == 1:
+        #    ser.write('1'.encode('utf-8'))
+        #if light_int == 0:
+        #    ser.write('0'.encode('utf-8'))
