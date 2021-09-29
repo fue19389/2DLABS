@@ -11,7 +11,7 @@
 #include <SD.h>
 
 /**********************************************************************/
-/*----------------------------ARCHIVOS FILE---------------------------*/
+/*----------------------------VARIABLES ------------------------------*/
 /**********************************************************************/
 Sd2Card card;                //Variables de librería sd
 SdVolume volume;
@@ -59,7 +59,7 @@ void loop() {
     int OPC = (int)Serial.read();           //Envío de datos a monitor serial por el usuario
 
     
-    if(OPC == 49){                               //ASCII "3" envía el contenido de 3.txt
+    if(OPC == 49){                               //ASCII "1" envía el contenido de 1.txt
         ARCH = SD.open("1.txt");                 //Abrir archivo
         if (ARCH) {                              //Sí abre correctamente
          
