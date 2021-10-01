@@ -48,7 +48,7 @@ void LCD_Print(String text, int x, int y, int fontSize, int color, int backgroun
 void LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
 void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int columns, int index, char flip, char offset);
 
-
+extern uint8_t bckgnd[];
 extern uint8_t fondo[];
 extern uint8_t uvg[];
 //***************************************************************************************************************************************
@@ -62,32 +62,32 @@ void setup() {
   LCD_Init();
   LCD_Clear(0x00);
 
-  //FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c)
+  /*//FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c)
   FillRect(80, 60, 160, 120, 0x0400);
 
   //LCD_Print(String text, int x, int y, int fontSize, int color, int background)
-  String text1 = "IE3027";
+  String text1 = "HOLA_MUNDO";
   LCD_Print(text1, 110, 110, 2, 0xffff, 0x0000);
   
-  delay(1000);
+  delay(1000);*/
     
   //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
-  LCD_Bitmap(0, 0, 320, 240, uvg);
+  LCD_Bitmap(0, 0, 320, 240, bckgnd);
   
-  for(int x = 0; x <319; x++){
+  /*for(int x = 0; x <319; x++){
     LCD_Bitmap(x, 52, 16, 16, tile2);
     LCD_Bitmap(x, 68, 16, 16, tile);
     LCD_Bitmap(x, 207, 16, 16, tile);
     LCD_Bitmap(x, 223, 16, 16, tile);
     x += 15;
- }
+ }*/
  
 }
 //***************************************************************************************************************************************
 // Loop
 //***************************************************************************************************************************************
 void loop() {
-  for(int x = 0; x <320-32; x++){
+  /*for(int x = 0; x <320-32; x++){
     delay(10);
     
     int mario_index = (x/11)%8;
@@ -113,7 +113,7 @@ void loop() {
     
     LCD_Sprite(x, 175, 32, 32, bowser, 4, bowser_index, 0, 1);
     V_line(x + 32, 175, 32, 0x421b);
-  } 
+  }*/ 
 }
 //***************************************************************************************************************************************
 // Función para inicializar LCD
