@@ -6,10 +6,14 @@
  * Modificaciones y adaptación: Diego Morales
  * IE3027: Electrónica Digital 2 - 2021
  */
-//***************************************************************************************************************************************
+/**********************************************************************/
+/*----------------------------Librerias-------------------------------*/
+/**********************************************************************/
 #include <stdint.h>
 #include <stdbool.h>
 #include <TM4C123GH6PM.h>
+#include <SPI.h>
+#include <SD.h>
 #include "inc/hw_ints.h"
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
@@ -25,6 +29,21 @@
 #include "font.h"
 #include "lcd_registers.h"
 
+
+/**********************************************************************/
+/*----------------------------VARIABLES ------------------------------*/
+/**********************************************************************/
+Sd2Card card;                //Variables de librería sd
+SdVolume volume;
+SdFile root;
+File ARCH;                   //Variable para abrir archivos
+
+int pb1 = PUSH1;             //Botón a utilizar
+const int chipSelect = PA_3; //cs PIN
+
+uint8_t spi1[] = {};
+String temp;
+const unsigned char smraimi [] PROGMEM = {};
 #define LCD_RST PD_0
 #define LCD_CS PD_1
 #define LCD_RS PD_2
@@ -51,16 +70,43 @@ void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int 
 extern uint8_t bckgnd[];
 extern uint8_t fondo[];
 extern uint8_t uvg[];
+extern uint8_t bgrspidey[];
+extern uint8_t vworld[];
+
 //***************************************************************************************************************************************
 // Initialization
 //***************************************************************************************************************************************
 void setup() {
+
+/*********************************************************************************
+ *******************************SETUP LCD*****************************************
+ ********************************************************************************/
   SysCtlClockSet(SYSCTL_SYSDIV_2_5|SYSCTL_USE_PLL|SYSCTL_OSC_MAIN|SYSCTL_XTAL_16MHZ);
   Serial.begin(9600);
   GPIOPadConfigSet(GPIO_PORTB_BASE, 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7, GPIO_STRENGTH_8MA, GPIO_PIN_TYPE_STD_WPU);
   Serial.println("Start");
   LCD_Init();
   LCD_Clear(0x00);
+
+/*********************************************************************************
+ *******************************SETUP SD******************************************
+ ********************************************************************************/
+ 
+  SPI.setModule(0);                      //Inicialización com. SPI
+  pinMode(PA_3, OUTPUT);                 //ChipSelect como output
+  pinMode(pb1, INPUT_PULLUP);            //Botón para desplegar menú
+ 
+  if (!card.init(SPI_HALF_SPEED, chipSelect)) { //Inicialización de tarjeta para menú
+    Serial.println("initialization failed!");
+    return;
+  }
+ if (!SD.begin(PA_3)) {                         //Inicialización de tarjeta para opciones
+    Serial.println("initialization failed!");
+    return;
+  }
+  Serial.println("initialization done.");
+   
+  volume.init(card);                            //Inicialización de información general de la tarjeta
 
   /*//FillRect(unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int c)
   FillRect(80, 60, 160, 120, 0x0400);
@@ -71,8 +117,7 @@ void setup() {
   
   delay(1000);*/
     
-  //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
-  LCD_Bitmap(0, 0, 320, 240, bckgnd);
+
   
   /*for(int x = 0; x <319; x++){
     LCD_Bitmap(x, 52, 16, 16, tile2);
@@ -87,6 +132,42 @@ void setup() {
 // Loop
 //***************************************************************************************************************************************
 void loop() {
+
+  int OPC = (int)Serial.read();           //Envío de datos a monitor serial por el usuario
+
+    if(OPC == 49){                               //ASCII "1" envía el contenido de 1.txt
+        ARCH = SD.open("spi1.txt");                 //Abrir archivo
+        if (ARCH) {                              //Sí abre correctamente
+         
+          while (ARCH.available()) {             //Mientras haya contenido
+            //Serial.write(ARCH.read());           //Leerlo y escribirlo en monitor serial
+            mktemp = ARCH.read();
+
+            Serial.write(mktemp);
+
+
+
+          }
+
+          ARCH.close();                          //Cerrar el archivo
+
+            //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
+            LCD_Bitmap(0, 0, 320, 240, spi1);
+        } else {                                 //De lo contrario 
+
+          Serial.println("error opening 2.txt"); //Enviar mensaje de error
+        }
+
+    }
+
+
+
+    /*if(OPC == 50){                               //ASCII "1" envía el contenido de 1.txt
+      LCD_Clear(0x00);
+    //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
+       LCD_Bitmap(0, 0, 320, 240, uvg);
+    }*/
+
   /*for(int x = 0; x <320-32; x++){
     delay(10);
     

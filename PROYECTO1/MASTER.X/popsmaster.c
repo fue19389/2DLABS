@@ -3,11 +3,12 @@
 // Autor: Stefano Papadopolo
 // Compilador: XC-8 (v2.32)
 //
-// Programa: LCD & UART
-// Hardware: LCD Display, 2 pot, Consola
+// Programa: Proyecto 1 Sistema de Bienvenida
+// Hardware: LCD Display, UART, I2C, TSL2561 Light sensor, 3 PIC16f887, 1pot
+// 2 ultrasonic sensors, 1 servo, 1 motoreductor, 1 L293D Motor Driver
 //
-// Creado 21 de jul, 2021
-// �ltima Actualizaci�n: 21 de jul, 2021
+// Creado 23 de agosto, 2021
+// Ultima Actualizacion: 3 de septiembre, 2021
 
 // CONFIG1
 #pragma config FOSC = INTRC_NOCLKOUT// Oscillator Selection bits (INTOSCIO oscillator: I/O function on RA6/OSC2/CLKOUT pin, I/O function on RA7/OSC1/CLKIN)
@@ -34,29 +35,29 @@
 #include <xc.h>
 #include <string.h>
 #include <stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
 #include <stdio.h>
-
-#include"D2TOOL.h"
+#include"Digital2_toolbox.h"
 
 //|----------------------------------------------------------------------------|
 //|-------------------------------VARIABLES------------------------------------|
 //|----------------------------------------------------------------------------|
-uint8_t light;
-uint8_t light_compare;
-uint8_t mL;
-uint8_t cL;
-uint8_t dL;
-uint8_t uL;
+uint16_t light;             //light sensor variables
+uint8_t light_low;
+uint8_t light_high;
+bool    light_flag;
+uint8_t Adafruit_light;
 
 uint8_t out_flag;           //I2C outdoor sensors
 uint8_t lock;
 bool keep_lock_off;
 uint8_t door;
 bool keep_door_open;
+
 uint8_t in_sensor;          //I2C indoor sensor
 uint8_t time;               //Time before door closes
 bool close;                 //Activates closing protocol
+
 //|----------------------------------------------------------------------------|
 //|------------------------------PROTOTYPES------------------------------------|
 //|----------------------------------------------------------------------------|
@@ -69,20 +70,46 @@ void __interrupt() isr(void);
 
 void    main(void){
     setup();
+    //Starting state of LCD
     Lcd_Write_String(" Lock Door Lights");
     Lcd_Cmd(0b11000000);
     Lcd_Write_String(" ON");
     Lcd_Cmd(0b11000100);
     Lcd_Write_String(" NO ");
-    
-    /*I2C_Master_Start();
-    I2C_Master_Write(0b001010001);  //Light sensor address
-    I2C_Master_Write(0b10000000);   //Enter ENABLE register
-    I2C_Master_Write(0b00000011);   //turn un ALS and power on
-    I2C_Master_Write(0b10010001);   ////SHOW ID
-    I2C_Master_Stop();
-    __delay_ms(200);*/
+    Lcd_Cmd(0b11001100);
+    Lcd_Write_String("OFF");
+
     while(1){
+        I2C_Master_Start();
+        I2C_Master_Write(0b01110010);   //Light sensor address write
+        I2C_Master_Write(0b10000000);   //Enter CONTROL register
+        I2C_Master_Write(0b00000011);   // power on
+        I2C_Master_Stop();
+
+        __delay_ms(403);
+        I2C_Master_Start();
+        I2C_Master_Write(0b01110010);   //Light Sensor Address Write
+        I2C_Master_Write(0b10101100);   //CH0 low read
+        I2C_Master_Stop();
+
+        I2C_Master_Start();             //I2C read light sensor
+        I2C_Master_Write(0b01110011);
+        light_low   =   I2C_Master_Read(0);
+        I2C_Master_Stop();
+
+        I2C_Master_Start();
+        I2C_Master_Write(0b01110010);   //Light Sensor Address Write
+        I2C_Master_Write(0b10101100);   //CH0 high read
+        I2C_Master_Stop();
+
+        I2C_Master_Start();             //I2C read light sensor
+        I2C_Master_Write(0b01110011);
+        light_high   =   I2C_Master_Read(0);
+        I2C_Master_Stop();
+        __delay_ms(200);
+
+        light = (light_high<<8)| light_low;     //concatenate light bytes
+
         //I2C Recieve SlavePic 1
         I2C_Master_Start();
         I2C_Master_Write(0b00000001);
@@ -91,7 +118,7 @@ void    main(void){
         __delay_ms(200);
         lock    =   out_flag & 0b00000001;
         door    =   out_flag & 0b00000010;
-        
+
         //I2C Recieve SlavePic 2
         I2C_Master_Start();
         I2C_Master_Write(0b00000011);
@@ -100,23 +127,23 @@ void    main(void){
         __delay_ms(200);
 
         //SERIAL Send data
-        UART_Write_Char(91);
-        UART_Write_Char(lock+48);
         UART_Write_Char(44);
-        UART_Write_Char(door+48);
+        UART_Write_Char(keep_lock_off+48);
         UART_Write_Char(44);
-        UART_Write_Char(light+48);
+        UART_Write_Char(keep_door_open+48);
         UART_Write_Char(44);
-        UART_Write_Char(93);
-        
-        
+        UART_Write_Char(light_flag+48);
+        UART_Write_Char(44);
+
+        //Control lock
         if(lock != 0 && keep_lock_off == 0){
             CCPR1L  =   128;
             Lcd_Cmd(0b11000000);
             Lcd_Write_String("OFF");
             keep_lock_off = 1;
         }
-        
+
+        //Control Door
         if (door != 0 && keep_door_open == 0){
             Lcd_Cmd(0b11000101);
             Lcd_Write_String("OPEN");
@@ -126,18 +153,19 @@ void    main(void){
             RD1 =   0;
             keep_door_open = 1;
         }
-        
-        if(in_sensor!=0){
+
+        //Closing mechanism
+        if(in_sensor!=0 && keep_lock_off && keep_door_open){
             TMR1    =   0;
             TMR1ON  =   1;
         }
-        
-        if(time>=4 && keep_lock_off && keep_door_open){// if 2s pass with in_sensor off
+
+        if(time>=4){// if 2s pass with in_sensor off
             time    =   0;      //Reset time
             TMR1ON  =   0;      // Turn TMR1 off
             close   =   1;      //Turn on closing flag
         }
-        
+
         if(close == 1 && keep_door_open == 1 && keep_lock_off == 1){
             close = 0;
             keep_door_open = 0;
@@ -152,6 +180,37 @@ void    main(void){
             CCPR1L  =   32;
             Lcd_Cmd(0b11000000);
             Lcd_Write_String(" ON");
+        }
+        if(RCIF){
+            Adafruit_light   =   RCREG;
+        }
+
+        //light Control
+        if(Adafruit_light==0){      //Adafruit light control is "Auto" 
+            if(light<500){          // Uses Sensor to turn it on or off
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String(" ON");
+            light_flag = 1;
+            RD2 =   1;
+            }
+            else{
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String("OFF");
+            light_flag = 0;
+            RD2 =   0;
+            }
+        }
+        if (Adafruit_light == 1){       //Adafruit light control is "OFF"
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String("OFF");
+            light_flag = 0;
+            RD2 =   0;
+        }
+        if (Adafruit_light == 2){       //Adafruit light control is "ON"
+            Lcd_Cmd(0b11001100);
+            Lcd_Write_String(" ON");
+            light_flag = 1;
+            RD2 =   1;
         }
     }
 }
@@ -168,7 +227,7 @@ void setup(void){
     TRISC   =   0b10010000;
     TRISD   =   0;
     TRISE   =   0;
-    
+
 
     //Interrupt config
     GIE     =   1;
@@ -176,16 +235,13 @@ void setup(void){
     TMR1IE  =   1;
     TMR1IF  =   0;
 
-    
+
     //Timer1 Config
     T1CONbits.T1CKPS    =   3;      //Prescaler 1:8
-    
+
     Lcd_Init();
-    
     UART_Init();
-    
-    I2C_Master_Init(100000);
-        
+    I2C_Master_Init(400000);
 
     //Configure PMW CCP1
     TRISCbits.TRISC2    =  1;//CCP2 are as inputs so they don't change in config
@@ -193,30 +249,33 @@ void setup(void){
     CCP1M3  =   1;      //Activate PMW mode of CCP
     CCP1M2  =   1;
     CCPR1L  =   32;     //Start at duty cicle of 1/21ms
-    
+
     TMR2IF  =   0;
     T2CON   =   3;          //turn on T2 Prescaler to 1:16
     T2CONbits.TMR2ON =  1;  //Turn on timer 2
-    while(TMR2IF==0){   
+    while(TMR2IF==0){
     }
     TRISCbits.TRISC2    =   0;
-    
+
     //Port Inicialization
     PORTA   =   0;
     PORTB   =   0;
     PORTC   =   0;
     PORTD   =   0;
     PORTE   =   0;
-    
+
     //Variable Inicialization
+    light_high  =   0;
+    light_low   =   0;
     light   =   0;
+    Adafruit_light = 0;
     door    =   0;
     keep_door_open  =   0;
     lock    =   0;
     keep_lock_off   =   0;
     in_sensor   =   0;
     close       =   0;
-}  
+}
 
 //|----------------------------------------------------------------------------|
 //|------------------------------INTERRUPTS------------------------------------|
