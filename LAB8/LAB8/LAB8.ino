@@ -141,9 +141,9 @@ void loop() {
          
           while (ARCH.available()) {             //Mientras haya contenido
             //Serial.write(ARCH.read());           //Leerlo y escribirlo en monitor serial
-            mktemp = ARCH.read();
+            temp = ARCH.read();
 
-            Serial.write(mktemp);
+            Serial.write(*temp);
 
 
 
