@@ -111,9 +111,9 @@ void main(void) {
         PORTAbits.RA0 = 0;
 
         
-        while(!PORTAbits.RA1);              //Waiting for Echo goes HIGH
+        while(!PORTAbits.RA1);    //Waiting for Echo goes HIGH
         TMR1ON = 1;               //Timer Starts
-        while(PORTAbits.RA1);               //Waiting for Echo goes LOW
+        while(PORTAbits.RA1);     //Waiting for Echo goes LOW
         TMR1ON = 0;               //Timer Stops
         
         V = (TMR1L | (TMR1H<<8));
