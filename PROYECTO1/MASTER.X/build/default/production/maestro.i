@@ -2954,6 +2954,7 @@ void main(void) {
     while(1){
 # 119 "maestro.c"
         PORTAbits.RA0 = 1;
+
         PORTD = 3;
     }
     return;

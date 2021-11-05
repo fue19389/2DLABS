@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Wed Sep 01 23:10:55 2021
+                                                                                               Wed Oct 20 18:18:01 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	16F887
@@ -474,7 +474,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    460  004B  1303               	bcf	3,6	;RP1=0, select bank0
    461  004C  1405               	bsf	5,0	;volatile
    462                           
-   463                           ;maestro.c: 120:         PORTD = 3;
+   463                           ;maestro.c: 121:         PORTD = 3;
    464  004D  3003               	movlw	3
    465  004E  0088               	movwf	8	;volatile
    466  004F  284A               	goto	l823
@@ -485,7 +485,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    471  0053                     __ptext1:	
    472 ;; *************** function _setup *****************
    473 ;; Defined at:
-   474 ;;		line 127 in file "maestro.c"
+   474 ;;		line 128 in file "maestro.c"
    475 ;; Parameters:    Size  Location     Type
    476 ;;		None
    477 ;; Auto vars:     Size  Location     Type
@@ -521,28 +521,28 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    507                           ; Regs used in _setup: [status,2]
    508                           
    509                           
-   510                           ;maestro.c: 128:     ANSEL = 0;
+   510                           ;maestro.c: 129:     ANSEL = 0;
    511  0053  1683               	bsf	3,5	;RP0=1, select bank3
    512  0054  1703               	bsf	3,6	;RP1=1, select bank3
    513  0055  0188               	clrf	8	;volatile
    514                           
-   515                           ;maestro.c: 129:     ANSELH = 0;
+   515                           ;maestro.c: 130:     ANSELH = 0;
    516  0056  0189               	clrf	9	;volatile
    517                           
-   518                           ;maestro.c: 130:     TRISD = 0;
+   518                           ;maestro.c: 131:     TRISD = 0;
    519  0057  1683               	bsf	3,5	;RP0=1, select bank1
    520  0058  1303               	bcf	3,6	;RP1=0, select bank1
    521  0059  0188               	clrf	8	;volatile
    522                           
-   523                           ;maestro.c: 131:     TRISA = 0;
+   523                           ;maestro.c: 132:     TRISA = 0;
    524  005A  0185               	clrf	5	;volatile
    525                           
-   526                           ;maestro.c: 132:     PORTD = 0;
+   526                           ;maestro.c: 133:     PORTD = 0;
    527  005B  1283               	bcf	3,5	;RP0=0, select bank0
    528  005C  1303               	bcf	3,6	;RP1=0, select bank0
    529  005D  0188               	clrf	8	;volatile
    530                           
-   531                           ;maestro.c: 133:     PORTA = 0;
+   531                           ;maestro.c: 134:     PORTA = 0;
    532  005E  0185               	clrf	5	;volatile
    533  005F                     l132:
    534  005F  0008               	return
@@ -552,7 +552,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    538  0068                     __ptext2:	
    539 ;; *************** function _cfg_clk *****************
    540 ;; Defined at:
-   541 ;;		line 140 in file "maestro.c"
+   541 ;;		line 141 in file "maestro.c"
    542 ;; Parameters:    Size  Location     Type
    543 ;;		None
    544 ;; Auto vars:     Size  Location     Type
@@ -588,7 +588,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    574                           ; Regs used in _cfg_clk: [wreg+status,2+status,0]
    575                           
    576                           
-   577                           ;maestro.c: 141:     OSCCONbits.IRCF = 0b110;
+   577                           ;maestro.c: 142:     OSCCONbits.IRCF = 0b110;
    578  0068  1683               	bsf	3,5	;RP0=1, select bank1
    579  0069  1303               	bcf	3,6	;RP1=0, select bank1
    580  006A  080F               	movf	15,w	;volatile
@@ -597,7 +597,7 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    583  006D  008F               	movwf	15	;volatile
    584  006E                     l753:
    585                           
-   586                           ;maestro.c: 142:     OSCCONbits.SCS = 1;
+   586                           ;maestro.c: 143:     OSCCONbits.SCS = 1;
    587  006E  140F               	bsf	15,0	;volatile
    588  006F                     l135:
    589  006F  0008               	return
@@ -862,7 +862,7 @@ DATA                 0      0      1D      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Wed Sep 01 23:10:55 2021
+Symbol Table                                                                                   Wed Oct 20 18:18:01 2021
 
                      _f1 0020                       _v0 0070                       _v1 002E  
                      _v2 002A                       _pd 0075                       fsr 0004  

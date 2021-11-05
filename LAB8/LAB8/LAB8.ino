@@ -36,14 +36,13 @@
 Sd2Card card;                //Variables de librería sd
 SdVolume volume;
 SdFile root;
-File ARCH;                   //Variable para abrir archivos
+File pic;                   //Variable para abrir archivos
 
-int pb1 = PUSH1;             //Botón a utilizar
+#define pb1 PUSH1           //Botón a utilizar
 const int chipSelect = PA_3; //cs PIN
+int flag1 = 0;
+int num1 = 0;
 
-uint8_t spi1[] = {};
-String temp;
-const unsigned char smraimi [] PROGMEM = {};
 #define LCD_RST PD_0
 #define LCD_CS PD_1
 #define LCD_RS PD_2
@@ -70,13 +69,16 @@ void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int 
 extern uint8_t bckgnd[];
 extern uint8_t fondo[];
 extern uint8_t uvg[];
-extern uint8_t bgrspidey[];
-extern uint8_t vworld[];
+uint8_t maps[640];
+
+void MapSD(char x[]);
+int ASCII_Hex (int a);
 
 //***************************************************************************************************************************************
 // Initialization
 //***************************************************************************************************************************************
 void setup() {
+  pinMode(pb1, INPUT_PULLUP);
 
 /*********************************************************************************
  *******************************SETUP LCD*****************************************
@@ -133,32 +135,45 @@ void setup() {
 //***************************************************************************************************************************************
 void loop() {
 
-  int OPC = (int)Serial.read();           //Envío de datos a monitor serial por el usuario
+  int n1 = digitalRead(pb1);
 
-    if(OPC == 49){                               //ASCII "1" envía el contenido de 1.txt
-        ARCH = SD.open("spi1.txt");                 //Abrir archivo
-        if (ARCH) {                              //Sí abre correctamente
-         
-          while (ARCH.available()) {             //Mientras haya contenido
-            //Serial.write(ARCH.read());           //Leerlo y escribirlo en monitor serial
-            temp = ARCH.read();
-
-            Serial.write(*temp);
-
-
-
-          }
-
-          ARCH.close();                          //Cerrar el archivo
-
-            //LCD_Bitmap(unsigned int x, unsigned int y, unsigned int width, unsigned int height, unsigned char bitmap[]);
-            LCD_Bitmap(0, 0, 320, 240, spi1);
-        } else {                                 //De lo contrario 
-
-          Serial.println("error opening 2.txt"); //Enviar mensaje de error
-        }
-
+////////Botón 1
+  if(n1 == 1 ){
+    if (flag1 == 0){
+      num1++;
+    }   
+    if (num1 > 2){
+      num1 = 0;
     }
+    flag1 = 1;
+  }
+  if (n1 == 0){
+    flag1 = 0;
+    delay(10);
+  }
+
+//////////Cambiar imagen
+
+switch(num1){
+  case 0:
+    MapSD("bspi.txt");
+    break;
+  case 1:
+    MapSD("smrm.txt");
+    break;
+  case 2:
+    MapSD("vw.txt");
+    break;
+}
+
+
+  Serial.println(n1);
+    
+
+
+
+
+
 
 
 
@@ -533,4 +548,78 @@ void LCD_Sprite(int x, int y, int width, int height, unsigned char bitmap[],int 
     }
   }
   digitalWrite(LCD_CS, HIGH);
+}
+//***************************************************************************************************************************************
+// Función para mapear una imagen desde la SD
+//***************************************************************************************************************************************
+void MapSD(char x[]){
+  pic = SD.open(x,FILE_READ);
+  int hex1 = 0;
+  int val1 = 0;
+  int val2 = 0;
+  int mapar = 0;
+  int vert = 0;
+  if (pic){
+    Serial.println("Leyendo el archivo...");
+      while (pic.available()){
+        mapar=0;
+        while(mapar<640){
+          hex1 = pic.read();
+          if(hex1==120){
+            val1 = pic.read();
+            val2 = pic.read();
+            val1 = ASCII_Hex(val1);
+            val2 = ASCII_Hex(val2);
+            maps[mapar]=val1*16+val2;
+            mapar++;
+          }   
+        }
+        LCD_Bitmap(0, vert, 320, 1, maps);
+        vert++;
+    }
+    pic.close();
+   }else{
+      Serial.println("No se pudo encontrar el archivo.");
+      pic.close();
+   } 
+}
+
+//***************************************************************************************************************************************
+// Función para pasar de ASCII a HEX
+//***************************************************************************************************************************************
+int ASCII_Hex (int a){
+  switch(a){
+    case 48:
+      return 0;
+    case 49:
+      return 1;
+    case 50:
+      return 2;
+    case 51:
+      return 3;
+    case 52:
+      return 4;
+    case 53:
+      return 5;
+    case 54:
+      return 6;
+    case 55:
+      return 7;
+    case 56:
+      return 8;
+    case 57:
+      return 9;
+    case 97:
+      return 10;
+    case 98:
+      return 11;
+    case 99:
+      return 12;
+    case 100:
+      return 13;
+    case 101:
+      return 14;
+    case 102:
+      return 15;
+  }
 }

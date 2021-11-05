@@ -483,176 +483,176 @@ Version 4.0 HI-TECH Software Intermediate Code
 "119
 [; ;maestro.c: 119:         PORTAbits.RA0 = 1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"120
-[; ;maestro.c: 120:         PORTD = 3;
-[e = _PORTD -> -> 3 `i `uc ]
 "121
-[; ;maestro.c: 121:     }
+[; ;maestro.c: 121:         PORTD = 3;
+[e = _PORTD -> -> 3 `i `uc ]
+"122
+[; ;maestro.c: 122:     }
 }
 [e :U 148 ]
 [e $U 149  ]
 [e :U 150 ]
-"122
-[; ;maestro.c: 122:     return;
-[e $UE 147  ]
 "123
-[; ;maestro.c: 123: }
+[; ;maestro.c: 123:     return;
+[e $UE 147  ]
+"124
+[; ;maestro.c: 124: }
 [e :UE 147 ]
 }
-"127
-[; ;maestro.c: 127: void setup(void){
+"128
+[; ;maestro.c: 128: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"128
-[; ;maestro.c: 128:     ANSEL = 0;
-[e = _ANSEL -> -> 0 `i `uc ]
 "129
-[; ;maestro.c: 129:     ANSELH = 0;
-[e = _ANSELH -> -> 0 `i `uc ]
+[; ;maestro.c: 129:     ANSEL = 0;
+[e = _ANSEL -> -> 0 `i `uc ]
 "130
-[; ;maestro.c: 130:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;maestro.c: 130:     ANSELH = 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "131
-[; ;maestro.c: 131:     TRISA = 0;
-[e = _TRISA -> -> 0 `i `uc ]
+[; ;maestro.c: 131:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "132
-[; ;maestro.c: 132:     PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
+[; ;maestro.c: 132:     TRISA = 0;
+[e = _TRISA -> -> 0 `i `uc ]
 "133
-[; ;maestro.c: 133:     PORTA = 0;
+[; ;maestro.c: 133:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"134
+[; ;maestro.c: 134:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"139
-[; ;maestro.c: 139: }
+"140
+[; ;maestro.c: 140: }
 [e :UE 151 ]
 }
-"140
-[; ;maestro.c: 140: void cfg_clk(void){
+"141
+[; ;maestro.c: 141: void cfg_clk(void){
 [v _cfg_clk `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_clk ]
 [f ]
-"141
-[; ;maestro.c: 141:     OSCCONbits.IRCF = 0b110;
-[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
 "142
-[; ;maestro.c: 142:     OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+[; ;maestro.c: 142:     OSCCONbits.IRCF = 0b110;
+[e = . . _OSCCONbits 0 4 -> -> 6 `i `uc ]
 "143
-[; ;maestro.c: 143: }
+[; ;maestro.c: 143:     OSCCONbits.SCS = 1;
+[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
+"144
+[; ;maestro.c: 144: }
 [e :UE 152 ]
 }
-"144
-[; ;maestro.c: 144: void cfg_usart(void){
+"145
+[; ;maestro.c: 145: void cfg_usart(void){
 [v _cfg_usart `(v ~T0 @X0 1 ef ]
 {
 [e :U _cfg_usart ]
 [f ]
-"145
-[; ;maestro.c: 145:     TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "146
-[; ;maestro.c: 146:     TXSTAbits.BRGH = 1;
+[; ;maestro.c: 146:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"147
+[; ;maestro.c: 147:     TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"148
-[; ;maestro.c: 148:     BAUDCTLbits.BRG16 = 1;
+"149
+[; ;maestro.c: 149:     BAUDCTLbits.BRG16 = 1;
 [e = . . _BAUDCTLbits 0 3 -> -> 1 `i `uc ]
-"150
-[; ;maestro.c: 150:     SPBRG = 103;
-[e = _SPBRG -> -> 103 `i `uc ]
 "151
-[; ;maestro.c: 151:     SPBRGH = 0;
+[; ;maestro.c: 151:     SPBRG = 103;
+[e = _SPBRG -> -> 103 `i `uc ]
+"152
+[; ;maestro.c: 152:     SPBRGH = 0;
 [e = _SPBRGH -> -> 0 `i `uc ]
-"153
-[; ;maestro.c: 153:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 "154
-[; ;maestro.c: 154:     RCSTAbits.RX9 = 0;
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;maestro.c: 154:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
 "155
-[; ;maestro.c: 155:     RCSTAbits.CREN = 1;
+[; ;maestro.c: 155:     RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+"156
+[; ;maestro.c: 156:     RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"157
-[; ;maestro.c: 157:     TXSTAbits.TXEN = 1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "158
-[; ;maestro.c: 158: }
+[; ;maestro.c: 158:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+"159
+[; ;maestro.c: 159: }
 [e :UE 153 ]
 }
-"162
-[; ;maestro.c: 162: float conv (unsigned char aa){
+"163
+[; ;maestro.c: 163: float conv (unsigned char aa){
 [v _conv `(f ~T0 @X0 1 ef1`uc ]
 {
 [e :U _conv ]
 [v _aa `uc ~T0 @X0 1 r1 ]
 [f ]
-"163
-[; ;maestro.c: 163:     float result;
-[v _result `f ~T0 @X0 1 a ]
 "164
-[; ;maestro.c: 164:     result = aa*1;
-[e = _result -> * -> _aa `i -> 1 `i `f ]
+[; ;maestro.c: 164:     float result;
+[v _result `f ~T0 @X0 1 a ]
 "165
-[; ;maestro.c: 165:     return result;
+[; ;maestro.c: 165:     result = aa*1;
+[e = _result -> * -> _aa `i -> 1 `i `f ]
+"166
+[; ;maestro.c: 166:     return result;
 [e ) _result ]
 [e $UE 154  ]
-"166
-[; ;maestro.c: 166: }
+"167
+[; ;maestro.c: 167: }
 [e :UE 154 ]
 }
-"167
-[; ;maestro.c: 167: void send_crct(char st[]){
+"168
+[; ;maestro.c: 168: void send_crct(char st[]){
 [v _send_crct `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _send_crct ]
 [v _st `*uc ~T0 @X0 1 r1 ]
 [f ]
-"168
-[; ;maestro.c: 168:     int i = 0;
+"169
+[; ;maestro.c: 169:     int i = 0;
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-"169
-[; ;maestro.c: 169:     while (st[i] != 0){
+"170
+[; ;maestro.c: 170:     while (st[i] != 0){
 [e $U 156  ]
 [e :U 157 ]
 {
-"170
-[; ;maestro.c: 170:         send_char(st[i]);
-[e ( _send_char (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
 "171
-[; ;maestro.c: 171:         i++;
-[e ++ _i -> 1 `i ]
+[; ;maestro.c: 171:         send_char(st[i]);
+[e ( _send_char (1 *U + _st * -> _i `x -> -> # *U _st `i `x ]
 "172
-[; ;maestro.c: 172:     }
+[; ;maestro.c: 172:         i++;
+[e ++ _i -> 1 `i ]
+"173
+[; ;maestro.c: 173:     }
 }
 [e :U 156 ]
-"169
-[; ;maestro.c: 169:     while (st[i] != 0){
+"170
+[; ;maestro.c: 170:     while (st[i] != 0){
 [e $ != -> *U + _st * -> _i `x -> -> # *U _st `i `x `i -> 0 `i 157  ]
 [e :U 158 ]
-"173
-[; ;maestro.c: 173: }
+"174
+[; ;maestro.c: 174: }
 [e :UE 155 ]
 }
-"174
-[; ;maestro.c: 174: void send_char(char dato){
+"175
+[; ;maestro.c: 175: void send_char(char dato){
 [v _send_char `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _send_char ]
 [v _dato `uc ~T0 @X0 1 r1 ]
 [f ]
-"175
-[; ;maestro.c: 175:     while(!TXIF);
+"176
+[; ;maestro.c: 176:     while(!TXIF);
 [e $U 160  ]
 [e :U 161 ]
 [e :U 160 ]
 [e $ ! _TXIF 161  ]
 [e :U 162 ]
-"176
-[; ;maestro.c: 176:     TXREG = dato;
-[e = _TXREG -> _dato `uc ]
 "177
-[; ;maestro.c: 177: }
+[; ;maestro.c: 177:     TXREG = dato;
+[e = _TXREG -> _dato `uc ]
+"178
+[; ;maestro.c: 178: }
 [e :UE 159 ]
 }

@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\gerar\AppData\Local\Temp\shkk.o
+$C:\Users\gerar\AppData\Local\Temp\sfgg.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 C C 3 2
 config CONFIG 4 2007 2007 2 2
@@ -75,21 +75,21 @@ STRING 1A4-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\SLAVE.X.production.o
-F cinit CODE >660:C:\Users\gerar\AppData\Local\Temp\shkk.s
-F cinit CODE >663:C:\Users\gerar\AppData\Local\Temp\shkk.s
-F cinit CODE >692:C:\Users\gerar\AppData\Local\Temp\shkk.s
-10 cinit CODE >693:C:\Users\gerar\AppData\Local\Temp\shkk.s
-11 cinit CODE >694:C:\Users\gerar\AppData\Local\Temp\shkk.s
-12 cinit CODE >695:C:\Users\gerar\AppData\Local\Temp\shkk.s
-13 cinit CODE >698:C:\Users\gerar\AppData\Local\Temp\shkk.s
-14 cinit CODE >699:C:\Users\gerar\AppData\Local\Temp\shkk.s
-15 cinit CODE >700:C:\Users\gerar\AppData\Local\Temp\shkk.s
-16 cinit CODE >701:C:\Users\gerar\AppData\Local\Temp\shkk.s
-17 cinit CODE >702:C:\Users\gerar\AppData\Local\Temp\shkk.s
-18 cinit CODE >703:C:\Users\gerar\AppData\Local\Temp\shkk.s
-19 cinit CODE >709:C:\Users\gerar\AppData\Local\Temp\shkk.s
-19 cinit CODE >711:C:\Users\gerar\AppData\Local\Temp\shkk.s
-1A cinit CODE >712:C:\Users\gerar\AppData\Local\Temp\shkk.s
+F cinit CODE >660:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+F cinit CODE >663:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+F cinit CODE >692:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+10 cinit CODE >693:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+11 cinit CODE >694:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+12 cinit CODE >695:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+13 cinit CODE >698:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+14 cinit CODE >699:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+15 cinit CODE >700:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+16 cinit CODE >701:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+17 cinit CODE >702:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+18 cinit CODE >703:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+19 cinit CODE >709:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+19 cinit CODE >711:C:\Users\gerar\AppData\Local\Temp\sfgg.s
+1A cinit CODE >712:C:\Users\gerar\AppData\Local\Temp\sfgg.s
 4 intentry CODE >60:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 92 text5 CODE >60:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
 92 text5 CODE >61:C:\Users\gerar\Desktop\UVG\6TOSEMESTRE\2DLABS\PROYECTO1\SLAVE.X\esclavo.c
@@ -225,21 +225,21 @@ _i0 78 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 _i1 77 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 _PEIE 5E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\shkk.o
+___sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\sfgg.o
 _dato 79 0 COMMON 1 bssCOMMON dist/default/production\SLAVE.X.production.o
 _main 3A 0 CODE 0 maintext dist/default/production\SLAVE.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\shkk.o
+start 18 0 CODE 0 init C:\Users\gerar\AppData\Local\Temp\sfgg.o
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 __Hpowerup 0 0 CODE 0 powerup -
-intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shkk.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shkk.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shkk.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shkk.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shkk.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\shkk.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfgg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfgg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfgg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfgg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfgg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\gerar\AppData\Local\Temp\sfgg.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
@@ -252,8 +252,8 @@ _SSPCONbits 14 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 ___awdiv@divisor 73 0 COMMON 1 cstackCOMMON dist/default/production\SLAVE.X.production.o
 __end_of___awdiv 2D0 0 CODE 0 text4 dist/default/production\SLAVE.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\shkk.o
-___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\shkk.o
+___stackhi 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\sfgg.o
+___stacklo 0 0 ABS 0 - C:\Users\gerar\AppData\Local\Temp\sfgg.o
 _I2C_Slave_Init 304 0 CODE 0 text2 dist/default/production\SLAVE.X.production.o
 __size_of_setup 0 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 start_initialization 1E 0 CODE 0 cinit dist/default/production\SLAVE.X.production.o
@@ -266,7 +266,7 @@ _SSPCON 14 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TMR1ON 80 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TRISC3 43B 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 _TRISC4 43C 0 ABS 0 - dist/default/production\SLAVE.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\shkk.o
+___int_sp 0 0 STACK 2 stack C:\Users\gerar\AppData\Local\Temp\sfgg.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -312,7 +312,7 @@ saved_w 7E 0 ABS 0 - dist/default/production\SLAVE.X.production.o
 __end_of_cfg_clk 348 0 CODE 0 text3 dist/default/production\SLAVE.X.production.o
 __end_of_isr 1FE 0 CODE 0 text5 dist/default/production\SLAVE.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\shkk.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\gerar\AppData\Local\Temp\sfgg.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 ___awdiv 1FE 0 CODE 0 text4 dist/default/production\SLAVE.X.production.o
 __pmaintext 3A 0 CODE 0 maintext dist/default/production\SLAVE.X.production.o
