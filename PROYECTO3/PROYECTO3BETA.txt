@@ -1,0 +1,169 @@
+/*
+ * Proyecto 3
+ * Gerardo Fuentes y Stefano Papadopolo
+ * Utilización de CCS y TIVAWARE para sensores y envío de datos
+ */
+
+//Bibliotecas
+#include<stdint.h>
+#include<stdbool.h>
+#include"inc/hw_memmap.h"
+#include"inc/tm4c123gh6pm.h"
+#include"driverlib/sysctl.h"
+#include"driverlib/gpio.h"
+#include"driverlib/timer.h"
+#include"driverlib/interrupt.h"
+#include"driverlib/adc.h"
+#include"driverlib/uart.h"
+
+#define XTAL 16000000
+
+
+uint32_t a;
+uint32_t b;
+uint32_t c;
+uint32_t d;
+uint8_t V;
+uint8_t v1;
+uint8_t v2;
+uint8_t v3;
+uint8_t v4;
+
+void ObtenerMuestra(void);
+void InitUART(void);
+
+int main(void) {
+    //Establecer reloj del microcontrolador
+    //SysCtlClockSet(SYSCTL_SYSDIV_5| SYSCTL_XTAL_16MHZ);
+    SysCtlClockSet(SYSCTL_SYSDIV_1 | SYSCTL_USE_OSC | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
+    //SysCtlClockSet(SYSCTL_XTAL_16MHZ|SYSCTL_SYSDIV_5);
+    InitUART();
+    //Habilitar LEDs
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+    GPIOPinTypeGPIOOutput(GPIO_PORTF_BASE, GPIO_PIN_2|GPIO_PIN_3|GPIO_PIN_4);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
+    GPIOPinTypeGPIOOutput(GPIO_PORTC_BASE, GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
+    GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, GPIO_PIN_3);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+    IntMasterEnable();
+    //Habilitar ADC
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC0);
+    ADCClockConfigSet(ADC0_BASE, ADC_CLOCK_SRC_PIOSC | ADC_CLOCK_RATE_FOURTH , 5);
+    //Habilitar pin de entrada analógica
+
+
+    GPIOPinTypeADC(GPIO_PORTB_BASE, GPIO_PIN_5);
+    GPIOPadConfigSet(GPIO_PORTB_BASE, GPIO_PIN_5, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPD);
+
+    GPIOPinTypeADC(GPIO_PORTB_BASE, GPIO_PIN_4);
+    GPIOPadConfigSet(GPIO_PORTB_BASE, GPIO_PIN_4, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPD);
+
+    GPIOPinTypeADC(GPIO_PORTE_BASE, GPIO_PIN_5);
+    GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_5, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPD);
+
+    GPIOPinTypeADC(GPIO_PORTE_BASE, GPIO_PIN_4);
+    GPIOPadConfigSet(GPIO_PORTE_BASE, GPIO_PIN_4, GPIO_STRENGTH_2MA, GPIO_PIN_TYPE_STD_WPD);
+
+    //Configurar secuencia de muestreo
+    ADCSequenceConfigure(ADC0_BASE, 1, ADC_TRIGGER_ALWAYS, 1);
+    ADCSequenceStepConfigure(ADC0_BASE, 1, 0, ADC_CTL_CH11);
+    ADCSequenceStepConfigure(ADC0_BASE, 1, 1, ADC_CTL_CH10);
+    ADCSequenceStepConfigure(ADC0_BASE, 1, 2, ADC_CTL_CH9);
+    ADCSequenceStepConfigure(ADC0_BASE, 1, 3, ADC_CTL_CH8|ADC_CTL_IE|ADC_CTL_END);
+    ADCSequenceEnable(ADC0_BASE, 1);
+    //Habilitar interrupción por parte del ADC
+    ADCIntEnable(ADC0_BASE, 1);
+    //Registrar ISR
+    ADCIntRegister(ADC0_BASE, 1, ObtenerMuestra);
+    //Habilitar interrupción por parte del NVIC
+    IntEnable(INT_ADC0SS1);
+
+
+
+    while(1){
+        if (a < 3500){
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_5,32);
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_6,0);
+            v1 = 1;
+        }
+        if(a >= 3500){
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_5,0);
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_6,64);
+            v1 = 0;
+        }
+
+        if (b < 3500){
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2,4);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3,0);
+            v2 = 1;
+        }
+        if(b >= 3500){
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_2,0);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_3,8);
+            v2 = 0;
+        }
+
+        if (c < 3500){
+            GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_3,8);
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_4,0);
+            v3 = 1;
+        }
+        if(c >= 3500){
+            GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_3,0);
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_4,16);
+            v3 = 0;
+        }
+
+        if (d < 3500){
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7,128);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_4,0);
+            v4 = 1;
+        }
+        if(d >= 3500){
+            GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7,0);
+            GPIOPinWrite(GPIO_PORTF_BASE, GPIO_PIN_4,16);
+            v4 = 0;
+        }
+
+
+        /***********************Envío de datos****************/
+
+        V = (v1+v2+v3+v4);
+
+        UARTCharPut(UART7_BASE, 85);
+        //UARTCharPut(UART0_BASE, 10);
+        //UARTCharPut(UART0_BASE, 13);
+        SysCtlDelay(XTAL/3);
+    }
+}
+
+void ObtenerMuestra(){
+    ADCIntClear(ADC0_BASE, 1);
+     a = ADC0_SSFIFO1_R;
+     b = ADC0_SSFIFO1_R;
+     c = ADC0_SSFIFO1_R;
+     d = ADC0_SSFIFO1_R;
+}
+
+void InitUART(void)
+{
+    /*Enable the GPIO Port d*/
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);  //
+
+    /*Enable the peripheral UART Module 2*/
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_UART7);
+
+    /* Make the UART pins be peripheral controlled. */
+    GPIOPinTypeUART(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+
+    GPIOPinConfigure(GPIO_PB0_U1RX);
+    GPIOPinConfigure(GPIO_PB1_U1TX); 
+
+    /* Sets the configuration of a UART. */
+    UARTConfigSetExpClk(
+            UART7_BASE, SysCtlClockGet(), 115200,
+            (UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE | UART_CONFIG_PAR_NONE));
+
+    //UARTIntEnable(UART0_BASE, UART_INT_RX | UART_INT_RT);
+}
