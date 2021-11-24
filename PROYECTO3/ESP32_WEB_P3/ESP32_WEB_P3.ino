@@ -1,4 +1,5 @@
-/*************************************************************************************************
+ 
+ /*************************************************************************************************
   ESP32 Web Server
   Ejemplo de creación de Web server con acceso a SPIFFS
   Basándose en los ejemplos de:
@@ -25,21 +26,42 @@ IPAddress subnet(255,255,255,0);
 
 WebServer server(80);  // Object of WebServer(HTTP port, 80 is defult)
 
-int spotqty;
+//Variables generales
+int spotqty0;
+int spotqty2;
+int spotsum;
 
+//Definición de pines para 7SEGMENTOS
+#define S7A 4
+#define S7B 5
+#define S7C 18
+#define S7D 19
+#define S7E 21
+#define S7F 22
+#define S7G 23
+
+//Definición de pines para comunicación UART
 #define TXD2 17
 #define RXD2 16
+
+#define TXD0 1
+#define RXD0 3
+
+//Función para utilizar 7SEGMENTOS
+void S7Eg_conv(uint8_t valor);
 
 //************************************************************************************************
 // Configuración
 //************************************************************************************************
 void setup() {
-  Serial.begin(115200);
-  Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);
-  if (!SPIFFS.begin()) {
+  Serial.begin(115200, SERIAL_8N1, RXD0, TXD0);               //Inicializaciónd de módulo serial0
+  Serial2.begin(115200, SERIAL_8N1, RXD2, TXD2);              //Inicialización de módulo serial2
+  if (!SPIFFS.begin()) {                                      //Seguridad contra fallo del SPIFFS
     Serial.println("An Error has occurred while mounting SPIFFS");
     return;
   }
+
+  //CONFIGURACIÓN DE ESP32 COMO AP
   WiFi.softAP(ssid, password);
   WiFi.softAPConfig(local_ip, gateway, subnet);
   delay(100);
@@ -47,6 +69,16 @@ void setup() {
   Serial.println(ssid);
   Serial.print("password: ");
   Serial.println(password);
+
+  //Seteo de pines de 7segmentos como outputs
+  pinMode(S7A, OUTPUT);
+  pinMode(S7B, OUTPUT);
+  pinMode(S7C, OUTPUT);
+  pinMode(S7D, OUTPUT);
+  pinMode(S7E, OUTPUT);
+  pinMode(S7F, OUTPUT);
+  pinMode(S7G, OUTPUT);
+
 
   server.on("/", handle_OnConnect); // página de inicio
   server.on("/spot", handle_spts); // handlers indicadores de spots
@@ -68,11 +100,17 @@ void setup() {
 void loop() {
   server.handleClient(); // escuchar solicitudes de clientes
 
-  if (Serial2.available()) {
+  if (Serial2.available()) {    //Obtienel os valors de otro dispositivos con serial
     // read the incoming byte:
-    spotqty = Serial2.read();
+    spotqty2 = Serial2.read();  //Almacena los valores en una variable
   }
+  if (Serial.available()) {
+    // read the incoming byte:
+    spotqty0 = Serial.read();
+  }
+  spotsum = spotqty0 + spotqty2;  //Suma de valores en una sola variable
 
+  S7Eg_conv(spotsum);   //Envío de valores a la función de 7SEGMENTOS
   
 }
 //************************************************************************************************
@@ -85,7 +123,7 @@ void handle_OnConnect() {
 // Handler de spots
 //************************************************************************************************
 void handle_spts() {
-  server.send(200, "text/html", SendHTML(spotqty)); //responde con un OK (200) y envía HTML
+  server.send(200, "text/html", SendHTML(spotsum)); //responde con un OK (200) y envía HTML
 }
 
 //************************************************************************************************
@@ -109,7 +147,8 @@ String SendHTML(uint8_t qttyspot) {
   ptr += "<h3>Sotano evaluado: 1</h3>\n";
   ptr += "<p>Cantidad de espacios disponibles:</p>\n";
 
-  if (qttyspot == 0)
+//CONDICIONAL, DESPLIEGA EL NUMERO QUE OBTEIENE DE LA SUMA DE VARIABLES DE UART EN EL WEBSERVER AL HACER UN UPDATE
+  if (qttyspot == 0) 
   {
     ptr += "<h2>0</h2><a class=\"button button-on\" href=\"/\">UPDATE</a>\n";
   }
@@ -129,7 +168,22 @@ String SendHTML(uint8_t qttyspot) {
   {
     ptr += "<h2>4</h2><a class=\"button button-on\" href=\"/\">UPDATE</a>\n";
   }
-  
+  if (qttyspot == 5)
+  {
+    ptr += "<h2>5</h2><a class=\"button button-on\" href=\"/\">UPDATE</a>\n";
+  }
+  if (qttyspot == 6)
+  {
+    ptr += "<h2>6</h2><a class=\"button button-on\" href=\"/\">UPDATE</a>\n";
+  }
+  if (qttyspot == 7)
+  {
+    ptr += "<h2>7</h2><a class=\"button button-on\" href=\"/\">UPDATE</a>\n";
+  }  
+  if (qttyspot == 8)
+  {
+    ptr += "<h2>8</h2><a class=\"button button-on\" href=\"/\">UPDATE</a>\n";
+  }
   ptr += "</body>\n";
   ptr += "</html>\n";
   return ptr;
@@ -192,4 +246,95 @@ bool HandleFileRead(String path)
   }
   Serial.println("\tFile Not Found");
   return false;
+}
+//************************************************************************************************
+// 7 Segmentos Función
+//************************************************************************************************
+void S7Eg_conv(uint8_t valor){   //Función de 7segmentos, utilizando un Switch-case, enciende los pines necesarios
+   switch(valor){
+    case 0:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, HIGH);
+      digitalWrite(S7E, HIGH);
+      digitalWrite(S7F, HIGH);
+      digitalWrite(S7G, LOW);
+      
+    break;
+    case 1:
+      digitalWrite(S7A, LOW);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, LOW);
+      digitalWrite(S7E, LOW);
+      digitalWrite(S7F, LOW);
+      digitalWrite(S7G, LOW);
+    
+    break;
+    case 2:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, LOW);
+      digitalWrite(S7D, HIGH);
+      digitalWrite(S7E, HIGH);
+      digitalWrite(S7F, LOW);
+      digitalWrite(S7G, HIGH);
+    break;
+    case 3:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, HIGH);
+      digitalWrite(S7E, LOW);
+      digitalWrite(S7F, LOW);
+      digitalWrite(S7G, HIGH);
+    break; 
+    case 4:
+      digitalWrite(S7A, LOW);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, LOW);
+      digitalWrite(S7E, LOW);
+      digitalWrite(S7F, HIGH);
+      digitalWrite(S7G, HIGH);
+    break;
+    case 5:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, LOW);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, HIGH);
+      digitalWrite(S7E, LOW);
+      digitalWrite(S7F, HIGH);
+      digitalWrite(S7G, HIGH);
+    break;
+    case 6:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, LOW);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, HIGH);
+      digitalWrite(S7E, HIGH);
+      digitalWrite(S7F, HIGH);
+      digitalWrite(S7G, HIGH);
+    break;
+    case 7:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, LOW);
+      digitalWrite(S7E, LOW);
+      digitalWrite(S7F, LOW);
+      digitalWrite(S7G, LOW);
+    break;
+    case 8:
+      digitalWrite(S7A, HIGH);
+      digitalWrite(S7B, HIGH);
+      digitalWrite(S7C, HIGH);
+      digitalWrite(S7D, HIGH);
+      digitalWrite(S7E, HIGH);
+      digitalWrite(S7F, HIGH);
+      digitalWrite(S7G, HIGH);
+    break;
+
+  }
 }
